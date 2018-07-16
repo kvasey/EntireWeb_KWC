@@ -1,0 +1,261 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:appcenter-push] /home/paul/Documents/Projects/KWC/node_modules/appcenter-push/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:appcenter-crashes] /home/paul/Documents/Projects/KWC/node_modules/appcenter-crashes/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:appcenter-analytics] /home/paul/Documents/Projects/KWC/node_modules/appcenter-analytics/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:appcenter] /home/paul/Documents/Projects/KWC/node_modules/appcenter/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-picker] /home/paul/Documents/Projects/KWC/node_modules/react-native-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-vector-icons] /home/paul/Documents/Projects/KWC/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:2:1-15:12
+MERGED from [com.microsoft.appcenter.reactnative:appcenter-react-native:1.6.0] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-react-native-1.6.0.aar/9bfd8c0709c0c421ed40642fd16540c7/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a79268e72eb6ee3a1263c3e39a99e16/AndroidManifest.xml:17:1-22:12
+MERGED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:2:1-40:12
+MERGED from [com.microsoft.appcenter:appcenter-crashes:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-crashes-1.6.1.aar/81609db17e485702b9096a8fd120011d/AndroidManifest.xml:2:1-11:12
+MERGED from [com.microsoft.appcenter:appcenter-analytics:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-analytics-1.6.1.aar/12b0bbca53d61c0cb02d19daf7b75533/AndroidManifest.xml:2:1-11:12
+MERGED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/9a8873852887f8609b1c33e89694b2b2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/a5880d511a593a611ed2b2b09dac448a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/dee549c65e3541c349c676f0ed3d9d46/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/ca773eaab4849db57592e52ef94ceedb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/d15489c96103fc9465153c715684ff86/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/e2bff141e95d076a61ee35ade70d1a2a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/paul/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/146c207dc8ad6cffb3dc7ab1c206f96e/AndroidManifest.xml:10:1-18:12
+MERGED from [com.facebook.fresco:fresco:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/fresco-1.9.0.aar/8b9818779c430ee592406408a969e1a5/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.9.0.aar/dbbcf902addb87a1283f492f3c188ce8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/drawee-1.9.0.aar/add6f8fbd9c4b528e2635b21b5d3c0ad/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.9.0.aar/726b7c9de217816efdff6310a66b3d4e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/0d10274d1b6e61090dfaad15a49d9e4b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.3.0] /home/paul/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/6c355d0659905d15a88aa0aa90042ea2/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] /home/paul/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/59a4b1c2be3cade559d0fe085f285e25/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:fbcore:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/470ec29c354fbde90746185b9292d65b/AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/fcf5f803096b306e3dee8b08b7767a26/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/a9c89ee8095693515b3b312b5e488256/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d346dc912f1070b2e6b319dee005841e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/01d8b59e9280653259e7136d70930cb4/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:2:5-34
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:11:5-67
+MERGED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [:react-native-picker] /home/paul/Documents/Projects/KWC/node_modules/react-native-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-78
+MERGED from [:react-native-picker] /home/paul/Documents/Projects/KWC/node_modules/react-native-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:5:22-75
+application
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:7:5-24:19
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:13:5-20
+MERGED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:19:5-38:19
+MERGED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:19:5-38:19
+MERGED from [com.facebook.soloader:soloader:0.3.0] /home/paul/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/6c355d0659905d15a88aa0aa90042ea2/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.3.0] /home/paul/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/6c355d0659905d15a88aa0aa90042ea2/AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] /home/paul/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/59a4b1c2be3cade559d0fe085f285e25/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /home/paul/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/59a4b1c2be3cade559d0fe085f285e25/AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:9:7-39
+	android:icon
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:8:7-38
+activity#com.rnkidswholesale.MainActivity
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+MERGED from [:appcenter-push] /home/paul/Documents/Projects/KWC/node_modules/appcenter-push/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter-push] /home/paul/Documents/Projects/KWC/node_modules/appcenter-push/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter-crashes] /home/paul/Documents/Projects/KWC/node_modules/appcenter-crashes/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter-crashes] /home/paul/Documents/Projects/KWC/node_modules/appcenter-crashes/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter-analytics] /home/paul/Documents/Projects/KWC/node_modules/appcenter-analytics/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter-analytics] /home/paul/Documents/Projects/KWC/node_modules/appcenter-analytics/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter] /home/paul/Documents/Projects/KWC/node_modules/appcenter/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:appcenter] /home/paul/Documents/Projects/KWC/node_modules/appcenter/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-picker] /home/paul/Documents/Projects/KWC/node_modules/react-native-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-picker] /home/paul/Documents/Projects/KWC/node_modules/react-native-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/paul/Documents/Projects/KWC/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /home/paul/Documents/Projects/KWC/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.56.0] /home/paul/.gradle/caches/transforms-1/files-1.1/react-native-0.56.0.aar/08b3bdccac0d1c65e66559d7eb157f15/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter.reactnative:appcenter-react-native:1.6.0] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-react-native-1.6.0.aar/9bfd8c0709c0c421ed40642fd16540c7/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter.reactnative:appcenter-react-native:1.6.0] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-react-native-1.6.0.aar/9bfd8c0709c0c421ed40642fd16540c7/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a79268e72eb6ee3a1263c3e39a99e16/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a79268e72eb6ee3a1263c3e39a99e16/AndroidManifest.xml:20:5-44
+MERGED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.microsoft.appcenter:appcenter-crashes:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-crashes-1.6.1.aar/81609db17e485702b9096a8fd120011d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter:appcenter-crashes:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-crashes-1.6.1.aar/81609db17e485702b9096a8fd120011d/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter:appcenter-analytics:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-analytics-1.6.1.aar/12b0bbca53d61c0cb02d19daf7b75533/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter:appcenter-analytics:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-analytics-1.6.1.aar/12b0bbca53d61c0cb02d19daf7b75533/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/9a8873852887f8609b1c33e89694b2b2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/9a8873852887f8609b1c33e89694b2b2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/a5880d511a593a611ed2b2b09dac448a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/a5880d511a593a611ed2b2b09dac448a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/dee549c65e3541c349c676f0ed3d9d46/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/dee549c65e3541c349c676f0ed3d9d46/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/ca773eaab4849db57592e52ef94ceedb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/ca773eaab4849db57592e52ef94ceedb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/d15489c96103fc9465153c715684ff86/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/d15489c96103fc9465153c715684ff86/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/e2bff141e95d076a61ee35ade70d1a2a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/paul/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/e2bff141e95d076a61ee35ade70d1a2a/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/paul/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/146c207dc8ad6cffb3dc7ab1c206f96e/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/paul/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/146c207dc8ad6cffb3dc7ab1c206f96e/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/fresco-1.9.0.aar/8b9818779c430ee592406408a969e1a5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/fresco-1.9.0.aar/8b9818779c430ee592406408a969e1a5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.9.0.aar/dbbcf902addb87a1283f492f3c188ce8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.9.0.aar/dbbcf902addb87a1283f492f3c188ce8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/drawee-1.9.0.aar/add6f8fbd9c4b528e2635b21b5d3c0ad/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/drawee-1.9.0.aar/add6f8fbd9c4b528e2635b21b5d3c0ad/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.9.0.aar/726b7c9de217816efdff6310a66b3d4e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.9.0.aar/726b7c9de217816efdff6310a66b3d4e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/0d10274d1b6e61090dfaad15a49d9e4b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.9.0.aar/0d10274d1b6e61090dfaad15a49d9e4b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.3.0] /home/paul/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/6c355d0659905d15a88aa0aa90042ea2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.3.0] /home/paul/.gradle/caches/transforms-1/files-1.1/soloader-0.3.0.aar/6c355d0659905d15a88aa0aa90042ea2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/470ec29c354fbde90746185b9292d65b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.9.0] /home/paul/.gradle/caches/transforms-1/files-1.1/fbcore-1.9.0.aar/470ec29c354fbde90746185b9292d65b/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/fcf5f803096b306e3dee8b08b7767a26/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/fcf5f803096b306e3dee8b08b7767a26/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/a9c89ee8095693515b3b312b5e488256/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/a9c89ee8095693515b3b312b5e488256/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d346dc912f1070b2e6b319dee005841e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d346dc912f1070b2e6b319dee005841e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/01d8b59e9280653259e7136d70930cb4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/paul/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/01d8b59e9280653259e7136d70930cb4/AndroidManifest.xml:20:5-44
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:12:5-82
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:12:22-79
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:13:22-76
+uses-permission#com.rnkidswholesale.permission.C2D_MESSAGE
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:13:22-76
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:15:5-17:47
+	android:protectionLevel
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:17:9-44
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:16:9-63
+permission#com.rnkidswholesale.permission.C2D_MESSAGE
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:15:5-17:47
+	android:protectionLevel
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:17:9-44
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:16:9-63
+receiver#com.microsoft.appcenter.push.PushReceiver
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:20:9-29:20
+	android:permission
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:22:13-73
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:21:13-69
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:${applicationId}
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:23:13-28:29
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:com.rnkidswholesale
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:23:13-28:29
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:24:17-86
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:24:25-83
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:25:17-81
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:25:25-78
+category#${applicationId}
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:27:17-61
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:27:27-58
+category#com.rnkidswholesale
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:27:17-61
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:27:27-58
+service#com.microsoft.appcenter.push.TokenService
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:31:9-37:19
+	tools:ignore
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:33:13-43
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:32:13-69
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:34:13-36:29
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:35:17-80
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter-push:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-push-1.6.1.aar/ea2bd22d8f91cfbe34df06c8746405f0/AndroidManifest.xml:35:25-77
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from [com.microsoft.appcenter:appcenter:1.6.1] /home/paul/.gradle/caches/transforms-1/files-1.1/appcenter-1.6.1.aar/f6cdc38c4e67053a0a77883c05aefc1f/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /home/paul/Documents/Projects/KWC/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
