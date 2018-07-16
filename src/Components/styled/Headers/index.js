@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { width } from "../general";
 
 export const RootHeaderWrapper = styled.View`
   height: 50;
@@ -10,7 +11,7 @@ export const RootHeaderWrapper = styled.View`
 `;
 
 export const LogoImage = styled.Image`
-  width: 100%;
+  width: ${width * 0.3};
   height: 50;
 `;
 export const LeftHeaderButton = styled.View`

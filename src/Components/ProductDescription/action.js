@@ -1,62 +1,67 @@
-import { fetcher } from '../util';
-import initialFetch from '../Initial/action';
+import { fetcher } from "../util";
+import initialFetch from "../Initial/action";
 import {
-  COMBINATIONS_URL, STOCK_AVAILABLES_URL, IMAGE_URL, KEY,
-} from '../../constants';
+  COMBINATIONS_URL,
+  STOCK_AVAILABLES_URL,
+  IMAGE_URL,
+  KEY
+} from "../../constants";
 
 export const productState = {
-  SET: 'PRODUCT_SET',
-  CLEAR: 'PRODUCT_CLEAR',
+  SET: "PRODUCT_SET",
+  CLEAR: "PRODUCT_CLEAR"
 };
 
 export const fetchState = {
   combinationsLocal: {
-    LOADING: 'COMBINATIONS_LOADING',
-    ERROR: 'COMBINATIONS_ERROR',
-    DONE: 'COMBINATIONS_DONE',
+    LOADING: "COMBINATIONS_LOADING",
+    ERROR: "COMBINATIONS_ERROR",
+    DONE: "COMBINATIONS_DONE"
   },
   stockAvailablesLocal: {
-    LOADING: 'STOCK_AVAILABLES_LOADING',
-    ERROR: 'STOCK_AVAILABLES_ERROR',
-    DONE: 'STOCK_AVAILABLES_DONE',
-  },
+    LOADING: "STOCK_AVAILABLES_LOADING",
+    ERROR: "STOCK_AVAILABLES_ERROR",
+    DONE: "STOCK_AVAILABLES_DONE"
+  }
 };
 
 const toFetch = [
   {
     url: COMBINATIONS_URL,
-    states: fetchState.combinationsLocal,
+    states: fetchState.combinationsLocal
   },
   {
     url: STOCK_AVAILABLES_URL,
-    states: fetchState.stockAvailablesLocal,
-  },
+    states: fetchState.stockAvailablesLocal
+  }
 ];
 
 const setProduct = data => ({
   type: productState.SET,
-  data,
+  data
 });
 const clearProduct = () => ({
-  type: productState.CLEAR,
+  type: productState.CLEAR
 });
 
 export default id => async (dispatch, getState) => {
   dispatch(clearProduct());
-  await Promise.all(toFetch.map(({ url, states }) => fetcher(states, url + id, dispatch)));
+  await Promise.all(
+    toFetch.map(({ url, states }) => fetcher(states, url + id, dispatch))
+  );
   const {
     combinations,
     stockAvailables,
     productOptionValues,
     productOptions,
-    products,
+    products
   } = getState();
   if (
-    !productOptions.data
-    || !products.data
-    || !productOptionValues.data
-    || !combinations.data
-    || !stockAvailables.data
+    !productOptions.data ||
+    !products.data ||
+    !productOptionValues.data ||
+    !combinations.data ||
+    !stockAvailables.data
   ) {
     dispatch(initialFetch());
     return null;
@@ -65,10 +70,10 @@ export default id => async (dispatch, getState) => {
 
   const localCombinations = localProduct.combinations.map(({ id }) => {
     const combination = combinations.data.combinations.find(
-      item => parseInt(item.id, 10) === parseInt(id, 10),
+      item => parseInt(item.id, 10) === parseInt(id, 10)
     );
     const stock = stockAvailables.data.stock_availables.find(
-      item => parseInt(item.id_product_attribute, 10) === parseInt(id, 10),
+      item => parseInt(item.id_product_attribute, 10) === parseInt(id, 10)
     );
     if (combination && stock) {
       return {
@@ -77,7 +82,7 @@ export default id => async (dispatch, getState) => {
         price: parseFloat(combination.price).toFixed(2),
         productOptionValues: combination.associations.product_option_values,
         weight: combination.weight,
-        quantity: stock.quantity,
+        quantity: stock.quantity
       };
     }
   });
@@ -86,22 +91,23 @@ export default id => async (dispatch, getState) => {
   localProduct.productOptionValues
     .map(({ id }) => {
       const pov = productOptionValues.data.product_option_values.find(
-        item => parseInt(item.id, 10) === parseInt(id, 10),
+        item => parseInt(item.id, 10) === parseInt(id, 10)
       );
       if (pov) {
         return {
           id: parseInt(pov.id, 10),
           name: pov.name,
-          idOption: parseInt(pov.id_attribute_group, 10),
+          idOption: parseInt(pov.id_attribute_group, 10)
         };
       }
     })
     .map(({ idOption, ...rest }) => {
       const option = productOptions.data.product_options.find(
-        item => parseInt(item.id, 10) === idOption,
+        item => parseInt(item.id, 10) === idOption
       );
       if (option) {
-        if (!localProductOptions[option.name]) localProductOptions[option.name] = [];
+        if (!localProductOptions[option.name])
+          localProductOptions[option.name] = [];
         localProductOptions[option.name].push({ id, ...rest });
       }
     });
@@ -110,12 +116,25 @@ export default id => async (dispatch, getState) => {
     setProduct({
       id: localProduct.id,
       reference: localProduct.reference,
-      uri: getImageUri(localProduct.id, localProduct.imageId),
+      name: localProduct.name,
+      price: localProduct.price,
+      uri: getImageUri(localProduct.id, localProduct.imageId, "large_default"),
+      mediumUri: getImageUri(
+        localProduct.id,
+        localProduct.imageId,
+        "medium_default"
+      ),
+      cartUri: getImageUri(
+        localProduct.id,
+        localProduct.imageId,
+        "cart_default"
+      ),
       combinations: localCombinations,
       productOptions: localProductOptions,
-      description: localProduct.description,
-    }),
+      description: localProduct.description
+    })
   );
 };
 
-const getImageUri = (id, imageId) => `${IMAGE_URL}${id}/${imageId}/large_default?${KEY}`;
+const getImageUri = (id, imageId, size) =>
+  `${IMAGE_URL}${id}/${imageId}/${size}?${KEY}`;

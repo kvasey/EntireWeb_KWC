@@ -1,29 +1,30 @@
 {
-  "extends": ["airbnb", "plugin:prettier/recommended"],
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "node": true
-  },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "allowImportExportEverywhere": true,
-    "sourceType": "module",
-    "plugins": ["prettier"]
-  },
-  "rules": {
-    "prettier/prettier": "warn",
-    "strict": "off",
-    "no-const-assign": "warn",
-    "no-this-before-super": "warn",
-    "no-undef": "warn",
-    "no-unreachable": "warn",
-    "no-unused-vars": "off",
-    "constructor-super": "warn",
-    "valid-typeof": "warn",
-    "react/jsx-filename-extension": "off"
-  }
+	"extends": ["airbnb", "plugin:prettier/recommended"],
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"allowImportExportEverywhere": true,
+		"sourceType": "module",
+		"plugins": ["prettier"]
+	},
+	"rules": {
+		"react/jsx-indent": "off",
+		"prettier/prettier": "warn",
+		"strict": "off",
+		"no-const-assign": "warn",
+		"no-this-before-super": "warn",
+		"no-undef": "warn",
+		"no-unreachable": "warn",
+		"no-unused-vars": "off",
+		"constructor-super": "warn",
+		"valid-typeof": "warn",
+		"react/jsx-filename-extension": "off"
+	}
 }

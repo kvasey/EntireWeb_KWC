@@ -14,6 +14,8 @@
 		00E356F31AD99517003FC87E /* KWCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KWCTests.m */; };
 		0D135478D8E346A1B7EB1225 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF2E7498DC1845868FD264B8 /* MaterialCommunityIcons.ttf */; };
 		12B9801020FC6A610023466D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B97FE420FC6A610023466D /* Images.xcassets */; };
+		12B980F920FC9C090023466D /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
+		12B980FA20FC9C350023466D /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -477,6 +479,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B980FA20FC9C350023466D /* libRCTNetwork.a in Frameworks */,
+				12B980F920FC9C090023466D /* libRCTWebSocket.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -669,6 +673,7 @@
 		13B07FAE1A68108700A75B9A /* KWC */ = {
 			isa = PBXGroup;
 			children = (
+				BD7DD90D9C8E4F11B3C88347 /* AppCenter-Config.plist */,
 				12B9801120FC6AB00023466D /* KWC.entitlements */,
 				12B97FE420FC6A610023466D /* Images.xcassets */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -777,7 +782,6 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DE13EE159D6B4003AE0664B1 /* Resources */,
-				BD7DD90D9C8E4F11B3C88347 /* AppCenter-Config.plist */,
 				12B97F1020FC68550023466D /* Recovered References */,
 				9A22D4AB862EBE3083709BA7 /* Pods */,
 			);

@@ -1,8 +1,8 @@
-import storage from 'redux-persist/es/storage';
-import { persistCombineReducers } from 'redux-persist';
-import homeReducer from '../Components/Home/reducer';
-import categories from '../Components/Categories/reducer';
-import products from '../Components/Products/reducer';
+import storage from "redux-persist/es/storage";
+import { persistCombineReducers } from "redux-persist";
+import homeReducer from "../Components/Home/reducer";
+import categories from "../Components/Categories/reducer";
+import products from "../Components/Products/reducer";
 import {
   weightRanges,
   deliveries,
@@ -10,14 +10,19 @@ import {
   states,
   carriers,
   productOptionValues,
-  productOptions,
-} from '../Components/Initial/reducer';
-import { stockAvailables, combinations, product } from '../Components/ProductDescription/reducer';
+  productOptions
+} from "../Components/Initial/reducer";
+import {
+  stockAvailables,
+  combinations,
+  product
+} from "../Components/ProductDescription/reducer";
+import shared from "../Components/shared/reducer";
 
 const config = {
-  key: 'primary',
+  key: "primary",
   storage,
-  blacklist: ['products', 'stockAvailables', 'combinations', 'product'],
+  blacklist: ["products", "stockAvailables", "combinations", "product"]
 };
 
 export default persistCombineReducers(config, {
@@ -29,11 +34,13 @@ export default persistCombineReducers(config, {
   stockAvailables,
   combinations,
 
+  shared,
+
   weightRanges,
   deliveries,
   countries,
   states,
   carriers,
   productOptionValues,
-  productOptions,
+  productOptions
 });

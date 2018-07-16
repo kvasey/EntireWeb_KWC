@@ -1,24 +1,28 @@
-import { reducer } from '../util';
-import { fetchState, productState } from './action';
+import { reducer } from "../util";
+import { fetchState, productState } from "./action";
 
 const { stockAvailablesLocal, combinationsLocal } = fetchState;
 
 const defaultState = {
   data: [],
   error: null,
-  loading: false,
+  loading: false
 };
 
 const productDefaultState = {
   id: null,
   uri: null,
-  description: '',
+  name: "",
+  price: "",
+  description: "",
   combinations: [],
-  productOptions: [],
+  productOptions: []
 };
 
-export const stockAvailables = (state = defaultState, action) => reducer(stockAvailablesLocal, state, action);
-export const combinations = (state = defaultState, action) => reducer(combinationsLocal, state, action);
+export const stockAvailables = (state = defaultState, action) =>
+  reducer(stockAvailablesLocal, state, action);
+export const combinations = (state = defaultState, action) =>
+  reducer(combinationsLocal, state, action);
 
 export const product = (state = productDefaultState, action) => {
   switch (action.type) {
