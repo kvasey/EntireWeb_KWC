@@ -17,6 +17,7 @@ export default ({ navigation: { navigate } }) => (
     <Button
       onPress={() => navigate('Basket')}
       background={TouchableNativeFeedback.SelectableBackgroundBorderless()}
+      style={{ flex: 0.2 }}
     >
       <LeftHeaderButton>
         <Icon name="search" size={25} color={Color.main} />
@@ -27,6 +28,7 @@ export default ({ navigation: { navigate } }) => (
       onPress={() => navigate('Home')}
       useForeground
       background={TouchableNativeFeedback.SelectableBackgroundBorderless()}
+      style={{ flex: 0.4 }}
     >
       <MiddleHeaderButton>
         <LogoImage source={logo} resizeMode="center" />
@@ -36,6 +38,7 @@ export default ({ navigation: { navigate } }) => (
     <Button
       onPress={() => navigate('Basket')}
       background={TouchableNativeFeedback.SelectableBackgroundBorderless()}
+      style={{ flex: 0.2 }}
     >
       <RightHeaderButton>
         <Icon name="shopping-cart" size={25} color={Color.main} />

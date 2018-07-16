@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -10,9 +10,13 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "sourceType": "module"
+    "allowImportExportEverywhere": true,
+    "sourceType": "module",
+    "plugins": ["prettier"]
   },
   "rules": {
+    "prettier/prettier": "warn",
+    "strict": "off",
     "no-const-assign": "warn",
     "no-this-before-super": "warn",
     "no-undef": "warn",

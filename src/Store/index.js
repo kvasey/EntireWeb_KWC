@@ -1,20 +1,23 @@
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { createLogger } from "redux-logger";
-import rootReducer from "./rootReducer";
 import { persistStore } from "redux-persist";
+import { Alert } from "react-native";
+import rootReducer from "./rootReducer";
 
-const logger = createLogger({
-  level: "info",
-  collapsed: true
-});
+let middleware = applyMiddleware(thunk);
+if (__DEV__) {
+  const logger = createLogger({
+    level: "info",
+    collapsed: true
+  });
+  middleware = applyMiddleware(thunk, logger);
+}
 
-const middleware = applyMiddleware(thunk, logger);
-
-const createAppStore = () => {
-  let store = createStore(rootReducer, middleware);
-  let persistor = persistStore(store);
+Alert.alert(JSON.stringify(__DEV__));
+export default () => {
+  const store = createStore(rootReducer, middleware);
+  const persistor = persistStore(store);
 
   return { store, persistor };
 };
-export default createAppStore;

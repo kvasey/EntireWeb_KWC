@@ -8,7 +8,7 @@ import { Color } from '../../constants';
 const renderImage = imageUri => (
   <Image
     source={{ uri: imageUri }}
-    indicator={ActivityIndicator}
+    indicator={() => <ActivityIndicator size="small" color={Color.secondary} />}
     resizeMode="contain"
     indicatorProps={{
       size: 20,
@@ -24,18 +24,18 @@ const renderImage = imageUri => (
 );
 
 const renderPrice = price => (price ? (
-  <Price>
-    {`From £${price.toFixed(2)}`}
-  </Price>
-) : (
-  <ActivityIndicator size="small" color={Color.secondary} />
-));
+    <Price>{`From £${price.toFixed(2)}`}</Price>
+  ) : (
+    <ActivityIndicator size="small" color={Color.secondary} />
+  ));
 
-const renderItem = ({
-  item: {
-    id, name, imageUri, price,
-  }, index,
-}, navigate, dataLength) => (
+const renderItem = (
+  { item: {
+ id, name, imageUri, price 
+}, index },
+  navigate,
+  dataLength,
+) => (
   <Button
     onPress={() => navigate('ProductDescription', { productId: id })}
     useForeground
@@ -45,14 +45,14 @@ const renderItem = ({
       {renderImage(imageUri)}
       {renderPrice(price)}
       <Name>
-        {name}
-      </Name>
+{name}
+</Name>
     </ItemWrapper>
   </Button>
 );
 
 export default ({
-  data, error, loading, navigation,
+ data, error, loading, navigation 
 }) => (
   <FlatList
     data={data}
@@ -61,6 +61,8 @@ export default ({
     style={{ backgroundColor: '#FFF' }}
     keyExtractor={({ id }, index) => (id * index).toString()}
     renderItem={item => renderItem(item, navigation.push, data.length)}
-    ListEmptyComponent={() => <StateComponent error={error} loading={loading} />}
+    ListEmptyComponent={() => (
+      <StateComponent error={error} loading={loading} />
+    )}
   />
 );

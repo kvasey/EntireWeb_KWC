@@ -10,6 +10,7 @@ export default ({ navigation: { goBack } }) => (
     <Button
       onPress={() => goBack(null)}
       background={TouchableNativeFeedback.SelectableBackgroundBorderless()}
+      style={{ flex: 0.2 }}
     >
       <LeftHeaderButton>
         <Icon name="arrow-left" size={25} color={Color.main} />

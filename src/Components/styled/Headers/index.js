@@ -10,25 +10,26 @@ export const RootHeaderWrapper = styled.View`
 `;
 
 export const LogoImage = styled.Image`
-  width: 55%;
+  width: 100%;
+  height: 50;
 `;
 export const LeftHeaderButton = styled.View`
-  flex: 0.2;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+  height: 50;
 `;
 export const MiddleHeaderButton = styled.View`
-  flex: 0.4;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+  height: 50;
 `;
 export const RightHeaderButton = styled.View`
-  flex: 0.2;
+  width: 100%;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+  height: 50;
 `;
 
 export const Text = styled.Text``;
