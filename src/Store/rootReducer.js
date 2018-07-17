@@ -1,6 +1,5 @@
 import storage from "redux-persist/es/storage";
 import { persistCombineReducers } from "redux-persist";
-import homeReducer from "../Components/Home/reducer";
 import categories from "../Components/Categories/reducer";
 import products from "../Components/Products/reducer";
 import {
@@ -17,22 +16,35 @@ import {
   combinations,
   product
 } from "../Components/ProductDescription/reducer";
+
+import { login, registration, user } from "../Components/Auth/reducer";
+
 import shared from "../Components/shared/reducer";
 
 const config = {
   key: "primary",
   storage,
-  blacklist: ["products", "stockAvailables", "combinations", "product"]
+  blacklist: [
+    "products",
+    "stockAvailables",
+    "combinations",
+    "product",
+    "login",
+    "registration"
+  ]
 };
 
 export default persistCombineReducers(config, {
-  homeReducer,
   categories,
   products,
 
   product,
   stockAvailables,
   combinations,
+
+  login,
+  registration,
+  user,
 
   shared,
 

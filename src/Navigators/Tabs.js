@@ -4,6 +4,7 @@ import { Platform } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { Color } from "../constants";
 import Home from "../Components/Home";
+import Account from "./AccountStack";
 import CategoryStack from "./CategoryStack";
 
 export default createMaterialBottomTabNavigator(
@@ -32,7 +33,7 @@ export default createMaterialBottomTabNavigator(
         )
       }
     },
-    Deal: {
+    Favorites: {
       screen: Home,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
@@ -45,7 +46,7 @@ export default createMaterialBottomTabNavigator(
       }
     },
     Account: {
-      screen: Home,
+      screen: Account,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <Icon
@@ -63,7 +64,10 @@ export default createMaterialBottomTabNavigator(
     activeTintColor: Color.main,
     inactiveTintColor: Color.main,
     barStyle: {
-      backgroundColor: "#FFF"
+      backgroundColor: "#FFF",
+      borderStyle: "solid",
+      borderTopWidth: 1,
+      borderColor: "#eee"
     }
   }
 );

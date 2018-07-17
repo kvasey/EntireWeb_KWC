@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const margin = '2.5%';
+const margin = "2.5%";
 
 export const Price = styled.Text`
   padding-top: 1%;
@@ -10,7 +10,7 @@ export const Price = styled.Text`
 `;
 export const Name = styled.Text`
   padding-horizontal: 1%;
-  padding-bottom: 1%;
+  padding-bottom: 5%;
   font-size: 15;
   font-weight: 300;
 `;
@@ -21,8 +21,8 @@ export const ItemWrapper = styled.View`
   position: relative;
   padding-top: ${margin};
   padding-horizontal: ${margin};
-  padding-bottom: ${({ isLast }) => (isLast ? margin : 'auto')};
-  justify-content: center;
+  padding-bottom: ${({ isLast }) => (isLast ? margin : "auto")};
+  justify-content: space-around;
   background-color: #fff;
   border-width: 1;
   border-color: #eee;

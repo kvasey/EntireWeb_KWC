@@ -33,9 +33,9 @@ export const clearData = () => ({
   type: fetchState.CLEAR
 });
 
-export const setSortType = sortType => ({
+export const setSortType = typeIndex => ({
   type: fetchState.SORT,
-  sortType
+  typeIndex
 });
 
 export default productIds => async (dispatch, getState) => {

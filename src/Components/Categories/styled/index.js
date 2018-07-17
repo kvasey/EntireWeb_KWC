@@ -1,9 +1,10 @@
-import styled from 'styled-components';
-import { Platform } from 'react-native';
-import { Color } from '../../../constants';
+import styled from "styled-components";
+import { Platform } from "react-native";
+import { Color } from "../../../constants";
 
-const margin = '5%';
-const getImage = ({ height, padHeight }) => (Platform.isPad ? padHeight : height);
+const margin = 15;
+const getImage = ({ height, padHeight }) =>
+  Platform.isPad ? padHeight : height;
 
 export const CategoryImage = styled.Image`
   width: 100%;
@@ -13,33 +14,38 @@ export const CategoryImage = styled.Image`
 export const CategoryTitle = styled.Text`
   position: absolute;
   width: 50%;
-  height: 100%;
   font-size: 22;
   top: 30%;
   left: 5%;
-  font-family: 'JosefinSans-Regular';
+  font-weight: 300;
+  font-family: "JosefinSans-Regular";
 `;
 
 export const CategoryTitleNoImage = styled.Text`
   width: 100%;
-  height: 50;
-  padding: 1%;
+  padding-vertical: 2.5%;
+  margin-horizontal: 2.5%;
   font-size: 20;
-  border-radius: 5;
-  font-family: 'JosefinSans-Regular';
+  border-bottom-width: 1;
+  font-weight: 300;
+  border-color: #eee;
+  border-style: solid;
+  font-family: "JosefinSans-Regular";
 `;
 
 export const Separator = styled.View`
   height: 1;
+  margin-horizontal: 15;
   border-radius: 100;
-  margin-horizontal: ${margin};
-  background-color: ${Color.main};
+  background-color: #eee;
 `;
 
 export const ItemWrapper = styled.View`
   position: relative;
   margin-top: ${margin};
   margin-horizontal: ${margin};
-  margin-bottom: ${({ isLast }) => (isLast ? margin : 'auto')};
+  margin-bottom: ${({ isLast }) => (isLast ? margin : "auto")};
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
 `;

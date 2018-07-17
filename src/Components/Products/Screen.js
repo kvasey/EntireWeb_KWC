@@ -42,7 +42,6 @@ const renderItem = (
   <Button
     onPress={() => {
       navigate("ProductDescription", { productId: id });
-      setIsProductList(false);
     }}
     useForeground
     style={{ flex: 1 }}
@@ -56,17 +55,17 @@ const renderItem = (
 );
 
 export default ({ data, error, loading, navigation, setIsProductList }) => (
-  <FlatList
-    data={data}
-    extraData={data}
-    numColumns={Platform.isPad ? 3 : 2}
-    style={{ backgroundColor: "#FFF" }}
-    keyExtractor={({ id }, index) => (id * index).toString()}
-    renderItem={item =>
-      renderItem(item, data.length, navigation.push, setIsProductList)
-    }
-    ListEmptyComponent={() => (
-      <StateComponent error={error} loading={loading} />
-    )}
-  />
-);
+    <FlatList
+      data={data}
+      extraData={data}
+      numColumns={Platform.isPad ? 3 : 2}
+      style={{ backgroundColor: "#FFF" }}
+      keyExtractor={({ id }, index) => (id * index).toString()}
+      renderItem={item =>
+        renderItem(item, data.length, navigation.push, setIsProductList)
+      }
+      ListEmptyComponent={() => (
+        <StateComponent error={error} loading={loading} />
+      )}
+    />
+  );

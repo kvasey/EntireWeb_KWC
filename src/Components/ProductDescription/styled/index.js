@@ -19,21 +19,22 @@ export const Reference = styled.Text`
   color: ${Color.main};
   font-size: 16;
 `;
+
 export const Line = styled.View`
   margin-bottom: ${margin};
   background-color: #eee;
   height: 1;
   width: 100%;
 `;
-export const ItemWrapper = styled.View`
+
+export const PickerContainer = styled.View`
   flex: 1;
-  height: 200;
-  position: relative;
-  padding-top: ${margin};
-  padding-horizontal: ${margin};
-  padding-bottom: ${({ isLast }) => (isLast ? margin : "auto")};
-  justify-content: center;
-  background-color: #fff;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
   border-width: 1;
+  border-style: solid;
   border-color: #eee;
 `;
+
+export const ProductDescription = styled.WebView``;

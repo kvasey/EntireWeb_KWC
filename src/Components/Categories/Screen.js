@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList, View } from "react-native";
 import { Transition } from "react-navigation-fluid-transitions";
 import {
   CategoryImage,
@@ -15,11 +15,7 @@ const renderItem = (
   navigate,
   dataLength
 ) => (
-  <Button
-    onPress={() => checkNavigate(childCount, id, navigate)}
-    useForeground
-    style={{ flex: 1 }}
-  >
+  <Button onPress={() => checkNavigate(childCount, id, navigate)} useForeground>
     <ItemWrapper isLast={index === dataLength - 1}>
       {renderButton(image, name)}
     </ItemWrapper>
@@ -38,7 +34,10 @@ const renderButton = (image, name) =>
       <CategoryTitle>{name}</CategoryTitle>
     </Fragment>
   ) : (
-    <CategoryTitleNoImage>{name}</CategoryTitleNoImage>
+    <View style={{ width: "100%" }}>
+      <CategoryTitleNoImage>{name}</CategoryTitleNoImage>
+      <Separator />
+    </View>
   );
 
 export default ({
@@ -50,10 +49,10 @@ export default ({
 }) => (
   <FlatList
     data={filteredData}
+    extraData={filteredData}
     style={{ backgroundColor: "#FFF" }}
     keyExtractor={({ id }, index) => (id * index).toString()}
     renderItem={item => renderItem(item, navigation.push, filteredData.length)}
-    ItemSeparatorComponent={showSeparator ? Separator : null}
     ListEmptyComponent={() => (
       <StateComponent error={error} loading={loading} />
     )}

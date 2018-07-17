@@ -1,25 +1,31 @@
 export const Color = {
-  main: '#7c7c7c',
-  secondary: '#b61e89',
+  main: "#7c7c7c",
+  secondary: "#b61e89"
 };
 
-export const SortTypes = ['Price Descending', 'Price Ascending', 'Name A-Z', 'Name Z-A'];
+export const SortTypes = [
+  { name: "Price Descending", active: true },
+  { name: "Price Ascending", active: false },
+  { name: "Name A-Z", active: false },
+  { name: "Name Z-A", active: false }
+];
 
 export const defaultCategoryId = -69;
 // REGEX
 export const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 // URL
-const BASE_URL = 'https://www.kidswholesaleclothing.co.uk/api/';
-const OUTPUT = 'output_format=JSON';
-const IMAGE = 'images/products/';
-export const KEY = 'ws_key=F5ZNKQZZSSH5SSH4114CMI4I691Q4FW4';
-export const CKEY = '6DdKR6FbVz1ikuBO2tpJi1xmeBhsz8GMUkaD6BaMeeFLOg3d7OHQwVBv';
+const BASE_URL = "https://www.kidswholesaleclothing.co.uk/api/";
+const OUTPUT = "output_format=JSON";
+const IMAGE = "images/products/";
+export const KEY = "ws_key=F5ZNKQZZSSH5SSH4114CMI4I691Q4FW4";
+export const CKEY = "6DdKR6FbVz1ikuBO2tpJi1xmeBhsz8GMUkaD6BaMeeFLOg3d7OHQwVBv";
 
 // USER - ORDERS
 export const CUSTOMER_ORDERS_URL = `${BASE_URL}orders?${OUTPUT}&display=full&${KEY}&filter[id_customer]=`;
 
 export const REGISTER_URL = `${BASE_URL}customers?${OUTPUT}&${KEY}&schema=blank`;
+export const LOGIN_URL = `${BASE_URL}customers?${OUTPUT}&display=full&filter[active]=1&${KEY}`;
 
 export const ADDRESSES_URL = `${BASE_URL}addresses?${OUTPUT}&display=full&filter[deleted]=[0]&${KEY}&filter[id_customer]=`;
 
@@ -28,7 +34,7 @@ export const CREATE_ADDRESS_URL = `${BASE_URL}addresses?${OUTPUT}&${KEY}&schema=
 export const CATEGORIES_URL = `${BASE_URL}categories?${OUTPUT}&filter[active]=1&display=full&${KEY}`;
 
 export const PRODUCTS_URL = `${BASE_URL}products?${OUTPUT}&display=full${
-  /* [id_default_image,id,name,wholesale_price] */ ''
+  /* [id_default_image,id,name,wholesale_price] */ ""
 }&filter[active]=1&${KEY}&filter`;
 export const IMAGE_URL = `${BASE_URL + IMAGE}`;
 
@@ -64,5 +70,6 @@ export const ORDER_CREATE_URL = `${BASE_URL}orders?${OUTPUT}&${KEY}&schema=blank
 
 export const ORDER_STATUS_URL = `${BASE_URL}order_histories?${KEY}&${OUTPUT}`;
 
-export const STRIPE_URL = 'https://wt-62f326f8f8642c3228b1f956ceae13ea-0.run.webtask.io/stripe-payment';
+export const STRIPE_URL =
+  "https://wt-62f326f8f8642c3228b1f956ceae13ea-0.run.webtask.io/stripe-payment";
 // https://sandbox.auth0-extend.com/edit/wt-62f326f8f8642c3228b1f956ceae13ea-0#webtaskName=stripe-payment&token=eyJhbGciOiJIUzI1NiIsImtpZCI6IjIifQ.eyJqdGkiOiI0OWE5NDRjYmE4M2Q0MmU0OGU4ODIzZTIzMjFhZDFjOSIsImlhdCI6MTUyMTEyNjIyOCwiY2EiOlsiOTAwNzMzNGRiMDhjNGQ2M2E0MTNjZGFmM2YzYjYxNGMiXSwiZGQiOjEsInRlbiI6Ii9ed3QtNjJmMzI2ZjhmODY0MmMzMjI4YjFmOTU2Y2VhZTEzZWEtWzAtMV0kLyJ9.R802rdanrgPOmTpSM-Tx_kiVZdjyw9gQq-0ayNc4Q9g

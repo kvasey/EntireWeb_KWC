@@ -34,7 +34,10 @@ export default createStackNavigator(
             screen: ProductDescription
           }
         },
-        { initialRouteName: "ProductsList" }
+        {
+          initialRouteName: "ProductsList",
+          navigationOptions: { gesturesEnabled: false }
+        }
       )
     }
   },

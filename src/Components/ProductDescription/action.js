@@ -88,6 +88,7 @@ export default id => async (dispatch, getState) => {
   });
 
   const localProductOptions = {};
+
   localProduct.productOptionValues
     .map(({ id }) => {
       const pov = productOptionValues.data.product_option_values.find(
@@ -108,9 +109,17 @@ export default id => async (dispatch, getState) => {
       if (option) {
         if (!localProductOptions[option.name])
           localProductOptions[option.name] = [];
-        localProductOptions[option.name].push({ id, ...rest });
+
+        localProductOptions[option.name].push({ ...rest, active: false });
       }
     });
+
+  Object.keys(localProductOptions).map(key => {
+    localProductOptions[key] = localProductOptions[key].map((item, index) => ({
+      ...item,
+      active: index === 0
+    }));
+  });
 
   dispatch(
     setProduct({

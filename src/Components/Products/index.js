@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ProductsScreen from './Screen';
 import fetchAction, { clearData } from './action';
 import { connect } from 'react-redux';
-import { setIsProductList } from '../shared/action';
 
 class Container extends Component {
 	componentDidMount = () => {
@@ -10,22 +9,21 @@ class Container extends Component {
 		if (!this.props.navigation.state.params) this.props.navigation.navigate.goBack(null);
 		this.props.fetch(this.props.navigation.state.params.categoryId);
 	};
+	shouldComponentUpdate = (nextProps, nextState) =>
+		nextProps.data !== this.props.data || nextProps.activeSortIndex !== this.props.activeSortIndex;
 
-	render = () => {
-		return <ProductsScreen {...this.props} />;
-	};
+	render = () => <ProductsScreen {...this.props} />;
 }
 
-const mapStateToProps = ({ products: { error, loading, data, sortType } }) => ({
+const mapStateToProps = ({ products: { error, loading, data, activeSortIndex } }) => ({
 	error,
 	loading,
 	data,
-	sortType
+	activeSortIndex
 });
 const mapDispatchToProps = dispatch => ({
 	fetch: productIds => dispatch(fetchAction(productIds)),
-	clearData: () => dispatch(clearData()),
-	setIsProductList: state => dispatch(setIsProductList(state))
+	clearData: () => dispatch(clearData())
 });
 
 export default connect(
