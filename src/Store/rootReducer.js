@@ -1,7 +1,13 @@
 import storage from "redux-persist/es/storage";
 import { persistCombineReducers } from "redux-persist";
+
 import categories from "../Components/Categories/reducer";
 import products from "../Components/Products/reducer";
+import basket from "../Components/BasketList/reducer";
+import checkout from "../Components/Checkout/reducer";
+import favorites from "../Components/Favorites/reducer";
+import shared from "../Components/shared/reducer";
+
 import {
   weightRanges,
   deliveries,
@@ -11,6 +17,7 @@ import {
   productOptionValues,
   productOptions
 } from "../Components/Initial/reducer";
+
 import {
   stockAvailables,
   combinations,
@@ -19,22 +26,29 @@ import {
 
 import { login, registration, user } from "../Components/Auth/reducer";
 
-import shared from "../Components/shared/reducer";
+import {
+  addresses,
+  orders,
+  createAddress
+} from "../Components/Profile/reducer";
 
 const config = {
   key: "primary",
   storage,
+  // whitelist: []
   blacklist: [
     "products",
     "stockAvailables",
     "combinations",
     "product",
     "login",
-    "registration"
+    "registration",
+    "createAddress",
+    "checkout"
   ]
 };
 
-export default persistCombineReducers(config, {
+const combinedReducers = {
   categories,
   products,
 
@@ -46,7 +60,15 @@ export default persistCombineReducers(config, {
   registration,
   user,
 
+  orders,
+  addresses,
+  createAddress,
+
   shared,
+
+  basket,
+  favorites,
+  checkout,
 
   weightRanges,
   deliveries,
@@ -55,4 +77,6 @@ export default persistCombineReducers(config, {
   carriers,
   productOptionValues,
   productOptions
-});
+};
+
+export default persistCombineReducers(config, combinedReducers);

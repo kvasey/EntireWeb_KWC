@@ -3,6 +3,7 @@ import { FluidNavigator } from "react-navigation-fluid-transitions";
 import { createStackNavigator } from "react-navigation";
 import Login from "../Components/Auth/Login";
 import Registration from "../Components/Auth/Registration";
+import Address from "../Components/Profile/Address";
 import InnerHeader from "../Components/styled/Headers/InnerHeader";
 import Home from "../Components/Home";
 import Profile from "../Components/Profile";
@@ -15,6 +16,12 @@ export default createStackNavigator(
         header: null
       }
     },
+    Address: {
+      screen: Address,
+      navigationOptions: {
+        header: props => <InnerHeader {...props} />
+      }
+    },
     Auth: {
       navigationOptions: {
         header: null
@@ -25,13 +32,14 @@ export default createStackNavigator(
           Registration
         },
         {
-          initialRouteName: "Login",
-          navigationOptions: { gesturesEnabled: false }
+          initialRouteName: "Login"
         }
       )
     }
   },
   {
-    initialRouteName: "Auth"
+    initialRouteName: "Auth",
+    swipeEnabled: false,
+    navigationOptions: { gesturesEnabled: false }
   }
 );

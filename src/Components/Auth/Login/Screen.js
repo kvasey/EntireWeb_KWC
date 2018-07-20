@@ -4,8 +4,8 @@ import { withFormik } from "formik";
 import { TextInput, HelperText, Button } from "react-native-paper";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { FormStyle } from "../styled";
-import { SubmitButton } from "../../styled/general";
+import { FormStyle } from "../../styled/general";
+import { SubmitButton } from "../../styled/components";
 import { Color } from "../../../constants";
 
 const LoginForm = ({

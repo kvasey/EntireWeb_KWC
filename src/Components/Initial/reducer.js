@@ -1,4 +1,5 @@
-import { fetchState } from './action';
+import { fetchState } from "./action";
+import { reducer } from "../util";
 
 const {
   weightRangesLocal,
@@ -7,32 +8,32 @@ const {
   statesLocal,
   carriersLocal,
   productOptionValuesLocal,
-  productOptionsLocal,
+  productOptionsLocal
 } = fetchState;
 
 const defaultState = {
   data: [],
   error: null,
-  loading: false,
+  loading: false
 };
 
-export const weightRanges = (state = defaultState, action) => reducer(weightRangesLocal, state, action);
-export const deliveries = (state = defaultState, action) => reducer(deliveriesLocal, state, action);
-export const countries = (state = defaultState, action) => reducer(countriesLocal, state, action);
-export const states = (state = defaultState, action) => reducer(statesLocal, state, action);
-export const carriers = (state = defaultState, action) => reducer(carriersLocal, state, action);
-export const productOptions = (state = defaultState, action) => reducer(productOptionsLocal, state, action);
-export const productOptionValues = (state = defaultState, action) => reducer(productOptionValuesLocal, state, action);
+export const weightRanges = (state = defaultState, action) =>
+  reducer(weightRangesLocal, state, action);
 
-const reducer = (local, state, action) => {
-  switch (action.type) {
-    case local.ERROR:
-      return { ...state, error: action.state };
-    case local.LOADING:
-      return { ...state, loading: action.state };
-    case local.DONE:
-      return { ...state, data: action.data };
-    default:
-      return state;
-  }
-};
+export const deliveries = (state = defaultState, action) =>
+  reducer(deliveriesLocal, state, action);
+
+export const countries = (state = defaultState, action) =>
+  reducer(countriesLocal, state, action);
+
+export const states = (state = defaultState, action) =>
+  reducer(statesLocal, state, action);
+
+export const carriers = (state = defaultState, action) =>
+  reducer(carriersLocal, state, action);
+
+export const productOptions = (state = defaultState, action) =>
+  reducer(productOptionsLocal, state, action);
+
+export const productOptionValues = (state = defaultState, action) =>
+  reducer(productOptionValuesLocal, state, action);

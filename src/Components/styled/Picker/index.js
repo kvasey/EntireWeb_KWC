@@ -11,14 +11,16 @@ export default class extends Component {
 	valueChange(value, index) {
 		if (value !== -1) {
 			this.setState({ changed: true });
-			console.log('Submit', value, index);
 			this.props.onSubmit(value, index);
 		}
 	}
 
 	render() {
-		const { options, pickerIndex, activeIndex, style, textStyle, iconStyle } = this.props;
-		const selected = options[activeIndex || 0];
+		const { options, pickerIndex, activeIndex, style, textStyle, iconStyle, useId } = this.props;
+
+		const selected = useId
+			? options.find(({ id }) => parseInt(id) === parseInt(activeIndex)) || options[0]
+			: options[activeIndex || 0];
 		return Platform.OS === 'android' ? null : (
 			<PickerIOS
 				onSubmit={value => this.valueChange(value, pickerIndex)}
@@ -27,6 +29,7 @@ export default class extends Component {
 				activeIndex={activeIndex}
 				options={options}
 				style={style}
+				useId={useId}
 				textStyle={textStyle}
 				iconStyle={iconStyle}
 			/>

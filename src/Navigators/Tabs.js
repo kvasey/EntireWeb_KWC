@@ -6,6 +6,7 @@ import { Color } from "../constants";
 import Home from "../Components/Home";
 import Account from "./AccountStack";
 import CategoryStack from "./CategoryStack";
+import Favorites from "../Components/Favorites";
 
 export default createMaterialBottomTabNavigator(
   {
@@ -34,7 +35,7 @@ export default createMaterialBottomTabNavigator(
       }
     },
     Favorites: {
-      screen: Home,
+      screen: Favorites,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <Icon

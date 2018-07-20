@@ -1,0 +1,41 @@
+import React from "react";
+import { ActivityIndicator } from "react-native";
+import CollapsibleAccordion from "react-native-collapsible/Accordion";
+import {
+  Button,
+  ButtonInner,
+  ButtonInnerText,
+  StateContainer,
+  StateText,
+  AccordionContainer
+} from "./general";
+
+import { Color } from "../../constants";
+
+export const SubmitButton = ({ onPress, textChildren, style, textStyle }) => (
+  <Button onPress={onPress}>
+    <ButtonInner style={style}>
+      <ButtonInnerText style={textStyle}>
+        {typeof textChildren === "string" ? textChildren : textChildren()}
+      </ButtonInnerText>
+    </ButtonInner>
+  </Button>
+);
+
+export const StateComponent = ({ error, loading }) => (
+  <StateContainer>
+    {loading && <ActivityIndicator size="large" color={Color.secondary} />}
+    <StateText>{error && JSON.stringify(error, null, 2)}</StateText>
+  </StateContainer>
+);
+export const EmptyComponent = ({ text }) => (
+  <StateContainer>
+    <StateText>{text}</StateText>
+  </StateContainer>
+);
+
+export const Accordion = props => (
+  <AccordionContainer>
+    <CollapsibleAccordion {...props} touchableComponent={Button} />
+  </AccordionContainer>
+);

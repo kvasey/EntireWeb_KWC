@@ -8,7 +8,7 @@ class Container extends Component {
 		if (this.props.user) this.props.navigation.navigate('Profile');
 	};
 
-	static getDerivedStateFromProps({ login, navigation }) {
+	static getDerivedStateFromProps({ login, user, navigation }) {
 		if (login.loading) navigation.navigate('Profile');
 		return null;
 	}

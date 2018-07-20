@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, ActivityIndicator, Dimensions } from "react-native";
+import { Platform, Dimensions } from "react-native";
 import styled from "styled-components";
 import { Color } from "../../constants";
 
@@ -7,6 +7,8 @@ export const { width, height } = Dimensions.get("window");
 
 const TouchableIOS = styled.TouchableOpacity``;
 const TouchableAndroid = styled.TouchableNativeFeedback``;
+
+// BUTTON
 
 export const Button =
   Platform.OS === "android" ? TouchableAndroid : TouchableIOS;
@@ -26,17 +28,9 @@ export const ButtonInnerText = styled.Text`
   color: #fff;
 `;
 
-export const SubmitButton = ({ onPress, textChildren, style, textStyle }) => (
-  <Button onPress={onPress}>
-    <ButtonInner style={style}>
-      <ButtonInnerText style={textStyle}>
-        {typeof textChildren === "string" ? textChildren : textChildren()}
-      </ButtonInnerText>
-    </ButtonInner>
-  </Button>
-);
+// STATE
 
-const StateContainer = styled.View`
+export const StateContainer = styled.View`
   height: ${height};
   width: ${width};
   justify-content: center;
@@ -45,12 +39,53 @@ const StateContainer = styled.View`
   background-color: #fff;
 `;
 
-const StateText = styled.Text`
+export const StateText = styled.Text`
   color: ${Color.main};
   font-size: 18;
   padding: 5%;
 `;
 
+// PRODUCT
+
+export const Price = styled.Text`
+  padding-horizontal: 5%;
+  padding-vertical: 2.5%;
+  font-size: 20;
+  font-weight: bold;
+  color: ${Color.secondary};
+`;
+
+export const Quantity = styled.Text`
+  font-size: 20;
+  font-weight: bold;
+  color: ${Color.secondary};
+`;
+
+export const Name = styled.Text`
+  font-size: 18;
+  padding-horizontal: 5%;
+`;
+
+export const Text = styled.Text``;
+
+export const Line = styled.View`
+  margin-bottom: 2.5%;
+  background-color: #eee;
+  height: 1;
+  width: 100%;
+`;
+
+export const PickerContainer = styled.View`
+  width: 100%;
+  height: 40;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  border-color: #ddd;
+  border-bottom-width: 1;
+`;
+
+// OTHER
 export const Container = styled.View`
   flex: ${({ flex }) => flex || "1"};
   flex-direction: ${({ flexDirection }) => flexDirection || "column"};
@@ -58,9 +93,14 @@ export const Container = styled.View`
   align-items: ${({ alignItems }) => alignItems || "center"};
 `;
 
-export const StateComponent = ({ error, loading }) => (
-  <StateContainer>
-    {loading && <ActivityIndicator size="large" color={Color.secondary} />}
-    <StateText>{error && JSON.stringify(error, null, 2)}</StateText>
-  </StateContainer>
-);
+export const FormStyle = {
+  height: "100%",
+  width: "100%",
+  backgroundColor: "#fff",
+  paddingTop: 15,
+  paddingHorizontal: 15
+};
+
+export const AccordionContainer = styled.View`
+  background-color: #eee;
+`;

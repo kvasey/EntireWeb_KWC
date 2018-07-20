@@ -1,82 +1,106 @@
 import React, { Fragment, Component } from 'react';
-import { Text, View, ActivityIndicator, Platform, Image, ScrollView } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import { Transition } from 'react-navigation-fluid-transitions';
-import Picker from '../styled/Picker';
 import { Price, Name, ItemWrapper, Reference, Line, PickerContainer } from './styled';
-import Icon from 'react-native-vector-icons/Feather';
-import {
-	Button,
-	StateComponent,
-	height,
-	Container,
-	ButtonInner,
-	ButtonInnerText,
-	SubmitButton
-} from '../styled/general';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Button, height, Container } from '../styled/general';
+import { SubmitButton } from '../styled/components';
 import { Color } from '../../constants';
 import HTMLView from 'react-native-htmlview';
+import { Snackbar } from 'react-native-paper';
+import { combinationActivator, productOptionsActivator, renderPickers } from '../ProductDescription';
 
 export default class extends Component {
 	state = {
 		uri: '',
-		productOptions: {}
+		productOptions: {},
+		combination: null,
+		isSnackVisible: false,
+		snackBarText: ''
 	};
 
 	static getDerivedStateFromProps = (nextProps, prevState) =>
-		nextProps.product.uri
+		nextProps.uri
 			? {
-					uri: nextProps.product.uri
+					...prevState,
+					uri: nextProps.uri
 			  }
 			: prevState;
 
-	updateProductOptions = (activationIndex, key) =>
-		this.setState({
-			...this.state,
-			productOptions: productOptionsActivator(this.getProductOptions(), activationIndex, key)
-		});
+	updateState = (activationIndex, key) =>
+		this.setState(
+			{
+				...this.state,
+				productOptions: productOptionsActivator(this.getProductOptions(), activationIndex, key)
+			},
+			() =>
+				this.setState({
+					...this.state,
+					combination: combinationActivator(this.props.combinations, this.state.productOptions)
+				})
+		);
 
-	getProductOptions = () => {
-		console.log(Object.keys(this.state.productOptions).length > 0);
-		console.log(this.state.productOptions.length);
-		return Object.keys(this.state.productOptions).length > 0
-			? this.state.productOptions
-			: this.props.product.productOptions;
+	isProductInCart = () =>
+		!!this.props.basket.find(
+			({ id, defaultCombination }) => this.props.id === id && defaultCombination === this.props.defaultCombination
+		);
+
+	isProductFavorite = () => !!this.props.favorites.find(({ id }) => this.props.id === id);
+
+	submitFavorite = isFavorite => {
+		if (isFavorite) {
+			const index = this.props.favorites.find(({ id }) => this.props.id === id);
+			this.props.removeFromFavorites(index);
+		} else
+			this.props.addToFavorites({
+				id: this.props.id,
+				name: this.props.name,
+				uri: this.props.mediumUri,
+				categoryId: this.props.navigation.state.params.categoryId
+			});
 	};
 
-	renderPickers = () => {
-		const productOptions = this.getProductOptions();
-		const options = Object.keys(productOptions);
-		return options.map((key, index) => (
-			<Picker
-				key={key}
-				onSubmit={selectedIndex => this.updateProductOptions(selectedIndex, key)}
-				options={productOptions[key]}
-				activeIndex={productOptions[key].findIndex(({ active }) => active) || 0}
-				pickerIndex={index}
-				style={{
-					width: `${(100 / options.length).toFixed(0)}%`,
-					borderColor: '#EEE',
-					borderStyle: 'solid',
-					borderRightWidth: 1,
-					borderLeftWidth: 1
-				}}
-			/>
-		));
+	onSubmit = () => {
+		if (!this.isProductInCart())
+			this.props.addToBasket({
+				id: this.props.id,
+				name: this.props.name,
+				reference: this.props.reference,
+				quantity: 1,
+				uri: this.props.cartUri,
+				combination: this.getCombination(),
+				combinations: this.props.combinations,
+				productOptions: this.getProductOptions()
+			});
 	};
+
+	getProductOptions = () => (this.isProductOptionsSet() ? this.state.productOptions : this.props.productOptions);
+
+	getCombination = () => this.state.combination || this.props.defaultCombination;
+
+	showSnackBar = snackBarText =>
+		this.setState({ ...this.state, isSnackVisible: true, snackBarText }, () =>
+			setTimeout(() => this.setState({ ...this.state, isSnackVisible: false }), 2500)
+		);
+
+	isProductOptionsSet = () => Object.keys(this.state.productOptions).length > 0;
 
 	shouldComponentUpdate = (nextProps, nextState) =>
-		this.state.productOptions !== nextState.productOptions || this.props.product.id !== nextProps.product.id;
+		this.state.combination !== nextState.combination ||
+		this.state.isSnackVisible !== nextState.isSnackVisible ||
+		this.props.id !== nextProps.id;
 
 	render = () => {
-		const { product } = this.props;
-		const { uri } = this.state;
-		return (
-			product.id && (
+		if (this.props.id) {
+			const combination = this.getCombination();
+			const { uri } = this.state;
+			return (
 				<ScrollView style={{ height: '100%', width: '100%', backgroundColor: '#FFF' }}>
-					<Transition shared={`${product.id}`} appear="scale">
+					<Transition shared={`${this.props.id}`} appear="scale">
 						<Image
+							fadeDuration={0}
 							source={{ uri }}
-							onLoad={() => this.setState({ uri: product.uri })}
+							onLoad={() => this.setState({ uri: this.props.uri })}
 							resizeMode="contain"
 							style={{
 								width: '100%',
@@ -85,57 +109,76 @@ export default class extends Component {
 						/>
 					</Transition>
 					<Line />
-					<Name>{product.name}</Name>
-					<Container flexDirection="row" style={{ marginHorizontal: '2.5%', paddingBottom: '2.5%' }}>
+					<Name>{this.props.name}</Name>
+					<Reference>#{this.props.reference}</Reference>
+					<Container flexDirection="row" style={{ marginHorizontal: '2.5%', paddingBottom: '2%' }}>
 						<Container flex={0.5} alignItems="baseline">
-							<Reference>#{product.reference}</Reference>
-							<Price>£{product.price.toFixed(2)}</Price>
+							<Price>£{getPrice(combination.price)}</Price>
 						</Container>
-						<Container flex={0.5} alignItems="flex-end" style={{ marginHorizontal: '2.5%' }}>
-							<Button useForeground>
-								<Icon name="star" size={35} color={Color.main} />
-							</Button>
+						<Container
+							flex={0.5}
+							alignItems="flex-end"
+							style={{ marginHorizontal: '2.5%', paddingBottom: '2%' }}
+						>
+							{renderFavoriteButton(this.submitFavorite, this.showSnackBar, this.isProductFavorite())}
 						</Container>
 					</Container>
-					<PickerContainer>{this.renderPickers()}</PickerContainer>
-					<SubmitButton
-						onPress={() => console.log(product)}
-						textChildren={() => (
-							<Fragment>
-								Add to Cart
-								<Icon name="shopping-cart" size={18} style={{ marginLeft: 20 }} color="#FFF" />
-							</Fragment>
-						)}
-						style={{
-							marginHorizontal: 15,
-							marginVertical: 15
-						}}
-					/>
+					<PickerContainer>{renderPickers(this.getProductOptions(), this.updateState)}</PickerContainer>
+					{renderSubmitButton(combination, this.onSubmit, this.showSnackBar, this.isProductInCart)}
+
 					<View style={{ marginHorizontal: '5%', paddingBottom: '2.5%' }}>
-						{renderHTML(product.description)}
+						<HTMLView value={this.props.description} />
 					</View>
+					<Snackbar visible={this.state.isSnackVisible} onDismiss={() => {}}>
+						{this.state.snackBarText}
+					</Snackbar>
 				</ScrollView>
-			)
-		);
+			);
+		} else return null;
 	};
 }
 
-const productOptionsActivator = (productOptions, activationIndex, activationKey) => {
-	let newProductOptions = {};
-	Object.keys(productOptions).forEach(key => {
-		newProductOptions[key] = productOptions[key].map(
-			(item, index) =>
-				key === activationKey
-					? {
-							...item,
-							active: activationIndex === index
-					  }
-					: item
-		);
-	});
-	return newProductOptions;
+const renderFavoriteButton = (submitFavorite, showSnackBar, isFavorite) => {
+	const snackText = isFavorite ? 'Item Removed From Favorites' : 'Added To Favorites';
+	const icon = isFavorite ? 'star' : 'star-o';
+	const onPress = () => {
+		showSnackBar(snackText);
+		submitFavorite(isFavorite);
+	};
+	return (
+		<Button useForeground onPress={onPress}>
+			<Icon name={icon} size={35} color={Color.secondary} />
+		</Button>
+	);
 };
 
-const renderHTML = html => {
-	return <HTMLView value={html} />;
+const renderSubmitButton = (combination, onSubmit, showSnackBar, isProductInCart) => {
+	const quantity = parseInt(combination.quantity);
+	let textChildren = 'Not Available';
+	let onPress = () => showSnackBar('Combination Not Available');
+
+	if (quantity > 1) {
+		textChildren = 'Add to Cart';
+		onPress = () => {
+			onSubmit();
+			showSnackBar('Product Added to Cart');
+		};
+	}
+
+	if (isProductInCart()) {
+		textChildren = 'Add to Cart';
+		onPress = () => showSnackBar('Product is already added');
+	}
+	return (
+		<SubmitButton
+			onPress={onPress}
+			textChildren={textChildren}
+			style={{
+				marginHorizontal: 15,
+				marginVertical: 15
+			}}
+		/>
+	);
 };
+
+const getPrice = price => parseFloat(price).toFixed(2);

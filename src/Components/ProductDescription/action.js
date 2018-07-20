@@ -80,7 +80,9 @@ export default id => async (dispatch, getState) => {
         id: parseInt(combination.id, 10),
         idProduct: parseInt(combination.id_product, 10),
         price: parseFloat(combination.price).toFixed(2),
-        productOptionValues: combination.associations.product_option_values,
+        productOptionValues: combination.associations.product_option_values.map(
+          ({ id }) => parseInt(id)
+        ),
         weight: combination.weight,
         quantity: stock.quantity
       };
@@ -114,10 +116,18 @@ export default id => async (dispatch, getState) => {
       }
     });
 
+  const activeCombination =
+    getActiveCombination(
+      localCombinations,
+      localProduct.defaultCombinationId
+    ) || localCombinations[0];
+
   Object.keys(localProductOptions).map(key => {
     localProductOptions[key] = localProductOptions[key].map((item, index) => ({
       ...item,
-      active: index === 0
+      active: !!activeCombination.productOptionValues.find(
+        id => parseInt(id) === parseInt(item.id)
+      )
     }));
   });
 
@@ -139,6 +149,7 @@ export default id => async (dispatch, getState) => {
         "cart_default"
       ),
       combinations: localCombinations,
+      defaultCombination: activeCombination,
       productOptions: localProductOptions,
       description: localProduct.description
     })
@@ -147,3 +158,6 @@ export default id => async (dispatch, getState) => {
 
 const getImageUri = (id, imageId, size) =>
   `${IMAGE_URL}${id}/${imageId}/${size}?${KEY}`;
+
+const getActiveCombination = (combinations, defaultId) =>
+  combinations.find(({ id }) => parseInt(defaultId) === id);

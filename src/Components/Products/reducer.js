@@ -54,7 +54,8 @@ const reduceData = products =>
           description_short,
           price,
           combinations,
-          product_option_values
+          product_option_values,
+          id_default_combination
         }) => ({
           id,
           name,
@@ -64,7 +65,8 @@ const reduceData = products =>
           imageUri: getImageUri(id, id_default_image),
           imageId: id_default_image,
           combinations,
-          productOptionValues: product_option_values
+          productOptionValues: product_option_values,
+          defaultCombinationId: id_default_combination
         })
       );
 

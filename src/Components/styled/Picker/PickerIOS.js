@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { TouchableOpacity, View, Modal, PickerIOS, Dimensions, Platform } from 'react-native';
 import { width } from '../general';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Feather';
 import styled from 'styled-components/native';
 import { Color } from '../../../constants';
 
@@ -127,46 +127,50 @@ const PickerButtonContainer = styled.View`
 `;
 
 export default class IOSPicker extends Component {
-	render = () => (
-		<PickerContainer style={this.props.style}>
-			<TouchableOpacity
-				style={{
-					justifyContent: 'center',
-					alignItems: 'center',
-					textAlign: 'center'
-				}}
-				onPress={() => this.refs.picker.show()}
-			>
-				<PickerButtonContainer>
-					<View
-						style={{
-							flexDirection: 'row',
-							position: 'relative'
-						}}
-					>
-						<IOSPickerText style={this.props.textStyle}>{this.props.currentName}</IOSPickerText>
-						<Icon
-							name="chevron-down"
-							style={
-								this.props.iconStyle
-									? this.props.iconStyle
-									: { position: 'absolute', right: 5, bottom: -1 }
-							}
-							size={Platform.isPad ? 24 : 18}
-							color={Color.secondary}
-						/>
-					</View>
-				</PickerButtonContainer>
-			</TouchableOpacity>
-			{console.log('LABELS', this.props.options.map(({ name }) => name))}
-			{console.log('OPTIONS', this.props.options.map((_, index) => index))}
-			<ApplePicker
-				ref="picker"
-				activeIndex={this.props.activeIndex}
-				labels={this.props.options.map(({ name }) => name)}
-				options={this.props.options.map((_, index) => index)}
-				onSubmit={value => this.props.onSubmit(value)}
-			/>
-		</PickerContainer>
-	);
+	render = () => {
+		const labels = this.props.options.map(({ name }) => name);
+		const options = this.props.useId
+			? this.props.options.map(({ id }) => id)
+			: this.props.options.map((_, index) => index);
+		return (
+			<PickerContainer style={this.props.style}>
+				<TouchableOpacity
+					style={{
+						justifyContent: 'center',
+						alignItems: 'center',
+						textAlign: 'center'
+					}}
+					onPress={() => this.refs.picker.show()}
+				>
+					<PickerButtonContainer>
+						<View
+							style={{
+								flexDirection: 'row',
+								position: 'relative'
+							}}
+						>
+							<IOSPickerText style={this.props.textStyle}>{this.props.currentName}</IOSPickerText>
+							<Icon
+								name="chevron-down"
+								style={
+									this.props.iconStyle
+										? this.props.iconStyle
+										: { position: 'absolute', right: 5, bottom: 1 }
+								}
+								size={Platform.isPad ? 24 : 18}
+								color={Color.secondary}
+							/>
+						</View>
+					</PickerButtonContainer>
+				</TouchableOpacity>
+				<ApplePicker
+					ref="picker"
+					activeIndex={this.props.activeIndex}
+					labels={labels}
+					options={options}
+					onSubmit={value => this.props.onSubmit(value)}
+				/>
+			</PickerContainer>
+		);
+	};
 }

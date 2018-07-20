@@ -11,7 +11,7 @@ export const RootHeaderWrapper = styled.View`
 `;
 
 export const LogoImage = styled.Image`
-  width: ${width * 0.3};
+  width: 95;
   height: 50;
 `;
 export const LeftHeaderButton = styled.View`

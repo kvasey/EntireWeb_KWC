@@ -6014,6 +6014,12 @@ react-native-paper@^1.11.0:
     hoist-non-react-statics "^2.5.0"
     react-lifecycles-compat "^3.0.4"
 
+react-native-parallax-scroll-view@^0.21.3:
+  version "0.21.3"
+  resolved "https://registry.yarnpkg.com/react-native-parallax-scroll-view/-/react-native-parallax-scroll-view-0.21.3.tgz#d956ad224ce3b0a2725b80574bcbf688bbeda14e"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.7.0.tgz#38f5ab9368d6ef9e5d18ab64212938af3ec39421"
@@ -7267,6 +7273,10 @@ time-stamp@^1.0.0:
 timed-out@4.0.1, timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
+
+tipsi-stripe@^5.2.4:
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/tipsi-stripe/-/tipsi-stripe-5.2.4.tgz#bb68509359f0efb36434c332df889d867b19047a"
 
 title-case@^1.1.0:
   version "1.1.2"

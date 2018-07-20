@@ -8,6 +8,7 @@ export const Price = styled.Text`
   padding-vertical: ${margin};
   font-size: 20;
   font-weight: bold;
+  color: ${Color.secondary};
 `;
 export const Name = styled.Text`
   padding-horizontal: 5%;

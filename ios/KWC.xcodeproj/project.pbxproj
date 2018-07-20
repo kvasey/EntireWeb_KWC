@@ -13,9 +13,9 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* KWCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KWCTests.m */; };
 		0D135478D8E346A1B7EB1225 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF2E7498DC1845868FD264B8 /* MaterialCommunityIcons.ttf */; };
+		126BAB5E2101B3950017B309 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
+		126BAB852101B39A0017B309 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		12B9801020FC6A610023466D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B97FE420FC6A610023466D /* Images.xcassets */; };
-		12B980F920FC9C090023466D /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
-		12B980FA20FC9C350023466D /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -56,7 +56,6 @@
 		AAAF49F937E14A978859CBC6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD80A491BC364D6488BA49FD /* Entypo.ttf */; };
 		ADF0ABAF4FE6490BB661549F /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C35A04FD1B274D1E9CBC2CE0 /* JosefinSans-BoldItalic.ttf */; };
 		B60752A75B8607C9D117149B /* libPods-KWC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A469EFDCF14AC591F40C60 /* libPods-KWC.a */; };
-		BB6446509F3B4CFAA926CD71 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D0940983D54F0EB0DBAF10 /* libRCTBEEPickerManager.a */; };
 		BDA59DA62D0685F351F65263 /* libPods-KWCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2D1B33DCA78B84E99E661 /* libPods-KWCTests.a */; };
 		C0BE6C4DF84E4716B587141E /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40BF4D1B9BBF4F9686463DF6 /* JosefinSans-SemiBold.ttf */; };
 		C5A97106CF554E58B797DE7E /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E03FE99D3C534FFA881BE65D /* Zocial.ttf */; };
@@ -479,8 +478,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12B980FA20FC9C350023466D /* libRCTNetwork.a in Frameworks */,
-				12B980F920FC9C090023466D /* libRCTWebSocket.a in Frameworks */,
+				126BAB852101B39A0017B309 /* libRCTNetwork.a in Frameworks */,
+				126BAB5E2101B3950017B309 /* libRCTWebSocket.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -492,7 +491,6 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				D396267A4B8249C1B743CE24 /* libRNVectorIcons.a in Frameworks */,
-				BB6446509F3B4CFAA926CD71 /* libRCTBEEPickerManager.a in Frameworks */,
 				A8FBB5D15420492C97F59298 /* libAppCenterReactNative.a in Frameworks */,
 				6C2E9DCF70484D108C6CB60B /* libAppCenterReactNativeAnalytics.a in Frameworks */,
 				4AFF940E497C4AFE9355425A /* libAppCenterReactNativeCrashes.a in Frameworks */,
@@ -1534,10 +1532,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KWC/Pods-KWC-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AppCenter/AppCenterDistributeResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppCenterDistributeResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

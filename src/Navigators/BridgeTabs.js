@@ -1,17 +1,16 @@
-import { createBottomTabNavigator } from 'react-navigation';
-import Tabs from './Tabs';
-import Home from '../Components/Home';
+import { createBottomTabNavigator } from "react-navigation";
+import Tabs from "./Tabs";
+import Basket from "./BasketStack";
+import InnerHeader from "../Components/styled/Headers/InnerHeader";
 
 export default createBottomTabNavigator(
   {
     Tabs,
-    Basket: {
-      screen: Home,
-    },
+    Basket
   },
   {
-    initialRouteName: 'Tabs',
+    initialRouteName: "Tabs",
     tabBarComponent: () => null,
-    swipeEnabled: false,
-  },
+    swipeEnabled: false
+  }
 );

@@ -13,7 +13,12 @@ const defaultLoginState = {
 export const user = (state = defaultUserState, action) => {
   switch (action.type) {
     case userState.DONE:
-      return action.data;
+      const user = Array.isArray(action.data) ? action.data[0] : action.data;
+      return {
+        id: parseInt(user.id),
+        firstName: user.firstname,
+        lastName: user.lastname
+      };
     case userState.CLEAR:
       return defaultUserState;
     default:

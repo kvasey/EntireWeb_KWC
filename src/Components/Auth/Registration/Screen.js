@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { View } from "react-native";
 import { withFormik } from "formik";
 import {
   TextInput,
@@ -10,8 +9,8 @@ import {
 } from "react-native-paper";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { FormStyle } from "../styled";
-import { SubmitButton, Container, ButtonInnerText } from "../../styled/general";
+import { Container, ButtonInnerText, FormStyle } from "../../styled/general";
+import { SubmitButton } from "../../styled/components";
 import { Color } from "../../../constants";
 
 const LoginForm = ({

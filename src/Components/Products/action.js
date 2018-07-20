@@ -82,7 +82,11 @@ const getFinal = (priceData, data) =>
             parseInt(id) === parseInt(product_features[0].id_feature_value)
         );
         if (price) {
-          return { ...rest, ...restAssociations, price: price.value };
+          return {
+            ...rest,
+            ...restAssociations,
+            price: price.value
+          };
         }
       }
     }

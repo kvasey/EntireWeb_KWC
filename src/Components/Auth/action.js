@@ -1,10 +1,5 @@
 import { hex_md5 } from "react-native-md5";
-import {
-  formatIds,
-  formatProductIds,
-  checkResult,
-  getJsonResult
-} from "../util";
+import { checkResult, setInStore } from "../util";
 import { LOGIN_URL, REGISTER_URL, CKEY } from "../../constants";
 
 export const registrationState = {
@@ -20,11 +15,6 @@ export const userState = {
   CLEAR: "USER_LOGGED_OUT"
 };
 
-const setState = (state, type) => ({
-  type,
-  state
-});
-
 const setDone = data => ({
   type: userState.DONE,
   data
@@ -34,8 +24,23 @@ export const clearData = () => ({
   type: userState.CLEAR
 });
 
+export const openFetcher = async (fetchData, type, dispatch, expect) => {
+  dispatch(setInStore(null, type.ERROR));
+  dispatch(setInStore(true, type.LOADING));
+  try {
+    const result = await fetchData();
+    if (checkResult(result, dispatch, error => setInStore(error, type.ERROR))) {
+      dispatch(setDone(result[expect]));
+      dispatch(setInStore(false, type.LOADING));
+    }
+  } catch (error) {
+    dispatch(setInStore(false, type.LOADING));
+    dispatch(setInStore(error, type.ERROR));
+  }
+};
+
 export const loginUser = ({ email, password }) => dispatch =>
-  fetcher(
+  openFetcher(
     async () => {
       const result = await fetch(
         `${LOGIN_URL}&filter[email]=${email}&filter[passwd]=${hex_md5(
@@ -45,11 +50,12 @@ export const loginUser = ({ email, password }) => dispatch =>
       return result.json();
     },
     loginState,
-    dispatch
+    dispatch,
+    "customers"
   );
 
 export const registerUser = data => dispatch =>
-  fetcher(
+  openFetcher(
     async () => {
       const result = await fetch(REGISTER_URL, {
         method: "POST",
@@ -58,23 +64,9 @@ export const registerUser = data => dispatch =>
       return result.json();
     },
     registrationState,
-    dispatch
+    dispatch,
+    "customer"
   );
-const fetcher = async (fetchData, type, dispatch) => {
-  dispatch(setState(null, type.ERROR));
-  dispatch(setState(true, type.LOADING));
-  try {
-    const result = await fetchData();
-    if (checkResult(result, dispatch, error => setState(error, type.ERROR))) {
-      const { customers, customer } = result;
-      dispatch(setDone(customers || customer, type.ERROR));
-      dispatch(setState(false, type.LOADING));
-    }
-  } catch (error) {
-    dispatch(setState(false, type.LOADING));
-    dispatch(setState(error, type.ERROR));
-  }
-};
 
 const jsonToXML = ({
   firstName,
