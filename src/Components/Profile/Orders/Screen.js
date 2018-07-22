@@ -40,7 +40,7 @@ const renderHeader = ({ id, total_paid, date_add, current_state, payment }) => {
 				<StatusText>{status.name}</StatusText>
 			</StatusContainer>
 			<OuterOrderContainer>
-				<HalfOrderContainer left>
+				<HalfOrderContainer borderRightWidth="1">
 					<PriceText>{`£ ${getPrice(total_paid)}`}</PriceText>
 				</HalfOrderContainer>
 				<HalfOrderContainer>
@@ -70,7 +70,6 @@ const renderContent = (
 	},
 	{ carriers, addresses }
 ) => {
-	const status = getStatus(current_state);
 	const carrier = getById(id_carrier, carriers);
 	const addressInvoice = getById(id_address_invoice, addresses);
 	const addressShipping = getById(id_address_delivery, addresses);

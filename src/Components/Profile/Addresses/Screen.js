@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { FlatList } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
-import { NavigationActions } from "react-navigation";
 import { Button } from "../../styled/general";
 import { StateComponent, SubmitButton } from "../../styled/components";
 import {
@@ -47,7 +46,6 @@ export default ({
       item: { id, alias, address1, address2, city, phone, phone_mobile },
       index
     }) => (
-      <OrderContainer>
         <Button
           onPress={() =>
             rootNavigation.navigate("Address", {
@@ -57,43 +55,56 @@ export default ({
             })
           }
         >
-          <StatusContainer color={Color.secondary}>
-            <StatusText style={{ color: "#FFF" }}>{alias}</StatusText>
-          </StatusContainer>
-          <OuterOrderContainer flexDirection="column">
-            <AddressContainer>
-              <AddressContent>
-                <AddressLine>
-                  <Icon
-                    name="map-pin"
-                    size={15}
-                    style={{ marginRight: 5 }}
-                    color={Color.main}
-                  />
-                  <AddressLineText>{address1}</AddressLineText>
-                </AddressLine>
-                {address2 ? (
+      <OrderContainer>
+          <Fragment>
+            <StatusContainer color={Color.secondary}>
+              <StatusText style={{ color: "#FFF" }}>
+{alias}
+</StatusText>
+            </StatusContainer>
+            <OuterOrderContainer flexDirection="column">
+              <AddressContainer>
+                <AddressContent>
                   <AddressLine>
-                    <AddressLineText>{address2}</AddressLineText>
+                    <Icon
+                      name="map-pin"
+                      size={15}
+                      style={{ marginRight: 5 }}
+                      color={Color.main}
+                    />
+                    <AddressLineText>
+{address1}
+</AddressLineText>
                   </AddressLine>
-                ) : null}
-                <AddressLine style={{ marginLeft: 20 }}>
-                  <AddressLineText>{city}</AddressLineText>
-                </AddressLine>
-                <AddressLine>
-                  <Icon
-                    name="phone"
-                    size={15}
-                    style={{ marginRight: 5 }}
-                    color={Color.main}
-                  />
-                  <AddressLineText>{phone || phone_mobile}</AddressLineText>
-                </AddressLine>
-              </AddressContent>
-            </AddressContainer>
-          </OuterOrderContainer>
-        </Button>
+                  {address2 ? (
+                    <AddressLine>
+                      <AddressLineText>
+{address2}
+</AddressLineText>
+                    </AddressLine>
+                  ) : null}
+                  <AddressLine style={{ marginLeft: 20 }}>
+                    <AddressLineText>
+{city}
+</AddressLineText>
+                  </AddressLine>
+                  <AddressLine>
+                    <Icon
+                      name="phone"
+                      size={15}
+                      style={{ marginRight: 5 }}
+                      color={Color.main}
+                    />
+                    <AddressLineText>
+{phone || phone_mobile}
+</AddressLineText>
+                  </AddressLine>
+                </AddressContent>
+              </AddressContainer>
+            </OuterOrderContainer>
+          </Fragment>
       </OrderContainer>
+        </Button>
     )}
     ListEmptyComponent={() => (
       <StateComponent error={error} loading={loading} />

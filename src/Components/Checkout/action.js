@@ -5,10 +5,26 @@ export const checkoutActions = {
   PRODUCT: "SET_CHECKOUT_PRODUCT_COST",
   CARRIER: "SET_CHECKOUT_CARRIER",
   ADDRESS: "SET_CHECKOUT_ADDRESS",
+  INVOICE: "SET_CHECKOUT_INVOICE",
   DELIVERIES: "SET_CHECKOUT_DELIVERIES",
   LOADING: "CHECKOUT_LOADING",
   ERROR: "CHECKOUT_ERROR"
 };
+
+export const setAddress = index => ({
+  type: checkoutActions.ADDRESS,
+  index
+});
+
+export const setInvoice = index => ({
+  type: checkoutActions.INVOICE,
+  index
+});
+
+export const setCarrier = index => ({
+  type: checkoutActions.CARRIER,
+  index
+});
 
 const setCost = (cost, type) => ({
   type,
@@ -153,8 +169,8 @@ const checkStore = ({
   carriers.data.carriers &&
   weightRanges.data.weight_ranges;
 
-const calculatePrice = (priceSum, { price }, quantity) =>
+export const calculatePrice = (priceSum, { price }, quantity) =>
   (parseFloat(priceSum) + parseFloat(price) * quantity).toFixed(2);
 
-const calculateWeight = (weightSum, { weight }, quantity) =>
+export const calculateWeight = (weightSum, { weight }, quantity) =>
   (parseFloat(weightSum) + parseFloat(weight) * quantity).toFixed(2);

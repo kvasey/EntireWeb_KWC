@@ -89,7 +89,7 @@ export const HalfOrderContainer = styled.View`
   flex-direction: column;
   justify-content: center;
   border-style: solid;
-  border-right-width: ${({ left }) => (left ? "1" : "0")};
+  border-right-width: ${({ borderRightWidth }) => borderRightWidth || "0"};
   border-color: #ddd;
 `;
 
@@ -116,8 +116,8 @@ export const DataText = styled.Text`
 export const StatusContainer = styled.View`
   background-color: ${({ color }) => color || "#FFF"};
   width: 100%;
-  padding-vertical: 5;
   padding-horizontal: 5;
+  padding-vertical: 2;
 `;
 
 export const AddressContainer = styled.View`

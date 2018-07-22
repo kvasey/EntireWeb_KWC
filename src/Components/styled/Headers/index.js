@@ -15,19 +15,19 @@ export const LogoImage = styled.Image`
   height: 50;
 `;
 export const LeftHeaderButton = styled.View`
-  width: 100%;
+  width: 30%;
   justify-content: space-around;
   align-items: center;
   height: 50;
 `;
 export const MiddleHeaderButton = styled.View`
-  width: 100%;
+  width: 40%;
   justify-content: space-around;
   align-items: center;
   height: 50;
 `;
 export const RightHeaderButton = styled.View`
-  width: 100%;
+  width: 30%;
   justify-content: space-around;
   align-items: center;
   height: 50;

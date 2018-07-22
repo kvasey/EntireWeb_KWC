@@ -1,11 +1,9 @@
 import React from "react";
-import { ActivityIndicator } from "react-native";
-import { Button, Name, Price } from "../../styled/general";
+import { Price } from "../../styled/general";
 import { Text } from "../styled";
 import { SubmitButton } from "../../styled/components";
 import { OrderContainer, OuterOrderContainer } from "../../Profile/styled";
 import { getPrice } from "../../util";
-import { Color } from "../../../constants";
 
 export default props => (
   <OrderContainer key="Data" style={{ height: "100%" }}>
@@ -18,28 +16,39 @@ export default props => (
         {props.productCost}
       </Price>
     </OuterOrderContainer>
-    <OuterOrderContainer
-      style={{ justifyContent: "space-between", alignItems: "center" }}
-    >
-      <Text>Shipping Cost:</Text>
-      {checkLoadingPrice(props, getShippingCost)}
-    </OuterOrderContainer>
-    <OuterOrderContainer
-      style={{
-        marginBottom: 10,
-        justifyContent: "space-between",
-        alignItems: "center"
-      }}
-    >
-      <Text>Total Cost:</Text>
-      {checkLoadingPrice(props, getTotalCost)}
-    </OuterOrderContainer>
+    {!checkLoading(props, getShippingCost) && (
+      <OuterOrderContainer
+        style={{ justifyContent: "space-between", alignItems: "center" }}
+      >
+        <Text>Shipping Cost:</Text>
+        <Price>
+          £
+          {getPrice(getShippingCost(props))}
+        </Price>
+      </OuterOrderContainer>
+    )}
+    {!checkLoading(props) && (
+      <OuterOrderContainer
+        style={{
+          marginBottom: 10,
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}
+      >
+        <Text>Total Cost:</Text>
+        <Price>
+          £
+          {getPrice(getTotalCost(props))}
+        </Price>
+      </OuterOrderContainer>
+    )}
     <SubmitButton
       textChildren={props.error || "Checkout"}
       onPress={
         props.error
           ? () => props.navigation.navigate("Auth")
-          : () => console.log("hey")
+          : () =>
+              props.navigation.navigate("AddressSelect", { select: "address" })
       }
     />
   </OrderContainer>
@@ -51,12 +60,4 @@ const getShippingCost = ({ deliveries, deliveryIndex }) =>
 const getTotalCost = ({ productCost, ...rest }) =>
   parseFloat(productCost) + parseFloat(getShippingCost(rest));
 
-const checkLoadingPrice = ({ loading, error, ...rest }, getLocalPrice) =>
-  loading || error ? (
-    <ActivityIndicator size="small" color={Color.secondary} />
-  ) : (
-    <Price>
-      £
-      {getPrice(getLocalPrice(rest))}
-    </Price>
-  );
+const checkLoading = ({ loading, error }) => loading || error;

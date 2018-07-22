@@ -4,7 +4,7 @@
             "outputFile": "/home/paul/Documents/Projects/KWC/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a79268e72eb6ee3a1263c3e39a99e16/res/values-night-v8/values-night-v8.xml",
+                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/cdf01f70f17c4d2bf33adc4ad68daea6/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

@@ -8,6 +8,6 @@ package com.microsoft.appcenter.push;
 
 public final class R {
     public static final class drawable {
-        public static final int ic_stat_notify_dot = 0x7f060053;
+        public static final int ic_stat_notify_dot = 0x7f080099;
     }
 }

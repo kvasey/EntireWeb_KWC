@@ -1,10 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { ScrollView } from "react-native";
 import stripe from "tipsi-stripe";
 import { renderHeader, AccordionContent } from "./item";
-import { Button, Name, Price } from "../styled/general";
-import { Text } from "./styled";
-import { SubmitButton, Accordion, EmptyComponent } from "../styled/components";
-import { OrderContainer, OuterOrderContainer } from "../Profile/styled";
+import { Accordion, EmptyComponent } from "../styled/components";
 import Footer from "./Footer";
 
 const renderContent = (item, index, setBasketItem, removeBasketItem) => (
@@ -16,17 +14,9 @@ const renderContent = (item, index, setBasketItem, removeBasketItem) => (
   />
 );
 
-export default ({
-  basket,
-  setBasketItem,
-  removeBasketItem,
-  shippingCost,
-  productCost,
-  totalCost,
-  navigation
-}) =>
+export default ({ basket, setBasketItem, removeBasketItem, navigation }) =>
   basket.length > 0 ? (
-    [
+    <ScrollView>
       <Accordion
         key="Accordion"
         sections={basket}
@@ -34,9 +24,9 @@ export default ({
         renderContent={(item, index) =>
           renderContent(item, index, setBasketItem, removeBasketItem)
         }
-      />,
+      />
       <Footer key="Footer" products={basket} navigation={navigation} />
-    ]
+    </ScrollView>
   ) : (
     <EmptyComponent text="Add Some Products" />
   );

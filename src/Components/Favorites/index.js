@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import FavoritesScreen from './Screen';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import CheckoutScreen from "./Screen";
+import { connect } from "react-redux";
 
 class Container extends Component {
-	render = () => <FavoritesScreen {...this.props} />;
+  render = () => <CheckoutScreen {...this.props} />;
 }
 
 const mapStateToProps = ({ favorites }) => ({ favorites });
 export default connect(
-	mapStateToProps,
-	null
+  mapStateToProps,
+  null
 )(Container);

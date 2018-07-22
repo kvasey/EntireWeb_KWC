@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import { View } from "react-native";
 import { connect } from "react-redux";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 import { Button } from "react-native-paper";
 import { clearData } from "../Auth/action";
 import { clearAddresses } from "./action";
 import { StateComponent } from "../styled/components";
-import { Container, height } from "../styled/general";
+import { height } from "../styled/general";
 import ProfileTabs from "../../Navigators/ProfileTabs";
-import { Color } from "../../constants";
 import {
   RenderContainer,
   BackgroundImage,
@@ -18,18 +18,25 @@ import {
   InitialsText
 } from "./styled";
 
-const Profile = ({
-  loading,
-  error,
-  user,
-  logout,
-  clearAddresses,
-  navigation
-}) =>
-  loading || error || !user ? (
-    <StateComponent loading={loading || !user} error={error} />
-  ) : (
-    <Container>
+class Profile extends Component {
+  state = {
+    height: 1000
+  };
+
+  setHeight = newHeight => this.setState({ height: newHeight });
+
+  render = () => {
+    const {
+      loading,
+      error,
+      user,
+      logout,
+      clearAddresses,
+      navigation
+    } = this.props;
+    return loading || error || !user ? (
+      <StateComponent loading={loading || !user} error={error} />
+    ) : (
       <ParallaxScrollView
         style={{ flex: 1, overflow: "hidden" }}
         backgroundSpeed={1}
@@ -73,10 +80,19 @@ const Profile = ({
         )}
         parallaxHeaderHeight={height / headerHeightProportion}
       >
-        <ProfileTabs screenProps={{ rootNavigation: navigation }} />
+        <View style={{ height: this.state.height }}>
+          <ProfileTabs
+            screenProps={{
+              rootNavigation: navigation,
+              setHeight: this.setHeight,
+              currentHeight: this.state.height
+            }}
+          />
+        </View>
       </ParallaxScrollView>
-    </Container>
-  );
+    );
+  };
+}
 
 const mapStateToProps = ({ user, login, registration }) => ({
   user,

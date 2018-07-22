@@ -4,7 +4,7 @@
             "outputFile": "/home/paul/Documents/Projects/KWC/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/3a79268e72eb6ee3a1263c3e39a99e16/res/values-port/values-port.xml",
+                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/cdf01f70f17c4d2bf33adc4ad68daea6/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

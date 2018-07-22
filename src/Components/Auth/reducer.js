@@ -17,7 +17,8 @@ export const user = (state = defaultUserState, action) => {
       return {
         id: parseInt(user.id),
         firstName: user.firstname,
-        lastName: user.lastname
+        lastName: user.lastname,
+        secureKey: user.secure_key
       };
     case userState.CLEAR:
       return defaultUserState;

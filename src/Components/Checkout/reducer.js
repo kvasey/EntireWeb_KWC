@@ -4,6 +4,7 @@ const defaultState = {
   productCost: 0,
   deliveryIndex: 0,
   addressIndex: 0,
+  invoiceIndex: 0,
   deliveries: [],
   loading: true,
   error: null
@@ -12,6 +13,21 @@ const defaultState = {
 export default (state = defaultState, action) => {
   const newState = state;
   switch (action.type) {
+    case checkoutActions.ADDRESS:
+      return {
+        ...state,
+        addressIndex: action.index
+      };
+    case checkoutActions.INVOICE:
+      return {
+        ...state,
+        invoiceIndex: action.index
+      };
+    case checkoutActions.CARRIER:
+      return {
+        ...state,
+        deliveryIndex: action.index
+      };
     case checkoutActions.PRODUCT:
       return {
         ...state,

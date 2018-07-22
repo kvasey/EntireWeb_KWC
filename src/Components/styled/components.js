@@ -1,5 +1,5 @@
 import React from "react";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator,TouchableOpacity } from "react-native";
 import CollapsibleAccordion from "react-native-collapsible/Accordion";
 import {
   Button,
@@ -36,6 +36,6 @@ export const EmptyComponent = ({ text }) => (
 
 export const Accordion = props => (
   <AccordionContainer>
-    <CollapsibleAccordion {...props} touchableComponent={Button} />
+    <CollapsibleAccordion {...props} touchableComponent={TouchableOpacity} />
   </AccordionContainer>
 );
