@@ -1,4 +1,6 @@
 import { checkoutActions } from "./action";
+import { orderActions } from "./orderActions";
+import { stripeActions, updateOrderActions } from "./stripeActions";
 
 const defaultState = {
   productCost: 0,
@@ -6,6 +8,22 @@ const defaultState = {
   addressIndex: 0,
   invoiceIndex: 0,
   deliveries: [],
+  order: {
+    order: null,
+    cart: null,
+    loading: true,
+    error: null
+  },
+  stripe: {
+    data: null,
+    loading: true,
+    error: null
+  },
+  orderUpdate: {
+    data: null,
+    loading: true,
+    error: null
+  },
   loading: true,
   error: null
 };
@@ -47,6 +65,56 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         error: action.state
+      };
+    case orderActions.CART_DONE:
+      return {
+        ...state,
+        order: { ...state.order, cart: action.data }
+      };
+    case orderActions.ORDER_DONE:
+      return {
+        ...state,
+        order: { ...state.order, order: action.data }
+      };
+    case orderActions.ERROR:
+      return {
+        ...state,
+        order: { ...state.order, error: action.state }
+      };
+    case orderActions.LOADING:
+      return {
+        ...state,
+        order: { ...state.order, loading: action.state }
+      };
+    case stripeActions.DONE:
+      return {
+        ...state,
+        stripe: { ...state.stripe, data: action.data }
+      };
+    case stripeActions.ERROR:
+      return {
+        ...state,
+        stripe: { ...state.stripe, error: action.state }
+      };
+    case stripeActions.LOADING:
+      return {
+        ...state,
+        stripe: { ...state.stripe, loading: action.state }
+      };
+    case updateOrderActions.DONE:
+      return {
+        ...state,
+        orderUpdate: { ...state.orderUpdate, data: action.data }
+      };
+    case updateOrderActions.ERROR:
+      return {
+        ...state,
+        orderUpdate: { ...state.orderUpdate, error: action.state }
+      };
+    case updateOrderActions.LOADING:
+      return {
+        ...state,
+        orderUpdate: { ...state.orderUpdate, loading: action.state }
       };
     default:
       return state;

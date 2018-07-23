@@ -74,3 +74,17 @@ export const Text = styled.Text`
   padding-horizontal: 5%;
   /* padding-vertical: 2.5%; */
 `;
+
+export const SummaryText = styled.Text`
+  width: 100%;
+  font-size: 22;
+  padding-horizontal: 15;
+  padding-vertical: 5;
+  color: ${Color.secondary};
+  text-align: center;
+`;
+
+export const MiniCardContainer = styled.View`
+  flex-direction: row;
+  justify-content: flex-end;
+`;

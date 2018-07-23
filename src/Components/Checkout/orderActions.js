@@ -39,6 +39,8 @@ export const openFetcher = async (fetchData, setDone, dispatch, expect) => {
 };
 
 export const createOrder = () => async (dispatch, getState) => {
+  dispatch(setInStore(null, orderActions.ERROR));
+  dispatch(setInStore(true, orderActions.LOADING));
   const {
     addresses: {
       data: { addresses }
@@ -61,20 +63,18 @@ export const createOrder = () => async (dispatch, getState) => {
     basket
   });
 
-  dispatch(setInStore(null, orderActions.ERROR));
-  dispatch(setInStore(true, orderActions.LOADING));
   try {
     let result = await fetch(CART_CREATE_URL, {
       method: "POST",
       body
     });
     const cartResult = await result.json();
-    console.log(cartResult);
     if (
       checkResult(result, dispatch, error =>
         setInStore(error, orderActions.ERROR)
       )
     ) {
+      dispatch(setCartDone(cartResult.cart));
       body = jsonToOrderXML({
         invoiceId: invoice.id,
         addressId: address.id,
@@ -91,13 +91,13 @@ export const createOrder = () => async (dispatch, getState) => {
         shippingPrice: carrier.price,
         basket
       });
-      console.log(body);
       result = await fetch(ORDER_CREATE_URL, {
         method: "POST",
         body
       });
       const orderResult = await result.json();
-      console.log(orderResult);
+      dispatch(setOrderDone(orderResult.order));
+      dispatch(setInStore(false, orderActions.LOADING));
     }
   } catch (error) {
     dispatch(setInStore(false, orderActions.LOADING));
@@ -161,7 +161,8 @@ const jsonToOrderXML = ({
   totalPrice,
   totalWeight,
   shippingPrice,
-  basket
+  basket,
+  customerSecureKey
 }) => `
 <prestashop>
   <order>
@@ -176,7 +177,7 @@ const jsonToOrderXML = ({
     <module>worldpay</module>
     <id_shop_group>1</id_shop_group>
     <id_shop>1</id_shop>
-    <secure_key>1</secure_key>
+    <secure_key>${customerSecureKey}</secure_key>
     <payment>Stripe</payment>
     <total_paid>${parseFloat(totalPrice) +
       parseFloat(shippingPrice)}</total_paid>

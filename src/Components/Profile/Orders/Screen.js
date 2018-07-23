@@ -32,12 +32,12 @@ export default ({ data: { orders = [] }, error, loading, carriers: { carriers },
 		/>
 	);
 
-const renderHeader = ({ id, total_paid, date_add, current_state, payment }) => {
+export const renderHeader = ({ id, total_paid, date_add, current_state, payment },style) => {
 	const status = getStatus(current_state);
 	return (
-		<OrderContainer>
-			<StatusContainer color={status.color}>
-				<StatusText>{status.name}</StatusText>
+		<OrderContainer style={style}>
+			<StatusContainer color={ status ? status.color : Color.secondary}>
+				<StatusText>{status ? status.name: ""}</StatusText>
 			</StatusContainer>
 			<OuterOrderContainer>
 				<HalfOrderContainer borderRightWidth="1">
@@ -45,7 +45,7 @@ const renderHeader = ({ id, total_paid, date_add, current_state, payment }) => {
 				</HalfOrderContainer>
 				<HalfOrderContainer>
 					<DataText>{`#${id}`}</DataText>
-					<DataText>{`${getDate(date_add)}`}</DataText>
+					<DataText>{`${getDate(date_add || new Date())}`}</DataText>
 				</HalfOrderContainer>
 			</OuterOrderContainer>
 			<StatusContainer>
@@ -82,7 +82,7 @@ const renderContent = (
 	);
 };
 
-const renderAddresses = (addressInvoice, addressShipping) =>
+export const renderAddresses = (addressInvoice, addressShipping) =>
 	addressShipping || addressInvoice ? (
 		<Fragment>
 			<StatusContainer color="#EEE">
@@ -95,7 +95,7 @@ const renderAddresses = (addressInvoice, addressShipping) =>
 		</Fragment>
 	) : null;
 
-const renderAddress = (address, title, line) =>
+export const renderAddress = (address, title, line) =>
 	address && (
 		<AddressContainer line={line}>
 			<AddressTitle>{title}</AddressTitle>
@@ -120,7 +120,7 @@ const renderAddress = (address, title, line) =>
 		</AddressContainer>
 	);
 
-const renderCarrier = (carrier, shippingPrice) =>
+export const renderCarrier = (carrier, shippingPrice) =>
 	carrier ? (
 		<Fragment>
 			<StatusContainer color="#EEE">
@@ -139,7 +139,7 @@ const renderCarrier = (carrier, shippingPrice) =>
 		</Fragment>
 	) : null;
 
-const renderProducts = products => (
+export const renderProducts = products => (
 	<Fragment>
 		<StatusContainer color="#EEE">
 			<StatusText>Products</StatusText>
@@ -147,7 +147,7 @@ const renderProducts = products => (
 		<OuterOrderContainer flexDirection="column">
 			{products.map(({ product_name, product_reference, product_price, product_quantity }, index) => (
 				<AddressContainer key={product_reference + 1} line={products.length - 1 !== index}>
-					<AddressTitle key={product_reference + 2} style={{ fontSize: 18, fontWeight: '400' }}>
+					<AddressTitle key={product_reference + 2} style={{ fontSize: 18, fontWeight: '400' }} numberOfLines={2}>
 						{product_name}
 					</AddressTitle>
 					<AddressContent key={product_reference + 3}>

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Icon from "react-native-vector-icons/Feather";
 import { setAddress, setInvoice } from "../action";
 import { Button } from "../../styled/general";
+import { SummaryText } from "../styled";
 import {
   StatusText,
   StatusContainer,
@@ -26,11 +27,11 @@ const Container = ({
   setInvoice
 }) => (
   <Fragment>
-    <StatusText style={{ color: "#FFF" }}>
+    <SummaryText>
       {params.select === "invoice"
         ? "Select Your Invoice Address"
         : "Select Your Delivery Address"}
-    </StatusText>
+    </SummaryText>
     <FlatList
       data={addresses}
       keyExtractor={({ id }, index) => id + index}
@@ -52,9 +53,7 @@ const Container = ({
           <OrderContainer>
             <Fragment>
               <StatusContainer color={Color.secondary}>
-                <StatusText style={{ color: "#FFF" }}>
-{alias}
-</StatusText>
+                <StatusText style={{ color: "#FFF" }}>{alias}</StatusText>
               </StatusContainer>
               <OuterOrderContainer flexDirection="column">
                 <AddressContainer>
@@ -66,21 +65,15 @@ const Container = ({
                         style={{ marginRight: 5 }}
                         color={Color.main}
                       />
-                      <AddressLineText>
-{address1}
-</AddressLineText>
+                      <AddressLineText>{address1}</AddressLineText>
                     </AddressLine>
                     {address2 ? (
                       <AddressLine>
-                        <AddressLineText>
-{address2}
-</AddressLineText>
+                        <AddressLineText>{address2}</AddressLineText>
                       </AddressLine>
                     ) : null}
                     <AddressLine style={{ marginLeft: 20 }}>
-                      <AddressLineText>
-{city}
-</AddressLineText>
+                      <AddressLineText>{city}</AddressLineText>
                     </AddressLine>
                     <AddressLine>
                       <Icon
@@ -89,9 +82,7 @@ const Container = ({
                         style={{ marginRight: 5 }}
                         color={Color.main}
                       />
-                      <AddressLineText>
-{phone || phone_mobile}
-</AddressLineText>
+                      <AddressLineText>{phone || phone_mobile}</AddressLineText>
                     </AddressLine>
                   </AddressContent>
                 </AddressContainer>
