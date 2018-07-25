@@ -37,7 +37,7 @@ export const updateOrder = () => (dispatch, getState) => {
     },
     updateOrderActions,
     dispatch,
-    "order"
+    "order_history"
   );
 };
 

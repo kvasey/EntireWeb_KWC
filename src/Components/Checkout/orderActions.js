@@ -1,6 +1,7 @@
 import { setInStore, checkResult } from "../util";
 import { CART_CREATE_URL, ORDER_CREATE_URL } from "../../constants";
 import { calculateWeight } from "./action";
+import { updateOrder } from "./stripeActions";
 
 export const orderActions = {
   LOADING: "ORDER/CART_LOADING",
@@ -98,6 +99,7 @@ export const createOrder = () => async (dispatch, getState) => {
       const orderResult = await result.json();
       dispatch(setOrderDone(orderResult.order));
       dispatch(setInStore(false, orderActions.LOADING));
+      dispatch(updateOrder());
     }
   } catch (error) {
     dispatch(setInStore(false, orderActions.LOADING));

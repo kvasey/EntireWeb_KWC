@@ -12,7 +12,7 @@ import { combinationActivator, productOptionsActivator, renderPickers } from '..
 
 export default class extends Component {
 	state = {
-		uri: '',
+		uri: null,
 		productOptions: {},
 		combination: null,
 		isSnackVisible: false,
@@ -42,7 +42,7 @@ export default class extends Component {
 
 	isProductInCart = () =>
 		!!this.props.basket.find(
-			({ id, defaultCombination }) => this.props.id === id && defaultCombination === this.props.defaultCombination
+			({ id, combination }) => this.props.id === id && combination === this.props.defaultCombination
 		);
 
 	isProductFavorite = () => !!this.props.favorites.find(({ id }) => this.props.id === id);
@@ -91,52 +91,62 @@ export default class extends Component {
 		this.props.id !== nextProps.id;
 
 	render = () => {
-		if (this.props.id) {
-			const combination = this.getCombination();
-			const { uri } = this.state;
-			return (
-				<ScrollView style={{ height: '100%', width: '100%', backgroundColor: '#FFF' }}>
-					<Transition shared={`${this.props.id}`} appear="scale">
-						<Image
-							fadeDuration={0}
-							source={{ uri }}
-							onLoad={() => this.setState({ uri: this.props.uri })}
-							resizeMode="contain"
-							style={{
-								width: '100%',
-								height: height * 0.3
-							}}
-						/>
-					</Transition>
-					<Line />
-					<Name>{this.props.name}</Name>
-					<Reference>#{this.props.reference}</Reference>
-					<Container flexDirection="row" style={{ marginHorizontal: '2.5%', paddingBottom: '2%' }}>
-						<Container flex={0.5} alignItems="baseline">
-							<Price>£{getPrice(combination.price)}</Price>
-						</Container>
-						<Container
-							flex={0.5}
-							alignItems="flex-end"
-							style={{ marginHorizontal: '2.5%', paddingBottom: '2%' }}
-						>
-							{renderFavoriteButton(this.submitFavorite, this.showSnackBar, this.isProductFavorite())}
-						</Container>
-					</Container>
-					<PickerContainer>{renderPickers(this.getProductOptions(), this.updateState)}</PickerContainer>
-					{renderSubmitButton(combination, this.onSubmit, this.showSnackBar, this.isProductInCart)}
+		const oldUri = this.props.navigation.state.params.imageUri;
+		const combination = this.getCombination();
+		return (
+			<ScrollView style={{ height: '100%', width: '100%', backgroundColor: '#FFF' }}>
+				<Transition shared={`${oldUri}`} appear="scale">
+					<Image
+						fadeDuration={0}
+						source={{ uri: this.state.uri || oldUri }}
+						onLoad={() => this.setState({ uri: this.props.uri })}
+						resizeMode="contain"
+						style={{
+							width: '100%',
+							height: height * 0.3
+						}}
+					/>
+				</Transition>
+				<Line />
+				{this.props.id
+					? renderContent(
+							this.props,
+							combination,
+							() =>
+								renderFavoriteButton(this.submitFavorite, this.showSnackBar, this.isProductFavorite()),
+							() => renderPickers(this.getProductOptions(), this.updateState),
+							() =>
+								renderSubmitButton(combination, this.onSubmit, this.showSnackBar, this.isProductInCart)
+					  )
+					: null}
 
-					<View style={{ marginHorizontal: '5%', paddingBottom: '2.5%' }}>
-						<HTMLView value={this.props.description} />
-					</View>
-					<Snackbar visible={this.state.isSnackVisible} onDismiss={() => {}}>
-						{this.state.snackBarText}
-					</Snackbar>
-				</ScrollView>
-			);
-		} else return null;
+				<Snackbar visible={this.state.isSnackVisible} onDismiss={() => {}}>
+					{this.state.snackBarText}
+				</Snackbar>
+			</ScrollView>
+		);
 	};
 }
+
+const renderContent = ({ name, reference, description }, combination, favoriteButton, pickers, submitButton) => (
+	<Fragment>
+		<Name>{name}</Name>
+		<Reference>#{reference}</Reference>
+		<Container flexDirection="row" style={{ marginHorizontal: '2.5%', paddingBottom: '2%' }}>
+			<Container flex={0.5} alignItems="baseline">
+				<Price>£{getPrice(combination.price)}</Price>
+			</Container>
+			<Container flex={0.5} alignItems="flex-end" style={{ marginHorizontal: '2.5%', paddingBottom: '2%' }}>
+				{favoriteButton()}
+			</Container>
+		</Container>
+		<PickerContainer>{pickers()}</PickerContainer>
+		{submitButton()}
+		<View style={{ marginHorizontal: '5%', paddingBottom: '2.5%' }}>
+			<HTMLView value={description} />
+		</View>
+	</Fragment>
+);
 
 const renderFavoriteButton = (submitFavorite, showSnackBar, isFavorite) => {
 	const snackText = isFavorite ? 'Item Removed From Favorites' : 'Added To Favorites';

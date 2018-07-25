@@ -55,7 +55,8 @@ const reduceData = products =>
           price,
           combinations,
           product_option_values,
-          id_default_combination
+          id_default_combination,
+          associations
         }) => ({
           id,
           name,
@@ -64,8 +65,9 @@ const reduceData = products =>
           price: parseFloat(price),
           imageUri: getImageUri(id, id_default_image),
           imageId: id_default_image,
-          combinations,
-          productOptionValues: product_option_values,
+          combinations: combinations || associations.combinations,
+          productOptionValues:
+            product_option_values || associations.product_option_values,
           defaultCombinationId: id_default_combination
         })
       );

@@ -56,7 +56,7 @@ export const PRODUCT_OPTIONS_URL = `${BASE_URL}product_options?${OUTPUT}&display
 
 export const PRODUCT_OPTION_VALUES_URL = `${BASE_URL}product_option_values?${OUTPUT}&display=full&${KEY}`;
 
-export const PRODUCT_SEARCH_URL = `${BASE_URL}products?${OUTPUT}&display=full&${KEY}&filter[active]=1&filter[name]=`;
+export const PRODUCT_SEARCH_URL = `${BASE_URL}search?${OUTPUT}&display=full&${KEY}&filter[active]=1&language=1&query=`;
 
 export const DELIVERIES_URL = `${BASE_URL}deliveries?${OUTPUT}&display=full&${KEY}`;
 

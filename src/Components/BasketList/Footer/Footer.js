@@ -1,4 +1,5 @@
 import React from "react";
+import { Platform } from "react-native";
 import { Price } from "../../styled/general";
 import { Text } from "../styled";
 import { SubmitButton } from "../../styled/components";
@@ -11,7 +12,7 @@ export default props => (
       style={{ justifyContent: "space-between", alignItems: "center" }}
     >
       <Text>Product Cost:</Text>
-      <Price style={{ fontSize: 18 }}>
+      <Price style={{ fontSize: Platform.isPad ? 24 : 18 }}>
         £
         {props.productCost}
       </Price>
@@ -21,7 +22,7 @@ export default props => (
         style={{ justifyContent: "space-between", alignItems: "center" }}
       >
         <Text>Shipping Cost:</Text>
-        <Price>
+        <Price style={{ fontSize: Platform.isPad ? 22 : 16 }}>
           £
           {getPrice(getShippingCost(props))}
         </Price>
@@ -36,7 +37,7 @@ export default props => (
         }}
       >
         <Text>Total Cost:</Text>
-        <Price>
+        <Price style={{ fontSize: Platform.isPad ? 22 : 16 }}>
           £
           {getPrice(getTotalCost(props))}
         </Price>

@@ -14,7 +14,7 @@ export const Button =
   Platform.OS === "android" ? TouchableAndroid : TouchableIOS;
 
 export const ButtonInner = styled.View`
-  height: 55;
+  height: ${Platform.isPad ? 80 : 50};
   border-radius: 5;
   background-color: ${Color.secondary};
   align-items: center;
@@ -22,7 +22,7 @@ export const ButtonInner = styled.View`
 `;
 
 export const ButtonInnerText = styled.Text`
-  font-size: 22;
+  font-size: ${Platform.isPad ? 26 : 22};
   text-align: center;
   font-weight: 300;
   color: #fff;
@@ -41,7 +41,7 @@ export const StateContainer = styled.View`
 
 export const StateText = styled.Text`
   color: ${Color.main};
-  font-size: 18;
+  font-size: ${Platform.isPad ? 26 : 20};
   padding: 5%;
 `;
 

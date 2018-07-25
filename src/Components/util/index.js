@@ -68,6 +68,8 @@ export const fetcher = async (type, URL, dispatch) => {
     const result = await getJsonResult(URL);
     if (checkResult(result, dispatch)) {
       dispatch(setDone(result, type.DONE));
+      dispatch(setInStore(false, type.LOADING));
+      return result;
     }
   } catch (error) {
     dispatch(setInStore(error, type.ERROR));
@@ -83,6 +85,7 @@ export const openFetcher = async (fetchData, type, dispatch, expect) => {
     if (checkResult(result, dispatch, error => setInStore(error, type.ERROR))) {
       dispatch(setDone(result[expect], type.DONE));
       dispatch(setInStore(false, type.LOADING));
+      return result;
     }
   } catch (error) {
     dispatch(setInStore(false, type.LOADING));

@@ -15,6 +15,7 @@ export const addressesState = {
   LOADING: "ADDRESSES_LOADING",
   ERROR: "ADDRESSES_ERROR",
   DONE: "ADDRESSES_DONE",
+  UPDATE: "ADDRESSES_UPDATE",
   CLEAR: "ADDRESSES_CLEAR"
 };
 
@@ -28,14 +29,19 @@ export const clearAddresses = () => ({
   type: addressesState.CLEAR
 });
 
+const updateAddress = data => ({
+  type: addressesState.UPDATE,
+  data
+});
+
 export const getAddresses = id => dispatch =>
   fetcher(addressesState, ADDRESSES_URL + id, dispatch);
 
 export const getOrders = id => dispatch =>
   fetcher(orderState, CUSTOMER_ORDERS_URL + id, dispatch);
 
-export const createAddress = data => dispatch =>
-  openFetcher(
+export const createUpdateAddress = data => async dispatch => {
+  const address = await openFetcher(
     async () => {
       const result = await fetch(CREATE_ADDRESS_URL, {
         method: data.update ? "PUT" : "POST",
@@ -47,6 +53,8 @@ export const createAddress = data => dispatch =>
     dispatch,
     "address"
   );
+  dispatch(updateAddress(address));
+};
 
 const jsonToXML = address => {
   const newCountry = address.countries[address.countryIndex];

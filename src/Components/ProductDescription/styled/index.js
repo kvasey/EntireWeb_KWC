@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Platform } from "react-native";
 import { Color } from "../../../constants";
 
 const margin = "2.5%";
@@ -6,19 +7,20 @@ const margin = "2.5%";
 export const Price = styled.Text`
   padding-horizontal: 5%;
   padding-vertical: ${margin};
-  font-size: 20;
+  font-size: ${Platform.isPad ? 24 : 20};
   font-weight: bold;
   color: ${Color.secondary};
 `;
 export const Name = styled.Text`
   padding-horizontal: 5%;
-  font-size: 22;
+  font-size: ${Platform.isPad ? 26 : 22};
 `;
 
 export const Reference = styled.Text`
   padding-horizontal: 5%;
   color: ${Color.main};
   font-size: 16;
+  font-size: ${Platform.isPad ? 20 : 16};
 `;
 
 export const Line = styled.View`

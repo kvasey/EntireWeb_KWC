@@ -30,8 +30,7 @@ export default class extends PureComponent {
 	handleCompleteChange = complete => this.setState({ complete });
 
 	handleApplePayPress = async () => {
-		console.log(this.props);
-		const { order, user, invoice, carrier, payStripe, basket, navigation } = this.props;
+		const { productCost, user, invoice, carrier, payStripe, basket, navigation } = this.props;
 		try {
 			this.setState({
 				loading: true,
@@ -44,8 +43,6 @@ export default class extends PureComponent {
 				amount: `${combination.price * quantity}`
 			}));
 			const shippingCost = (parseFloat(carrier.price) + parseFloat(carrier.price) * 0.2).toFixed(2);
-
-			console.log(carrier);
 
 			const options = {
 				currencyCode: CURRENCY,
@@ -68,7 +65,7 @@ export default class extends PureComponent {
 			if (token) {
 				payStripe({
 					currency: CURRENCY,
-					amount: ((parseFloat(order.total_products) + parseFloat(shippingCost)) * 100).toFixed(0),
+					amount: ((parseFloat(productCost) + parseFloat(shippingCost)) * 100).toFixed(0),
 					description: `${user.id}aPAY`,
 					token: token.tokenId
 				});

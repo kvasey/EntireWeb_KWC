@@ -11,21 +11,24 @@ import {
 import { Button, StateComponent } from "../styled/general";
 
 const renderItem = (
-  { item: { id, image, name, childCount }, index },
+  { item: { id, image, name, childCount, products }, index },
   navigate,
   dataLength
 ) => (
-  <Button onPress={() => checkNavigate(childCount, id, navigate)} useForeground>
+  <Button
+    onPress={() => checkNavigate(childCount, { id, products }, navigate)}
+    useForeground
+  >
     <ItemWrapper isLast={index === dataLength - 1}>
       {renderButton(image, name)}
     </ItemWrapper>
   </Button>
 );
 
-const checkNavigate = (childCount, id, navigate) =>
+const checkNavigate = (childCount, { id, products }, navigate) =>
   childCount > 0
     ? navigate("ChildCategories", { filterId: id })
-    : navigate("Products", { categoryId: id });
+    : navigate("Products", { categoryId: products });
 
 const renderButton = (image, name) =>
   image ? (

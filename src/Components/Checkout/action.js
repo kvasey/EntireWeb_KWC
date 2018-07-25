@@ -31,7 +31,7 @@ const setCost = (cost, type) => ({
   cost
 });
 
-const setDeliveries = data => ({
+export const setDeliveries = data => ({
   type: checkoutActions.DELIVERIES,
   data
 });
@@ -45,7 +45,8 @@ export const setProductCost = products => dispatch => {
   dispatch(setCost(price, checkoutActions.PRODUCT));
 };
 
-export const setupCarriers = products => (dispatch, getState) => {
+export const setupCarriers = data => (dispatch, getState) => {
+  const products = data || getState().basket;
   dispatch(setInStore(true, checkoutActions.LOADING));
   dispatch(setInStore(false, checkoutActions.ERROR));
   const store = getState();

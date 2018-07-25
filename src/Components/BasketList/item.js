@@ -9,7 +9,7 @@ import {
 	DualContent,
 	HeaderQuantity
 } from './styled';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { Button, Text, Price, Quantity, Name, PickerContainer } from '../styled/general';
 import { Color } from '../../constants';
 import { productOptionsActivator, combinationActivator, renderPickers } from '../ProductDescription';
@@ -39,6 +39,7 @@ export const renderHeader = ({ name, uri, combination: { price }, quantity }) =>
 	</HeaderWrapper>
 );
 
+const contentHeight = Platform.isPad ? { height: 80 } : {};
 export class AccordionContent extends Component {
 	state = {
 		snackBarText: '',
@@ -85,9 +86,11 @@ export class AccordionContent extends Component {
 
 	render = () => (
 		<ContentWrapper>
-			<PickerContainer>{renderPickers(this.props.productOptions, this.updateState)}</PickerContainer>
+			<PickerContainer style={contentHeight}>
+				{renderPickers(this.props.productOptions, this.updateState)}
+			</PickerContainer>
 
-			<DualContent>
+			<DualContent style={contentHeight}>
 				<RemoveContainer>
 					<Button
 						onPress={() => this.props.removeBasketItem(this.props.index)}
@@ -99,7 +102,7 @@ export class AccordionContent extends Component {
 							flexDirection: 'row'
 						}}
 					>
-						<Text style={{ fontSize: 16, fontWeight: '300' }}>Remove</Text>
+						<Text style={{ fontSize: Platform.isPad ? 26 : 16, fontWeight: '300' }}>Remove</Text>
 					</Button>
 				</RemoveContainer>
 
@@ -107,52 +110,54 @@ export class AccordionContent extends Component {
 					<Button
 						onPress={() => this.setQuantity('-')}
 						style={{
-							height: '100%',
-							width: '30%',
-							justifyContent: 'center',
-							alignItem: 'center',
-							backgroundColor: Color.secondary
+							flex: 0.3
 						}}
 					>
-						<Text
+						<View
 							style={{
-								backgroundColor: Color.secondary,
 								height: '100%',
-								width: Platform.OS === 'android' ? '30%' : '100%',
-								textAlign: 'center',
-								fontSize: 26,
-								fontWeight: '300',
-								color: '#FFF'
+								width: '100%',
+								justifyContent: 'center',
+								backgroundColor: Color.secondary,
+								alignItem: 'center'
 							}}
 						>
-							-
-						</Text>
+							<Text
+								style={{
+									textAlign: 'center',
+									fontSize: Platform.isPad ? 36 : 26,
+									fontWeight: '300',
+									color: '#FFF'
+								}}
+							>
+								-
+							</Text>
+						</View>
 					</Button>
 
 					<Quantity>{this.props.quantity}</Quantity>
 
-					<Button
-						onPress={() => this.setQuantity('+')}
-						style={{
-							height: '100%',
-							width: '30%',
-							justifyContent: 'center',
-							alignItem: 'center'
-						}}
-					>
-						<Text
+					<Button onPress={() => this.setQuantity('+')} style={{ flex: 0.3 }}>
+						<View
 							style={{
-								backgroundColor: Color.secondary,
 								height: '100%',
-								width: Platform.OS === 'android' ? '30%' : '100%',
-								textAlign: 'center',
-								fontSize: 26,
-								fontWeight: '300',
-								color: '#FFF'
+								width: '100%',
+								justifyContent: 'center',
+								backgroundColor: Color.secondary,
+								alignItem: 'center'
 							}}
 						>
-							+
-						</Text>
+							<Text
+								style={{
+									textAlign: 'center',
+									fontSize: Platform.isPad ? 36 : 26,
+									fontWeight: '300',
+									color: '#FFF'
+								}}
+							>
+								+
+							</Text>
+						</View>
 					</Button>
 				</QuantityContainer>
 			</DualContent>

@@ -1,5 +1,5 @@
-import React from 'react';
-import HomeScreen from './Screen';
-import ads from '../../Data/advertisements';
+import React from "react";
+import HomeScreen from "./Screen";
+import ads from "../../Data/advertisements";
 
-export default () => <HomeScreen data={ads} />;
+export default props => <HomeScreen data={ads} {...props} />;

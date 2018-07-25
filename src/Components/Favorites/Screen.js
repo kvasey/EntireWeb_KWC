@@ -4,16 +4,18 @@ import { Transition } from "react-navigation-fluid-transitions";
 import { renderImage } from "../Products/Screen";
 import { Name, ItemWrapper, Line } from "../Products/styled";
 import { Button } from "../styled/general";
-import { StateComponent, EmptyComponent } from "../styled/components";
+import { EmptyComponent } from "../styled/components";
 import { Color } from "../../constants";
 
 const renderItem = (
   { item: { id, name, uri, categoryId }, index },
   dataLength,
-  { push }
+  { push },
+  removeItem
 ) => (
   <Button
     onPress={() => push("Products", { productId: id, categoryId })}
+    onLongPress={() => removeItem(index)}
     useForeground
     style={{ flex: 1 }}
   >
@@ -25,14 +27,16 @@ const renderItem = (
   </Button>
 );
 
-export default ({ favorites, navigation }) => (
+export default ({ favorites, navigation, removeItem }) => (
   <FlatList
     data={favorites}
     extraData={favorites}
     numColumns={Platform.isPad ? 3 : 2}
     style={{ backgroundColor: "#FFF" }}
     keyExtractor={({ id }, index) => (id * index).toString()}
-    renderItem={item => renderItem(item, favorites.length, navigation)}
+    renderItem={item =>
+      renderItem(item, favorites.length, navigation, removeItem)
+    }
     ListEmptyComponent={() => <EmptyComponent text="Add some Favorites." />}
   />
 );

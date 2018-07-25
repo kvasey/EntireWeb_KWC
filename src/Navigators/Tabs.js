@@ -7,6 +7,7 @@ import Home from "../Components/Home";
 import Account from "./AccountStack";
 import CategoryStack from "./CategoryStack";
 import Favorites from "../Components/Favorites";
+import { width } from "../Components/styled/general";
 
 export default createMaterialBottomTabNavigator(
   {
@@ -66,6 +67,7 @@ export default createMaterialBottomTabNavigator(
     inactiveTintColor: Color.main,
     barStyle: {
       backgroundColor: "#FFF",
+      width,
       borderStyle: "solid",
       borderTopWidth: 1,
       borderColor: "#eee"
@@ -75,4 +77,4 @@ export default createMaterialBottomTabNavigator(
 
 const getTintColor = focused => (focused ? Color.secondary : Color.main);
 
-const getIconSize = () => (Platform.isPad ? 64 : 20);
+const getIconSize = () => (Platform.isPad ? 26 : 20);

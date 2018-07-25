@@ -46,9 +46,10 @@ const clearProduct = () => ({
 
 export default id => async (dispatch, getState) => {
   dispatch(clearProduct());
-  await Promise.all(
+  const result = await Promise.all(
     toFetch.map(({ url, states }) => fetcher(states, url + id, dispatch))
   );
+  console.log(result);
   const {
     combinations,
     stockAvailables,
@@ -66,7 +67,10 @@ export default id => async (dispatch, getState) => {
     dispatch(initialFetch());
     return null;
   }
+  console.log(products, id);
   const localProduct = products.data.find(item => item.id === id);
+
+  console.log(localProduct);
 
   const localCombinations = localProduct.combinations.map(({ id }) => {
     const combination = combinations.data.combinations.find(

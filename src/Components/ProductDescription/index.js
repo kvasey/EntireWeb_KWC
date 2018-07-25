@@ -10,13 +10,20 @@ class Container extends Component {
 	componentDidMount = () => {
 		this.props.setIsProductList(false);
 		if (!this.props.navigation.state.params) this.props.navigation.goBack(null);
-		this.props.fetch(this.props.navigation.state.params.productId);
+		else this.props.fetch(this.props.navigation.state.params.productId);
 	};
 
 	render = () => <ProductDescriptionScreen {...this.props} />;
 }
 
-const mapStateToProps = ({ product, basket, favorites }) => ({ ...product, basket, favorites });
+const mapStateToProps = ({
+	product,
+	basket,
+	favorites,
+	products: {
+		data: { products }
+	}
+}) => ({ ...product, basket, favorites, products });
 const mapDispatchToProps = dispatch => ({
 	fetch: id => dispatch(fetchAction(id)),
 	setIsProductList: state => dispatch(setIsProductList(state)),

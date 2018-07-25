@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { Platform } from "react-native";
 import { Color } from "../../../constants";
 
 export const HeaderWrapper = styled.View`
-  height: 100;
+  height: ${Platform.isPad ? 150 : 100};
   margin-horizontal: 10;
   padding-bottom: 5;
   margin-vertical: 5;
@@ -29,8 +30,8 @@ export const ContentWrapper = styled.View`
 `;
 
 export const Image = styled.Image`
-  width: 20%;
-  height: 70%;
+  height: ${Platform.isPad ? "90%" : "70%"};
+  width: ${Platform.isPad ? "20%" : "20%"};
   justify-content: center;
   align-items: center;
 `;
@@ -53,7 +54,6 @@ export const RemoveContainer = styled.View`
 `;
 export const QuantityContainer = styled.View`
   width: 50%;
-  height: 100%;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
@@ -63,14 +63,14 @@ export const QuantityContainer = styled.View`
 
 export const HeaderQuantity = styled.Text`
   width: 10%;
-  font-size: 26;
+  font-size: ${Platform.isPad ? "34" : "26"};
   font-weight: bold;
   color: ${Color.secondary};
 `;
 
 export const Text = styled.Text`
   width: 50%;
-  font-size: 20;
+  font-size: ${Platform.isPad ? "26" : "20"};
   padding-horizontal: 5%;
   /* padding-vertical: 2.5%; */
 `;

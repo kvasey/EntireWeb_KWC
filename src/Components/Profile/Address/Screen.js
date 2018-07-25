@@ -170,7 +170,8 @@ const mapPropsToValues = ({
   navigation: {
     state: {
       params: { address, update, userId }
-    }
+    },
+    goBack
   },
   states,
   countries,
@@ -181,7 +182,8 @@ const mapPropsToValues = ({
     countries: sortByName(countries),
     states: sortByName(states),
     createAddress,
-    update
+    update,
+    goBack
   };
   return update
     ? {
@@ -240,6 +242,7 @@ export default withFormik({
 
   handleSubmit: values => {
     values.createAddress(values);
+    values.goBack(null);
   }
 })(AddressForm);
 

@@ -38,7 +38,7 @@ const PickerWrapper = styled.View`
 `;
 
 const SubmitText = styled.Text`
-	font-size: 20;
+	font-size: ${Platform.isPad ? 28 : 20};
 	color: ${Color.secondary};
 `;
 
@@ -87,7 +87,10 @@ class ApplePicker extends Component {
 						</TouchableOpacity>
 					</Overlay>
 					<ModalContainer>
-						<TouchableOpacity onPress={this.onPressSubmit}>
+						<TouchableOpacity
+							onPress={this.onPressSubmit}
+							style={{ width: '100%', height: 50, justifyContent: 'center', alignItems: 'center' }}
+						>
 							<SubmitText>Done</SubmitText>
 						</TouchableOpacity>
 						<View>

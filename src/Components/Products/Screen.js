@@ -1,5 +1,11 @@
 import React, { Fragment } from "react";
-import { FlatList, ActivityIndicator, Platform, Text } from "react-native";
+import {
+  FlatList,
+  ActivityIndicator,
+  Platform,
+  Text,
+  View
+} from "react-native";
 import { Transition } from "react-navigation-fluid-transitions";
 import Image from "react-native-image-progress";
 import { Price, Name, ItemWrapper, Line } from "./styled";
@@ -10,6 +16,7 @@ import { Color } from "../../constants";
 export const renderImage = uri => (
   <Image
     source={{ uri }}
+    fadeDuration={300}
     indicator={() => <ActivityIndicator size="small" color={Color.secondary} />}
     resizeMode="contain"
     indicatorProps={{
@@ -19,8 +26,8 @@ export const renderImage = uri => (
       unfilledColor: "rgba(200, 200, 200, 0.2)"
     }}
     style={{
-      width: "100%",
-      height: 100
+      width: Platform.isPad ? 220 : 180,
+      height: Platform.isPad ? 140 : 100
     }}
   />
 );
@@ -45,13 +52,15 @@ const renderItem = (
 ) => (
   <Button
     onPress={() =>
-      navigate("ProductDescription", { productId: id, categoryId })
+      navigate("ProductDescription", { productId: id, categoryId, imageUri })
     }
     useForeground
     style={{ flex: 1 }}
   >
     <ItemWrapper isLast={index === dataLength - 1}>
-      <Transition shared={`${id}`}>{renderImage(imageUri)}</Transition>
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
+        <Transition shared={`${imageUri}`}>{renderImage(imageUri)}</Transition>
+      </View>
       <Line />
       {renderPrice(price)}
       <Name numberOfLines={2}>{name}</Name>
@@ -83,8 +92,6 @@ export default ({
         navigation.state.params
       )
     }
-    ListEmptyComponent={() => (
-      <StateComponent error={error} loading={loading} />
-    )}
+    ListEmptyComponent={() => <StateComponent error={error} loading />}
   />
 );

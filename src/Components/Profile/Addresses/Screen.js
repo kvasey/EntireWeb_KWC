@@ -43,24 +43,22 @@ export default ({
       </OrderContainer>
     )}
     renderItem={({
-      item: { id, alias, address1, address2, city, phone, phone_mobile },
+      item: { id, alias, address1, city, phone, phone_mobile },
       index
     }) => (
-        <Button
-          onPress={() =>
-            rootNavigation.navigate("Address", {
-              address: addresses[index],
-              userId: user.id,
-              update: true
-            })
-          }
-        >
-      <OrderContainer>
+      <Button
+        onPress={() =>
+          rootNavigation.navigate("Address", {
+            address: addresses[index],
+            userId: user.id,
+            update: true
+          })
+        }
+      >
+        <OrderContainer>
           <Fragment>
             <StatusContainer color={Color.secondary}>
-              <StatusText style={{ color: "#FFF" }}>
-{alias}
-</StatusText>
+              <StatusText style={{ color: "#FFF" }}>{alias}</StatusText>
             </StatusContainer>
             <OuterOrderContainer flexDirection="column">
               <AddressContainer>
@@ -72,21 +70,10 @@ export default ({
                       style={{ marginRight: 5 }}
                       color={Color.main}
                     />
-                    <AddressLineText>
-{address1}
-</AddressLineText>
+                    <AddressLineText>{address1}</AddressLineText>
                   </AddressLine>
-                  {address2 ? (
-                    <AddressLine>
-                      <AddressLineText>
-{address2}
-</AddressLineText>
-                    </AddressLine>
-                  ) : null}
                   <AddressLine style={{ marginLeft: 20 }}>
-                    <AddressLineText>
-{city}
-</AddressLineText>
+                    <AddressLineText>{city}</AddressLineText>
                   </AddressLine>
                   <AddressLine>
                     <Icon
@@ -95,16 +82,14 @@ export default ({
                       style={{ marginRight: 5 }}
                       color={Color.main}
                     />
-                    <AddressLineText>
-{phone || phone_mobile}
-</AddressLineText>
+                    <AddressLineText>{phone || phone_mobile}</AddressLineText>
                   </AddressLine>
                 </AddressContent>
               </AddressContainer>
             </OuterOrderContainer>
           </Fragment>
-      </OrderContainer>
-        </Button>
+        </OrderContainer>
+      </Button>
     )}
     ListEmptyComponent={() => (
       <StateComponent error={error} loading={loading} />

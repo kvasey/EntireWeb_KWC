@@ -1,5 +1,5 @@
 import React from "react";
-import { ActivityIndicator,TouchableOpacity } from "react-native";
+import { ActivityIndicator, TouchableOpacity } from "react-native";
 import CollapsibleAccordion from "react-native-collapsible/Accordion";
 import {
   Button,
@@ -25,7 +25,13 @@ export const SubmitButton = ({ onPress, textChildren, style, textStyle }) => (
 export const StateComponent = ({ error, loading }) => (
   <StateContainer>
     {loading && <ActivityIndicator size="large" color={Color.secondary} />}
-    <StateText>{error && JSON.stringify(error, null, 2)}</StateText>
+    <StateText>
+      {error
+        ? typeof error === "string"
+          ? error
+          : JSON.stringify(error, null, 2)
+        : ""}
+    </StateText>
   </StateContainer>
 );
 export const EmptyComponent = ({ text }) => (

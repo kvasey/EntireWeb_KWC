@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import AddressScreen from './Screen';
 import { connect } from 'react-redux';
-import { StateComponent } from '../../styled/general';
-import { createAddress } from '../action';
+import { StateComponent } from '../../styled/components';
+import { createUpdateAddress } from '../action';
 
 class Container extends Component {
 	render = () => {
+		console.log(this.props);
 		const { countries, states, createAddress, navigation } = this.props;
 
 		const loading = countries.loading || states.loading || createAddress.loading;
@@ -30,7 +31,7 @@ const mapStateToProps = ({ countries, states, createAddress }) => ({
 	states
 });
 const mapDispatchToProps = dispatch => ({
-	create: address => dispatch(createAddress(address))
+	create: address => dispatch(createUpdateAddress(address))
 });
 
 export default connect(

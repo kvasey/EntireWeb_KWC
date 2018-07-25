@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { SubmitButton, EmptyComponent } from '../../styled/components';
+import { SubmitButton, StateComponent } from '../../styled/components';
 import { basketClear } from '../../BasketList/action';
-import { updateOrder } from '../stripeActions';
+import { createOrder } from '../orderActions';
 
 class Success extends Component {
 	componentDidMount = () => {
+		this.props.createOrder();
 		this.props.clearBasket();
-		this.props.updateOrder();
 	};
 
 	render() {
 		console.log(this.props);
 		const { loading, error, stripe, navigation } = this.props;
 		return loading || error ? (
-			<EmptyComponent loading={loading} error={error} />
+			<StateComponent loading={loading} error={error} />
 		) : (
 			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 				<Text
@@ -29,9 +29,9 @@ class Success extends Component {
 						? stripe.charge
 							? stripe.charge.outcome
 								? stripe.charge.outcome.seller_message
-								: 'An Error occcured.'
-							: 'An Error occcured.'
-						: 'An Error occcured.'}
+								: 'An Error occurred.'
+							: 'An Error occurred.'
+						: 'An Error occurred.'}
 				</Text>
 				<SubmitButton
 					style={{ paddingHorizontal: 10, paddingVertical: 10 }}
@@ -57,7 +57,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
 	clearBasket: () => dispatch(basketClear()),
-	updateOrder: () => dispatch(updateOrder())
+	createOrder: () => dispatch(createOrder())
 });
 
 export default connect(

@@ -36,7 +36,7 @@ class ProductHeader extends Component {
 					style={{ flex: 0.2 }}
 				>
 					<LeftHeaderButton>
-						<Icon name="arrow-left" size={25} color={Color.main} />
+						<Icon name="arrow-left" size={Platform.isPad ? 35 : 25} color={Color.main} />
 					</LeftHeaderButton>
 				</Button>
 				{!isProductList ? null : (
@@ -47,7 +47,7 @@ class ProductHeader extends Component {
 							activeIndex={activeSortIndex}
 							pickerIndex={0}
 							style={{ flex: 0.4 }}
-							textStyle={{ fontSize: 14 }}
+							textStyle={{ fontSize: Platform.isPad ? 18 : 14 }}
 							iconStyle={{ right: 3 }}
 						/>
 						<Button
@@ -56,7 +56,7 @@ class ProductHeader extends Component {
 							style={{ flex: 0.2 }}
 						>
 							<RightHeaderButton>
-								<Text>{`items: ${itemAmount}`}</Text>
+								<Text style={{ fontSize: Platform.isPad ? 18 : 14 }}>{`items: ${itemAmount}`}</Text>
 							</RightHeaderButton>
 						</Button>
 					</Fragment>

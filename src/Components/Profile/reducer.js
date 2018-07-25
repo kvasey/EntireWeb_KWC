@@ -11,10 +11,24 @@ export const orders = (state = defaultState, action) =>
   reducer(orderState, state, action);
 
 export const addresses = (state = defaultState, action) => {
-  if (action.type === addressesState.CLEAR) {
-    return defaultState;
+  switch (action.type) {
+    case addressesState.CLEAR:
+      return defaultState;
+    case addressesState.UPDATE: {
+      const newData = state.data.addresses;
+      const index = newData.findIndex(
+        ({ id }) => id === parseInt(action.data.address.id)
+      );
+      if (index >= 0) {
+        newData[index] = action.data.address;
+      } else {
+        newData.push(action.data.address);
+      }
+      return { ...state, data: { addresses: newData } };
+    }
+    default:
+      return reducer(addressesState, state, action);
   }
-  return reducer(addressesState, state, action);
 };
 
 export const createAddress = (state = defaultState, action) =>

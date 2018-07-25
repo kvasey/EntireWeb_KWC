@@ -3,13 +3,17 @@ import { FlatList } from "react-native";
 import { AdImage, ItemWrapper } from "./styled";
 import { Button } from "../styled/general";
 
-export default ({ data }) => (
+export default props => (
   <FlatList
-    data={data}
+    data={props.data}
     style={{ backgroundColor: "#fff" }}
     keyExtractor={({ url }, index) => (url + index).toString()}
-    renderItem={({ item: { url, height, padHeight }, index }) => (
-      <Button useForeground style={{ flex: 1 }}>
+    renderItem={({ item: { url, height, padHeight, data }, index }) => (
+      <Button
+        useForeground
+        style={{ flex: 1 }}
+        onPress={() => goTo(data, props.navigation)}
+      >
         <ItemWrapper
           style={index === data.length - 1 ? { marginBottom: "5%" } : {}}
         >
@@ -19,3 +23,14 @@ export default ({ data }) => (
     )}
   />
 );
+
+const goTo = ({ id, categoryId, navigation }, { navigate, push }) => {
+  switch (navigation) {
+    case "CATEGORY":
+      return navigate("ChildCategories", { filterId: id });
+    case "PRODUCT":
+      return push("Products", { productId: id, categoryId });
+    default:
+      return null;
+  }
+};

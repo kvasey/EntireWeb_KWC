@@ -4,7 +4,11 @@ import {
   checkResult,
   getJsonResult
 } from "../util";
-import { PRODUCTS_URL, PRODUCTS_PRICE_URL } from "../../constants";
+import {
+  PRODUCTS_URL,
+  PRODUCTS_PRICE_URL,
+  PRODUCT_SEARCH_URL
+} from "../../constants";
 import { setIsProductList } from "../shared/action";
 
 export const fetchState = {
@@ -38,10 +42,39 @@ export const setSortType = typeIndex => ({
   typeIndex
 });
 
+export const searchAction = query => async (dispatch, getState) => {
+  dispatch(setError(null));
+  dispatch(setLoading(true));
+  try {
+    const result = await getJsonResult(PRODUCT_SEARCH_URL + query);
+    if (checkResult(result, dispatch, setError)) {
+      const { products } = result;
+      dispatch(setDone(products));
+      dispatch(setLoading(false));
+      if (products) {
+        const ids = getIds(products);
+        const priceResult = await getJsonResult(
+          `${PRODUCTS_PRICE_URL}[${formatIds(ids)}]`
+        );
+        if (checkResult(priceResult, dispatch, setError)) {
+          const { product_feature_values } = priceResult;
+          const finalResult = getFinal(product_feature_values, products);
+          dispatch(setDone(finalResult));
+        }
+      }
+    }
+  } catch (error) {
+    dispatch(setLoading(false));
+    dispatch(setError(error));
+  }
+  dispatch(setIsProductList(true));
+};
+
 export default productIds => async (dispatch, getState) => {
   dispatch(setError(null));
   dispatch(setLoading(true));
   try {
+    console.log(PRODUCTS_URL + formatProductIds(productIds));
     const result = await getJsonResult(
       PRODUCTS_URL + formatProductIds(productIds)
     );
