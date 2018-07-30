@@ -31,13 +31,13 @@
                     }
                 },
                 {
-                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/play-services-wallet-11.8.0.aar/f5657a465440ac397998bdf4fed0c46b/res/values-en-rIN/values.xml",
+                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/play-services-wallet-15.0.1.aar/d659cebb763da736fbbbe6fc561d7ac1/res/values-en-rIN/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
-                        "startOffsets": "242",
+                        "startOffsets": "204",
                         "endColumns": "99",
-                        "endOffsets": "341"
+                        "endOffsets": "303"
                     },
                     "to": {
                         "startLines": "21",

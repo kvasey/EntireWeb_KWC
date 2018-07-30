@@ -1,7 +1,7 @@
-#Sun Jul 22 20:56:46 CEST 2018
-base.1=/home/paul/Documents/Projects/KWC/android/app/build/intermediates/transforms/dexMerger/debug/19
+#Mon Jul 30 08:58:15 CEST 2018
+base.1=/home/paul/Documents/Projects/KWC/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.1=classes2.dex
-base.0=/home/paul/Documents/Projects/KWC/android/app/build/intermediates/transforms/dexMerger/debug/19
+base.0=/home/paul/Documents/Projects/KWC/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.1=classes2.dex
 renamed.0=classes.dex
 path.0=classes.dex

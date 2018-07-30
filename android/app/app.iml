@@ -120,6 +120,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-27.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:drawee-1.9.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat-27.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: me.relex:photodraweeview-1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.github.tipsi:CreditCardEntry-1.4.8.10" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:multidex-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-27.0.2" level="project" />
@@ -189,6 +190,7 @@
     <orderEntry type="module" module-name="react-native-code-push" />
     <orderEntry type="module" module-name="appcenter-crashes" />
     <orderEntry type="module" module-name="appcenter-push" />
+    <orderEntry type="module" module-name="react-native-photo-view" />
     <orderEntry type="module" module-name="appcenter" />
   </component>
 </module>

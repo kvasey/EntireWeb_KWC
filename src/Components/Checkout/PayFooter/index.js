@@ -6,9 +6,9 @@ import Card from "./Card";
 
 export default props => [
   Platform.OS === "android" ? (
-    <AndroidPay {...props} />
+    <AndroidPay key="android" {...props} />
   ) : (
-    <ApplePay {...props} />
+    <ApplePay key="apple" {...props} />
   ),
-  <Card {...props} />
+  <Card key="card" {...props} />
 ];
