@@ -28,7 +28,11 @@ class Profile extends Component {
 	render = () => {
 		const { loading, error, user, logout, clearAddresses, navigation } = this.props;
 		return loading || error || !user ? (
-			<StateComponent loading={loading || !user} error={error} />
+			<StateComponent
+				loading={loading || (!user && !error)}
+				error={error}
+				onPress={() => navigation.goBack(null)}
+			/>
 		) : (
 			<ParallaxScrollView
 				style={{ flex: 1, overflow: 'hidden' }}

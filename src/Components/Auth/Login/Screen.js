@@ -67,8 +67,8 @@ const LoginForm = ({
 
 export default withFormik({
   mapPropsToValues: ({ loginUser }) => ({
-    email: "karlvasey@gmail.com",
-    password: "testtest2121",
+    email: "",
+    password: "",
     loginUser
   }),
   validateOnChange: false,

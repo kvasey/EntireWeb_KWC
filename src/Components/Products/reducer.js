@@ -1,5 +1,6 @@
 import { IMAGE_URL, KEY, SortTypes } from "../../constants";
 import { fetchState } from "./action";
+import vatProducts from "../../Data/vatProducts";
 
 const defaultState = {
   data: [],
@@ -63,6 +64,7 @@ const reduceData = products =>
           description: description_short,
           reference,
           price: parseFloat(price),
+          isVat: checkVat(id),
           imageUri: getImageUri(id, id_default_image),
           imageId: id_default_image,
           combinations: combinations || associations.combinations,
@@ -74,3 +76,6 @@ const reduceData = products =>
 
 const getImageUri = (id, imageId) =>
   `${IMAGE_URL}${id}/${imageId}/medium_default?${KEY}`;
+
+const checkVat = productId =>
+  !!vatProducts.find(id => parseInt(productId) === id);

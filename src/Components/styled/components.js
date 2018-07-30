@@ -22,9 +22,8 @@ export const SubmitButton = ({ onPress, textChildren, style, textStyle }) => (
   </Button>
 );
 
-export const StateComponent = ({ error, loading }) => (
+export const StateComponent = ({ error, loading, onPress = () => null }) => (
   <StateContainer>
-    {loading && <ActivityIndicator size="large" color={Color.secondary} />}
     <StateText>
       {error
         ? typeof error === "string"
@@ -32,6 +31,15 @@ export const StateComponent = ({ error, loading }) => (
           : JSON.stringify(error, null, 2)
         : ""}
     </StateText>
+    {loading ? (
+      <ActivityIndicator size="large" color={Color.secondary} />
+    ) : (
+      <SubmitButton
+        onPress={onPress}
+        textChildren="Go Back"
+        style={{ paddingHorizontal: 10, paddingVertical: 10 }}
+      />
+    )}
   </StateContainer>
 );
 export const EmptyComponent = ({ text }) => (

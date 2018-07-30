@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Basket from './Screen';
+import BasketScreen from './Screen';
 import { basketSetItem, basketRemove } from './action';
 
 class Container extends Component {
-	render = () => <Basket {...this.props} />;
+	render = () => <BasketScreen {...this.props} />;
 }
 
 const mapStateToProps = ({ basket }) => ({

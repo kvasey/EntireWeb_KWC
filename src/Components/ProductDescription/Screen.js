@@ -8,6 +8,7 @@ import { SubmitButton } from '../styled/components';
 import { Color } from '../../constants';
 import HTMLView from 'react-native-htmlview';
 import { Snackbar } from 'react-native-paper';
+import Lightbox from 'react-native-lightbox';
 import { combinationActivator, productOptionsActivator, renderPickers } from '../ProductDescription';
 
 export default class extends Component {
@@ -96,16 +97,22 @@ export default class extends Component {
 		return (
 			<ScrollView style={{ height: '100%', width: '100%', backgroundColor: '#FFF' }}>
 				<Transition shared={`${oldUri}`} appear="scale">
-					<Image
-						fadeDuration={0}
-						source={{ uri: this.state.uri || oldUri }}
-						onLoad={() => this.setState({ uri: this.props.uri })}
-						resizeMode="contain"
-						style={{
-							width: '100%',
-							height: height * 0.3
-						}}
-					/>
+					<Lightbox
+						springConfig={{ tension: 15, friction: 7 }}
+						backgroundColor="rgba(255,255,255,0.95)"
+						underlayColor="#FFF"
+					>
+						<Image
+							fadeDuration={0}
+							source={{ uri: this.state.uri || oldUri }}
+							onLoad={() => this.setState({ uri: this.props.uri })}
+							resizeMode="contain"
+							style={{
+								width: '100%',
+								height: height * 0.3
+							}}
+						/>
+					</Lightbox>
 				</Transition>
 				<Line />
 				{this.props.id

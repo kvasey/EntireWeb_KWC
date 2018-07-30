@@ -30,8 +30,15 @@ export const openFetcher = async (fetchData, type, dispatch, expect) => {
   try {
     const result = await fetchData();
     if (checkResult(result, dispatch, error => setInStore(error, type.ERROR))) {
-      dispatch(setDone(result[expect]));
-      dispatch(setInStore(false, type.LOADING));
+      if (!result[expect]) {
+        dispatch(setInStore(false, type.LOADING));
+        dispatch(
+          setInStore("Wrong Email or Password, Please Try Again.", type.ERROR)
+        );
+      } else {
+        dispatch(setDone(result[expect]));
+        dispatch(setInStore(false, type.LOADING));
+      }
     }
   } catch (error) {
     dispatch(setInStore(false, type.LOADING));

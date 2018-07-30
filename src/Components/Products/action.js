@@ -74,7 +74,6 @@ export default productIds => async (dispatch, getState) => {
   dispatch(setError(null));
   dispatch(setLoading(true));
   try {
-    console.log(PRODUCTS_URL + formatProductIds(productIds));
     const result = await getJsonResult(
       PRODUCTS_URL + formatProductIds(productIds)
     );
@@ -90,6 +89,7 @@ export default productIds => async (dispatch, getState) => {
         if (checkResult(priceResult, dispatch, setError)) {
           const { product_feature_values } = priceResult;
           const finalResult = getFinal(product_feature_values, products);
+          console.log(finalResult);
           dispatch(setDone(finalResult));
         }
       }

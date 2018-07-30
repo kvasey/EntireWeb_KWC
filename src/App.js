@@ -19,7 +19,6 @@ export default codePush(() => (
       loading={<StateComponent loading error={false} />}
     >
       <InitalFetch />
-      {/* <PushNotifications /> */}
       <SafeAreaView style={{ flex: 1 }} forceInset={{ bottom: "never" }}>
         <PaperProvider>
           <Navigator />

@@ -7,8 +7,9 @@ import { Button, ButtonInner, ButtonInnerText } from "../../styled/general";
 import { MiniCardContainer } from "../styled";
 
 stripe.setOptions({
-  publishableKey: "pk_test_rlTe5L9vtemCGSAJVOZFLk45",
-  //   publishableKey: "pk_live_BIMShd0bkJUVp9xdKlEPNvlc",
+  publishableKey: __DEV__
+    ? "pk_test_rlTe5L9vtemCGSAJVOZFLk45"
+    : "pk_live_BIMShd0bkJUVp9xdKlEPNvlc",
   // androidPayMode: "test",
   merchantId: "merchant.com.stripe.kwc"
 });

@@ -67,10 +67,7 @@ export default id => async (dispatch, getState) => {
     dispatch(initialFetch());
     return null;
   }
-  console.log(products, id);
   const localProduct = products.data.find(item => item.id === id);
-
-  console.log(localProduct);
 
   const localCombinations = localProduct.combinations.map(({ id }) => {
     const combination = combinations.data.combinations.find(
@@ -80,10 +77,13 @@ export default id => async (dispatch, getState) => {
       item => parseInt(item.id_product_attribute, 10) === parseInt(id, 10)
     );
     if (combination && stock) {
+      const price = parseFloat(combination.price);
       return {
         id: parseInt(combination.id, 10),
         idProduct: parseInt(combination.id_product, 10),
-        price: parseFloat(combination.price).toFixed(2),
+        price: getPrice(
+          localProduct.isVat ? parseFloat(price * 0.2) + price : price
+        ),
         productOptionValues: combination.associations.product_option_values.map(
           ({ id }) => parseInt(id)
         ),
@@ -159,6 +159,8 @@ export default id => async (dispatch, getState) => {
     })
   );
 };
+
+const getPrice = price => parseFloat(price).toFixed(2);
 
 const getImageUri = (id, imageId, size) =>
   `${IMAGE_URL}${id}/${imageId}/${size}?${KEY}`;
