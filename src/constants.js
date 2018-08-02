@@ -25,6 +25,10 @@ export const CKEY = "6DdKR6FbVz1ikuBO2tpJi1xmeBhsz8GMUkaD6BaMeeFLOg3d7OHQwVBv";
 export const CUSTOMER_ORDERS_URL = `${BASE_URL}orders?${OUTPUT}&display=full&${KEY}&filter[id_customer]=`;
 
 export const REGISTER_URL = `${BASE_URL}customers?${OUTPUT}&${KEY}&schema=blank`;
+
+export const FIREBASE_URL =
+  "https://kidswholesale-183411.firebaseio.com/advertisements.json";
+
 export const LOGIN_URL = `${BASE_URL}customers?${OUTPUT}&display=full&filter[active]=1&${KEY}`;
 
 export const ADDRESSES_URL = `${BASE_URL}addresses?${OUTPUT}&display=full&filter[deleted]=[0]&${KEY}&filter[id_customer]=`;

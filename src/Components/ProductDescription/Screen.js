@@ -3,12 +3,13 @@ import { View, Image, ScrollView } from 'react-native';
 import { Transition } from 'react-navigation-fluid-transitions';
 import { Price, Name, ItemWrapper, Reference, Line, PickerContainer } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, height, Container } from '../styled/general';
+import { Button, height, Container, width } from '../styled/general';
 import { SubmitButton } from '../styled/components';
 import { Color } from '../../constants';
 import HTMLView from 'react-native-htmlview';
 import { Snackbar } from 'react-native-paper';
 import Lightbox from 'react-native-lightbox';
+import ImageZoom from 'react-native-image-pan-zoom';
 import { combinationActivator, productOptionsActivator, renderPickers } from '../ProductDescription';
 
 export default class extends Component {
@@ -17,7 +18,8 @@ export default class extends Component {
 		productOptions: {},
 		combination: null,
 		isSnackVisible: false,
-		snackBarText: ''
+		snackBarText: '',
+		lightboxOpen: false
 	};
 
 	static getDerivedStateFromProps = (nextProps, prevState) =>
@@ -89,6 +91,7 @@ export default class extends Component {
 	shouldComponentUpdate = (nextProps, nextState) =>
 		this.state.combination !== nextState.combination ||
 		this.state.isSnackVisible !== nextState.isSnackVisible ||
+		this.state.lightboxOpen !== nextState.lightboxOpen ||
 		this.props.id !== nextProps.id;
 
 	render = () => {
@@ -98,20 +101,42 @@ export default class extends Component {
 			<ScrollView style={{ height: '100%', width: '100%', backgroundColor: '#FFF' }}>
 				<Transition shared={`${oldUri}`} appear="scale">
 					<Lightbox
+						onClose={() => this.setState({ lightboxOpen: false })}
+						onOpen={() => this.setState({ lightboxOpen: true })}
+						didOpen={() => console.log('did')}
 						springConfig={{ tension: 15, friction: 7 }}
 						backgroundColor="rgba(255,255,255,0.95)"
 						underlayColor="#FFF"
+						swipeToDismiss={false}
 					>
-						<Image
-							fadeDuration={0}
-							source={{ uri: this.state.uri || oldUri }}
-							onLoad={() => this.setState({ uri: this.props.uri })}
-							resizeMode="contain"
-							style={{
-								width: '100%',
-								height: height * 0.3
-							}}
-						/>
+						{this.state.lightboxOpen ? (
+							<ImageZoom
+								cropWidth={width}
+								cropHeight={height}
+								imageWidth={width * 0.8}
+								imageHeight={height * 0.8}
+							>
+								<Image
+									onLoad={() => this.setState({ uri: this.props.uri })}
+									style={{
+										width: '100%',
+										height: height
+									}}
+									resizeMode="contain"
+									source={{ uri: this.state.uri || oldUri }}
+								/>
+							</ImageZoom>
+						) : (
+							<Image
+								onLoad={() => this.setState({ uri: this.props.uri })}
+								style={{
+									width: '100%',
+									height: height * 0.3
+								}}
+								resizeMode="contain"
+								source={{ uri: this.state.uri || oldUri }}
+							/>
+						)}
 					</Lightbox>
 				</Transition>
 				<Line />

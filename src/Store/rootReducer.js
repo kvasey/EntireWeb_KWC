@@ -26,6 +26,8 @@ import {
 
 import { login, registration, user } from "../Components/Auth/reducer";
 
+import firebase from "../Components/Home/reducer";
+
 import {
   addresses,
   orders,
@@ -59,6 +61,8 @@ const combinedReducers = {
   login,
   registration,
   user,
+
+  firebase,
 
   orders,
   addresses,

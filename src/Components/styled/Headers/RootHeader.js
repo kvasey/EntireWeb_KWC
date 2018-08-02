@@ -94,7 +94,7 @@ export default class extends Component {
 				>
 					<RightHeaderButton>
 						<BasketIcon>
-							<Icon name="shopping-cart" size={Platform.isPad ? 35 : 25} color={Color.main} />
+							<Icon name="shopping-bag" size={Platform.isPad ? 35 : 25} color={Color.main} />
 						</BasketIcon>
 					</RightHeaderButton>
 				</Button>

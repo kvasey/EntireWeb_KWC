@@ -12,3 +12,5 @@ export default props => [
   ),
   <Card key="card" {...props} />
 ];
+
+// export default props => <Card key="card" {...props} />;

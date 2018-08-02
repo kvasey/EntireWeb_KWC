@@ -5979,6 +5979,10 @@ react-native-image-lightbox@^1.0.8:
   dependencies:
     react-native-photo-view "^1.5.2"
 
+react-native-image-pan-zoom@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/react-native-image-pan-zoom/-/react-native-image-pan-zoom-2.1.7.tgz#1c066e66f8f345f5e1fc187f02d92c482952bb59"
+
 react-native-image-progress@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-native-image-progress/-/react-native-image-progress-1.1.1.tgz#95bbe0875c7ebd54286df69cb37b598b94c54eb0"
@@ -6082,9 +6086,9 @@ react-native-tab-view@^1.0.0:
   dependencies:
     prop-types "^15.6.1"
 
-react-native-vector-icons@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
+react-native-vector-icons@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-5.0.0.tgz#d0bd6fdda01159db409810718dd04904951a98f5"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.5.10"
@@ -6195,9 +6199,9 @@ react-navigation-tabs@^0.4.0:
     react-native-safe-area-view "^0.7.0"
     react-native-tab-view "^1.0.0"
 
-react-navigation@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-2.6.2.tgz#a8fdb69c5876698f7e58c5a3962a78ba24bb2058"
+react-navigation@^2.9.3:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-2.9.3.tgz#de97f7102df6b836af780bfa5bfa80747148da19"
   dependencies:
     clamp "^1.0.1"
     create-react-context "^0.2.1"
@@ -7292,9 +7296,9 @@ timed-out@4.0.1, timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
 
-tipsi-stripe@^5.2.4:
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/tipsi-stripe/-/tipsi-stripe-5.2.4.tgz#bb68509359f0efb36434c332df889d867b19047a"
+tipsi-stripe@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/tipsi-stripe/-/tipsi-stripe-5.3.0.tgz#fa4995930a6fdb5fbb2ecf846dad5ae864982432"
 
 title-case@^1.1.0:
   version "1.1.2"
