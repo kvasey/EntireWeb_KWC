@@ -12,6 +12,9 @@ export const loginState = {
 };
 export const userState = {
   DONE: "USER_LOGGED",
+
+
+
   CLEAR: "USER_LOGGED_OUT"
 };
 
