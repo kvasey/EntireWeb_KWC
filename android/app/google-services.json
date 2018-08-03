@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "986349018258",
+    "firebase_url": "https://kidswholesale-183411.firebaseio.com",
+    "project_id": "kidswholesale-183411",
+    "storage_bucket": "kidswholesale-183411.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986349018258:android:e00eaf57edc5a5da",
+        "android_client_info": {
+          "package_name": "com.rnkidswholesale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986349018258-m0thhshgem6u078mfmb486aj7dpu3mos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7zxkOHZ0PpT4CATIhHpZLT_cpzhng2M0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

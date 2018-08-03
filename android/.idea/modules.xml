@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/../node_modules/appcenter-crashes/android/appcenter-crashes.iml" filepath="$PROJECT_DIR$/../node_modules/appcenter-crashes/android/appcenter-crashes.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/appcenter-push/android/appcenter-push.iml" filepath="$PROJECT_DIR$/../node_modules/appcenter-push/android/appcenter-push.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-code-push/android/app/react-native-code-push.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-code-push/android/app/react-native-code-push.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-picker/android/react-native-picker.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-picker/android/react-native-picker.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/tipsi-stripe/android/tipsi-stripe.iml" filepath="$PROJECT_DIR$/../node_modules/tipsi-stripe/android/tipsi-stripe.iml" />
     </modules>

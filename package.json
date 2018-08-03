@@ -11,10 +11,10 @@
     "start:reset": " echo 999999 | sudo tee -a /proc/sys/fs/inotify/max_user_watches && echo 999999 | sudo tee -a /proc/sys/fs/inotify/max_queued_events && echo 999999 | sudo tee -a /proc/sys/fs/inotify/max_user_instances && watchman shutdown-server && yarn start"
   },
   "dependencies": {
-    "appcenter": "^1.6.0",
-    "appcenter-analytics": "^1.6.0",
-    "appcenter-crashes": "^1.6.0",
-    "appcenter-push": "^1.6.0",
+    "appcenter": "^1.7.1",
+    "appcenter-analytics": "^1.7.1",
+    "appcenter-crashes": "^1.7.1",
+    "appcenter-push": "^1.7.1",
     "formik": "^1.0.1",
     "react": "16.4.1",
     "react-native": "0.56.0",
@@ -40,7 +40,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^3.3.3",
-    "tipsi-stripe": "^5.3.0",
+    "tipsi-stripe": "^5.4.0",
     "yup": "^0.25.1"
   },
   "devDependencies": {

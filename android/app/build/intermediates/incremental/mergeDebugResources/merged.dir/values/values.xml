@@ -957,7 +957,7 @@
     <integer name="light_text_alpha_hex">204</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <string name="CODE_PUSH_APK_BUILD_TIME" translatable="false">"1532935263183"</string>
+    <string name="CODE_PUSH_APK_BUILD_TIME" translatable="false">"1533284055415"</string>
     <string name="CreditCardFormCardNumberHint">1234 5678 9012 3456</string>
     <string name="CreditCardNumberHelp"/>
     <string name="ExpDateFieldHint">MM/YY</string>
@@ -1098,10 +1098,13 @@
     <string name="cvc_multiline_helper">123</string>
     <string name="cvc_multiline_helper_amex">1234</string>
     <string name="cvc_number_hint">CVC</string>
+    <string name="default_web_client_id" translatable="false">986349018258-m0thhshgem6u078mfmb486aj7dpu3mos.apps.googleusercontent.com</string>
     <string name="ending_in">" ending in "</string>
     <string name="expiry_date_hint">MM/YY</string>
     <string name="expiry_label_short">Expiry</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="firebase_database_url" translatable="false">https://kidswholesale-183411.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">986349018258</string>
     <string name="gettipsi_card_cvc">CVC</string>
     <string name="gettipsi_card_enter_dialog_negative_button">Cancel</string>
     <string name="gettipsi_card_enter_dialog_positive_button">Done</string>
@@ -1111,6 +1114,10 @@
     <string name="gettipsi_google_pay_unavaliable">Google Pay is unavailable on your device.</string>
     <string name="gettipsi_save">Save</string>
     <string name="gettipsi_user_cancel_dialog">A user has canceled the dialog. No card added!</string>
+    <string name="google_api_key" translatable="false">AIzaSyC7zxkOHZ0PpT4CATIhHpZLT_cpzhng2M0</string>
+    <string name="google_app_id" translatable="false">1:986349018258:android:e00eaf57edc5a5da</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC7zxkOHZ0PpT4CATIhHpZLT_cpzhng2M0</string>
+    <string name="google_storage_bucket" translatable="false">kidswholesale-183411.appspot.com</string>
     <string name="invalid_card_number">Your card\'s number is invalid.</string>
     <string name="invalid_cvc">Your card\'s security code is invalid.</string>
     <string name="invalid_expiry_month">Your card\'s expiration month is invalid.</string>
@@ -1125,6 +1132,7 @@
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="payment_method_add_new_card">Add new card…</string>
     <string name="price_free">Free</string>
+    <string name="project_id" translatable="false">kidswholesale-183411</string>
     <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">vOEvudrLq-JRvt3xPMn89apE-f0uSkzsHVY77</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>

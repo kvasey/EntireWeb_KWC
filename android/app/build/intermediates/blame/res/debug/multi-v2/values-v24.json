@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/paul/Documents/Projects/KWC/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/Users/paulsimkevicius/Projects/EntireWeb_KWC/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/2c20fb7c58542c25ea16d7613eed0296/res/values-v24/values-v24.xml",
+                    "source": "/Users/paulsimkevicius/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/afa8c70cdb88c47f28def47e7caad4c8/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/paul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/cdf01f70f17c4d2bf33adc4ad68daea6/res/values-v24/values-v24.xml",
+                    "source": "/Users/paulsimkevicius/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/d06e0ca00eed3189af270e8ee9ab4fd0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

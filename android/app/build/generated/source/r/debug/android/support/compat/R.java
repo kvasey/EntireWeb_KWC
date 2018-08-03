@@ -50,18 +50,18 @@ public final class R {
         public static final int notification_top_pad_large_text = 0x7f0700ac;
     }
     public static final class drawable {
-        public static final int notification_action_background = 0x7f0800a0;
-        public static final int notification_bg = 0x7f0800a1;
-        public static final int notification_bg_low = 0x7f0800a2;
-        public static final int notification_bg_low_normal = 0x7f0800a3;
-        public static final int notification_bg_low_pressed = 0x7f0800a4;
-        public static final int notification_bg_normal = 0x7f0800a5;
-        public static final int notification_bg_normal_pressed = 0x7f0800a6;
-        public static final int notification_icon_background = 0x7f0800a7;
-        public static final int notification_template_icon_bg = 0x7f0800a8;
-        public static final int notification_template_icon_low_bg = 0x7f0800a9;
-        public static final int notification_tile_bg = 0x7f0800aa;
-        public static final int notify_panel_notification_icon_bg = 0x7f0800ab;
+        public static final int notification_action_background = 0x7f0800bf;
+        public static final int notification_bg = 0x7f0800c0;
+        public static final int notification_bg_low = 0x7f0800c1;
+        public static final int notification_bg_low_normal = 0x7f0800c2;
+        public static final int notification_bg_low_pressed = 0x7f0800c3;
+        public static final int notification_bg_normal = 0x7f0800c4;
+        public static final int notification_bg_normal_pressed = 0x7f0800c5;
+        public static final int notification_icon_background = 0x7f0800c6;
+        public static final int notification_template_icon_bg = 0x7f0800c7;
+        public static final int notification_template_icon_low_bg = 0x7f0800c8;
+        public static final int notification_tile_bg = 0x7f0800c9;
+        public static final int notify_panel_notification_icon_bg = 0x7f0800ca;
     }
     public static final class id {
         public static final int action_container = 0x7f09000e;
@@ -103,7 +103,7 @@ public final class R {
         public static final int notification_template_part_time = 0x7f0b0045;
     }
     public static final class string {
-        public static final int status_bar_notification_info_overflow = 0x7f0d00aa;
+        public static final int status_bar_notification_info_overflow = 0x7f0d00b2;
     }
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f0e010f;

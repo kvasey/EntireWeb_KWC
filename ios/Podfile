@@ -14,10 +14,10 @@ target 'KWC' do
     'DevSupport',
     'RCTNetwork',"RCTWebSocket"
   ]
-  pod 'AppCenter/Crashes', '~> 1.7.1'
-  pod 'AppCenter/Analytics', '~> 1.7.1'
-  pod 'AppCenterReactNativeShared', '~> 1.6.0'
-  pod 'AppCenter/Push', '~> 1.7.1'
+  pod 'AppCenter/Crashes', '~> 1.8.0'
+  pod 'AppCenter/Analytics', '~> 1.8.0'
+  pod 'AppCenterReactNativeShared', '~> 1.7.1'
+  pod 'AppCenter/Push', '~> 1.8.0'
   pod 'AppCenter/Distribute'
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
@@ -26,9 +26,9 @@ target 'KWC' do
   pod 'Folly', :podspec => "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   
 
+  pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
   platform :ios, '9.0'
 
-  pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
 
   target 'KWCTests' do
     inherit! :search_paths

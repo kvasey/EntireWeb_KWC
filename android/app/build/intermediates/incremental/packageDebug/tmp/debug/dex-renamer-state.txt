@@ -1,7 +1,7 @@
-#Mon Jul 30 08:58:15 CEST 2018
-base.1=/home/paul/Documents/Projects/KWC/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Fri Aug 03 10:14:24 CEST 2018
+base.0=/Users/paulsimkevicius/Projects/EntireWeb_KWC/android/app/build/intermediates/transforms/dexMerger/debug/33
 path.1=classes2.dex
-base.0=/home/paul/Documents/Projects/KWC/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.1=classes2.dex
-renamed.0=classes.dex
 path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/paulsimkevicius/Projects/EntireWeb_KWC/android/app/build/intermediates/transforms/dexMerger/debug/33
