@@ -1,3 +1,4 @@
+import Analytics from "appcenter-analytics";
 import { setInStore, checkResult } from "../util";
 import { CART_CREATE_URL, ORDER_CREATE_URL } from "../../constants";
 import { calculateWeight } from "./action";
@@ -19,7 +20,6 @@ export const setCartDone = data => ({
   type: orderActions.CART_DONE,
   data
 });
-
 export const openFetcher = async (fetchData, setDone, dispatch, expect) => {
   dispatch(setInStore(null, orderActions.ERROR));
   dispatch(setInStore(true, orderActions.LOADING));
@@ -30,11 +30,14 @@ export const openFetcher = async (fetchData, setDone, dispatch, expect) => {
         setInStore(error, orderActions.ERROR)
       )
     ) {
-      dispatch(setDone(result[expect]));
+      const order = result[expect];
+
+      dispatch(setDone(order));
       dispatch(setInStore(false, orderActions.LOADING));
     }
   } catch (error) {
     dispatch(setInStore(false, orderActions.LOADING));
+
     dispatch(setInStore(error, orderActions.ERROR));
   }
 };
@@ -89,7 +92,10 @@ export const createOrder = () => async (dispatch, getState) => {
             calculateWeight(weightSum, combination, quantity),
           0
         ),
-        shippingPrice: carrier.price,
+        shippingPrice: (
+          parseFloat(carrier.price) +
+          parseFloat(carrier.price) * 0.2
+        ).toFixed(2),
         basket
       });
       result = await fetch(ORDER_CREATE_URL, {
@@ -97,11 +103,24 @@ export const createOrder = () => async (dispatch, getState) => {
         body
       });
       const orderResult = await result.json();
+      Analytics.trackEvent("Order Create", {
+        status: "OK",
+        userId: orderResult.order.id_customer,
+        orderId: orderResult.order.id,
+        cartId: cartResult.cart.id,
+        totalProducts: `${orderResult.order.total_products}`,
+        totalPaid: `${orderResult.order.total_paid}`
+      });
+
       dispatch(setOrderDone(orderResult.order));
       dispatch(setInStore(false, orderActions.LOADING));
       dispatch(updateOrder());
     }
   } catch (error) {
+    Analytics.trackEvent("Order Create", {
+      status: "FAIL",
+      userId: user.id
+    });
     dispatch(setInStore(false, orderActions.LOADING));
     dispatch(setInStore(error, orderActions.ERROR));
   }
@@ -130,7 +149,9 @@ const jsonToCartXML = ({
         <gift>0</gift>
         <gift_message/>
         <mobile_theme>0</mobile_theme>
-        <delivery_option/>
+        <delivery_option>
+        <id_carrier>${carrierId}</id_carrier>
+        </delivery_option>
         <secure_key>${customerSecureKey}</secure_key>
         <allow_seperated_package>0</allow_seperated_package>
         <associations>

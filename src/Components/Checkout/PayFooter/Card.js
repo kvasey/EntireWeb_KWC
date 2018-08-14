@@ -28,8 +28,7 @@ export default class extends PureComponent {
 					email: user.email
 				}
 			};
-			console.log(parseFloat(productCost), parseFloat(shippingCost));
-			console.log(((parseFloat(productCost) + parseFloat(shippingCost)) * 100).toFixed(0));
+
 			const token = await stripe.paymentRequestWithCardForm({
 				smsAutofillDisabled: true,
 				prefilledInformation

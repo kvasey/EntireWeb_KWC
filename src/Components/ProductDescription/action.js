@@ -49,7 +49,6 @@ export default id => async (dispatch, getState) => {
   const result = await Promise.all(
     toFetch.map(({ url, states }) => fetcher(states, url + id, dispatch))
   );
-  console.log(result);
   const {
     combinations,
     stockAvailables,

@@ -6,7 +6,6 @@ import { createUpdateAddress } from '../action';
 
 class Container extends Component {
 	render = () => {
-		console.log(this.props);
 		const { countries, states, createAddress, navigation } = this.props;
 
 		const loading = countries.loading || states.loading || createAddress.loading;

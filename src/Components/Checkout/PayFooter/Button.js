@@ -10,7 +10,7 @@ stripe.setOptions({
   publishableKey: __DEV__
     ? "pk_test_rlTe5L9vtemCGSAJVOZFLk45"
     : "pk_live_BIMShd0bkJUVp9xdKlEPNvlc",
-  // androidPayMode: "test",
+  androidPayMode: "test",
   merchantId: "merchant.com.stripe.kwc"
 });
 
@@ -43,9 +43,7 @@ export default ({
           {!isApplePay ? " " : ""}
           {icon ? <Icon name={icon} size={25} color="#FFF" /> : null}
           {isApplePay ? (
-            <Text style={{ fontSize: 25, fontWeight: "bold" }}>
-{text}
-</Text>
+            <Text style={{ fontSize: 25, fontWeight: "bold" }}>{text}            </Text>
           ) : (
             text
           )}

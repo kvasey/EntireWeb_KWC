@@ -36,8 +36,9 @@ import {
 
 const config = {
   key: "primary",
+
   storage,
-  // whitelist: [],
+  // whitelist: []
   blacklist: [
     "products",
     "stockAvailables",

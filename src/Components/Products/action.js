@@ -89,7 +89,6 @@ export default productIds => async (dispatch, getState) => {
         if (checkResult(priceResult, dispatch, setError)) {
           const { product_feature_values } = priceResult;
           const finalResult = getFinal(product_feature_values, products);
-          console.log(finalResult);
           dispatch(setDone(finalResult));
         }
       }

@@ -27,16 +27,16 @@ export default (state = defaultState, action) => {
 const flattenCategories = ({ categories }) => {
   if (!categories) return [];
 
-  const flat = categories.map(
-    ({ id, id_parent, name, associations: { products }, active }) => ({
+  const flat = categories
+    .filter(({ associations }) => associations)
+    .map(({ id, id_parent, name, associations: { products }, active }) => ({
       id: parseInt(id),
       idParent: parseInt(id_parent),
       name,
       childCount: countChildren(categories, id),
       products,
       active: active === "1"
-    })
-  );
+    }));
 
   return flat
     .map(({ id, idParent, name, childCount, products, active }, index) => {

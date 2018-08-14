@@ -36,6 +36,25 @@ export const setDeliveries = data => ({
   data
 });
 
+const checkStore = ({
+  countries,
+  states,
+  deliveries,
+  weightRanges,
+  carriers
+}) =>
+  countries.data.countries &&
+  states.data.states &&
+  deliveries.data.deliveries &&
+  carriers.data.carriers &&
+  weightRanges.data.weight_ranges;
+
+export const calculatePrice = (priceSum, { price }, quantity) =>
+  (parseFloat(priceSum) + parseFloat(price) * quantity).toFixed(2);
+
+export const calculateWeight = (weightSum, { weight }, quantity) =>
+  (parseFloat(weightSum) + parseFloat(weight) * quantity).toFixed(2);
+
 export const setProductCost = products => dispatch => {
   const price = products.reduce(
     (priceSum, { combination, quantity }) =>
@@ -146,7 +165,7 @@ export const setupCarriers = data => (dispatch, getState) => {
     const free = filteredDeliveries.shift();
     filteredDeliveries.push(free);
   }
-  if (filteredDeliveries.length < 2) {
+  if (filteredDeliveries.length < 1) {
     dispatch(setInStore(false, checkoutActions.LOADING));
     return dispatch(
       setInStore("No Delivery Locations Found.", checkoutActions.ERROR)
@@ -156,22 +175,3 @@ export const setupCarriers = data => (dispatch, getState) => {
 
   return dispatch(setInStore(false, checkoutActions.LOADING));
 };
-
-const checkStore = ({
-  countries,
-  states,
-  deliveries,
-  weightRanges,
-  carriers
-}) =>
-  countries.data.countries &&
-  states.data.states &&
-  deliveries.data.deliveries &&
-  carriers.data.carriers &&
-  weightRanges.data.weight_ranges;
-
-export const calculatePrice = (priceSum, { price }, quantity) =>
-  (parseFloat(priceSum) + parseFloat(price) * quantity).toFixed(2);
-
-export const calculateWeight = (weightSum, { weight }, quantity) =>
-  (parseFloat(weightSum) + parseFloat(weight) * quantity).toFixed(2);

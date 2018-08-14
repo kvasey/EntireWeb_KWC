@@ -1,7 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
 import InnerHeader from "../Components/styled/Headers/InnerHeader";
-import Home from "../Components/Home";
 import BasketList from "../Components/BasketList";
 import AddressSelect from "../Components/Checkout/AddressSelect";
 import Summary from "../Components/Checkout/Summary";
@@ -15,8 +14,7 @@ export default createStackNavigator(
     InvoiceSelect: AddressSelect,
     CarrierSelect,
     Summary,
-    Success,
-    Checkout: Home
+    Success
   },
   {
     initialRouteName: "BasketList",

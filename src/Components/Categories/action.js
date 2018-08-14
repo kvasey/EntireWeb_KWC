@@ -23,18 +23,18 @@ export const setDone = data => ({
 });
 
 export default () => async (dispatch, getState) => {
-  if (checkState(getState().categories)) {
-    dispatch(setError(null));
-    dispatch(setLoading(true));
-    try {
-      const result = await fetch(CATEGORIES_URL);
-      const jsonResult = await result.json();
-      if (checkResult(jsonResult, dispatch)) {
-        dispatch(setDone(jsonResult));
-      }
-    } catch (error) {
-      dispatch(setError(error));
+  // if (checkState(getState().categories)) {
+  dispatch(setError(null));
+  dispatch(setLoading(true));
+  try {
+    const result = await fetch(CATEGORIES_URL);
+    const jsonResult = await result.json();
+    if (checkResult(jsonResult, dispatch)) {
+      dispatch(setDone(jsonResult));
     }
-    dispatch(setLoading(false));
+  } catch (error) {
+    dispatch(setError(error));
   }
+  dispatch(setLoading(false));
 };
+// };

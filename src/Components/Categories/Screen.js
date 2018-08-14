@@ -8,7 +8,8 @@ import {
   ItemWrapper,
   Separator
 } from "./styled";
-import { Button, StateComponent } from "../styled/general";
+import { Button } from "../styled/general";
+import { StateComponent } from "../styled/components";
 
 const renderItem = (
   { item: { id, image, name, childCount, products }, index },
