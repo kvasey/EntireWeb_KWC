@@ -149,9 +149,7 @@ const jsonToCartXML = ({
         <gift>0</gift>
         <gift_message/>
         <mobile_theme>0</mobile_theme>
-        <delivery_option>
-        <id_carrier>${carrierId}</id_carrier>
-        </delivery_option>
+        <delivery_option>a:1:{i:${addressId};s:${(carrierId.length)+1}:"${carrierId},";}</delivery_option>
         <secure_key>${customerSecureKey}</secure_key>
         <allow_seperated_package>0</allow_seperated_package>
         <associations>
