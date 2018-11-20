@@ -49,6 +49,8 @@ PODS:
   - React/PrivateDatabase (0.56.0)
   - React/RCTBlob (0.56.0):
     - React/Core
+  - React/RCTNetwork (0.56.0):
+    - React/Core
   - React/RCTWebSocket (0.56.0):
     - React/Core
     - React/fishhook
@@ -72,6 +74,8 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
   - Stripe (~> 11.2.0)
   - tipsi-stripe (from `../node_modules/tipsi-stripe`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -118,6 +122,6 @@ SPEC CHECKSUMS:
   tipsi-stripe: 5688e4b999acac90e97db93c83957dae0aa32cde
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 51913d895a6f240c21bf7ae23c364e94fbd0c94a
+PODFILE CHECKSUM: 9fa7cf40e333029e9ceffa08e3d2719a8874acc9
 
 COCOAPODS: 1.5.3
