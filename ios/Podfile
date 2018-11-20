@@ -12,7 +12,6 @@ target 'KWC' do
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'CxxBridge',
     'DevSupport',
-    'RCTNetwork',"RCTWebSocket"
   ]
   pod 'AppCenter/Crashes', '~> 1.8.0'
   pod 'AppCenter/Analytics', '~> 1.8.0'
@@ -24,7 +23,7 @@ target 'KWC' do
   pod 'DoubleConversion', :podspec => "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   pod 'glog', :podspec => "../node_modules/react-native/third-party-podspecs/glog.podspec"
   pod 'Folly', :podspec => "../node_modules/react-native/third-party-podspecs/Folly.podspec"
-  
+
 
   pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
   platform :ios, '9.0'
