@@ -4,7 +4,9 @@ import HomeScreen from './Screen';
 import { getFirebase } from './action';
 
 class Container extends Component {
-	componentDidMount = () => this.props.fetch();
+	componentDidMount = () => {
+		alert("Hi");
+		this.props.fetch()};
 	render = () => <HomeScreen {...this.props} />;
 }
 
