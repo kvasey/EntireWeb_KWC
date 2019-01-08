@@ -30,16 +30,17 @@ class Success extends Component {
 				paid: stripe.charge.amount,
 				description: stripe.charge.description
 			});
+			this.props.createOrder();
+			this.props.clearBasket();
 		}
 		if (error || !stripe.isOk) {
 			Analytics.trackEvent("Stripe", { status: "FAIL", userId: user.id });
-			if (!this.state.orderCreated) {
-				this.setState({
-					orderCreated: true
-				});
-				this.props.createOrder();
-				this.props.clearBasket();
-			}
+			// if (!this.state.orderCreated) {
+			// 	this.setState({
+			// 		//orderCreated: true
+			// 	});
+				
+			// }
 		}
 	};
 
