@@ -62,6 +62,7 @@
 		D15C255208514FE194FD3C53 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 102B5AD1088E404A8AEBC998 /* Feather.ttf */; };
 		D396267A4B8249C1B743CE24 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD961BCE0B74A4A9EABF6E6 /* libRNVectorIcons.a */; };
 		E05A5332AD0B40378D154243 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7253B28B133C4D85B5A23513 /* JosefinSans-LightItalic.ttf */; };
+		E309FF9E21EE9BDC002049F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E309FF9D21EE9BDC002049F6 /* LaunchScreen.xib */; };
 		E9ECAC26542B454097B592DB /* libAppCenterReactNativePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 752EB1102AF14536BD660B4E /* libAppCenterReactNativePush.a */; };
 		ED581F2A89A8421CB8C61413 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F0F5184145B46C58FCA95AF /* SimpleLineIcons.ttf */; };
 		F676F8BDA3C94E9BB4669866 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6015FB42F06B48DAB21EF58E /* JosefinSans-SemiBoldItalic.ttf */; };
@@ -455,6 +456,7 @@
 		CF2E7498DC1845868FD264B8 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		D98653F273DC4A078DA08FA9 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-Bold.ttf"; path = "../assets/fonts/JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		E03FE99D3C534FFA881BE65D /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		E309FF9D21EE9BDC002049F6 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F592CFE158A467BE4BEA14D2 /* Pods-KWC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KWC.release.xcconfig"; path = "Pods/Target Support Files/Pods-KWC/Pods-KWC.release.xcconfig"; sourceTree = "<group>"; };
 		F910543676154B2BA832B55D /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		FA3B49F17EA6401EAFFD3985 /* AppCenterReactNativePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativePush.xcodeproj; path = "../node_modules/appcenter-push/ios/AppCenterReactNativePush.xcodeproj"; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				E309FF9D21EE9BDC002049F6 /* LaunchScreen.xib */,
 			);
 			name = KWC;
 			sourceTree = "<group>";
@@ -1382,6 +1385,7 @@
 				ADF0ABAF4FE6490BB661549F /* JosefinSans-BoldItalic.ttf in Resources */,
 				2379AF9E1F78402EAB32FCE8 /* JosefinSans-Italic.ttf in Resources */,
 				56183EDBF80D4A45AA85C5F2 /* JosefinSans-Light.ttf in Resources */,
+				E309FF9E21EE9BDC002049F6 /* LaunchScreen.xib in Resources */,
 				E05A5332AD0B40378D154243 /* JosefinSans-LightItalic.ttf in Resources */,
 				1F975792AFC64936BEF5DD30 /* JosefinSans-Regular.ttf in Resources */,
 				C0BE6C4DF84E4716B587141E /* JosefinSans-SemiBold.ttf in Resources */,
