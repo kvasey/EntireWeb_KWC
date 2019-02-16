@@ -91,7 +91,7 @@ export const setupCarriers = data => (dispatch, getState) => {
   }
 
   if (!addresses.data.addresses)
-    return dispatch(setInStore("Please Log In.", checkoutActions.ERROR));
+    return dispatch(setInStore("Add a new address .", checkoutActions.ERROR));
 
   const address = addresses.data.addresses[addressIndex];
 

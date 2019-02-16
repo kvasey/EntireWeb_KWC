@@ -1,14 +1,20 @@
 import Analytics from "appcenter-analytics";
 import { setInStore, checkResult } from "../util";
 import { CART_CREATE_URL, ORDER_CREATE_URL } from "../../constants";
-import { calculateWeight } from "./action";
+import { calculateWeight, checkoutActions } from "./action";
 import { updateOrder } from "./stripeActions";
 
 export const orderActions = {
   LOADING: "ORDER/CART_LOADING",
   ERROR: "ORDER/CART_ERROR",
-  CART_DONE: "CART_DONE",
+  ORDER_CART_DONE: "ORDER_CART_DONE",
   ORDER_DONE: "ORDER_DONE"
+};
+
+export const cartActions = {
+  LOADING: "CART_LOADING",
+  ERROR: "CART_ERROR",
+  CART_DONE: "CART_DONE"
 };
 
 export const setOrderDone = data => ({
@@ -16,8 +22,18 @@ export const setOrderDone = data => ({
   data
 });
 
+export const setOrderCartDone = data => ({
+  type: orderActions.ORDER_CART_DONE,
+  data
+});
+
 export const setCartDone = data => ({
-  type: orderActions.CART_DONE,
+  type: cartActions.CART_DONE,
+  data
+});
+
+const setDeliveries = data => ({
+  type: checkoutActions.DELIVERIES,
   data
 });
 export const openFetcher = async (fetchData, setDone, dispatch, expect) => {
@@ -42,9 +58,9 @@ export const openFetcher = async (fetchData, setDone, dispatch, expect) => {
   }
 };
 
-export const createOrder = () => async (dispatch, getState) => {
-  dispatch(setInStore(null, orderActions.ERROR));
-  dispatch(setInStore(true, orderActions.LOADING));
+export const createCart = () => async (dispatch, getState) => {
+  dispatch(setInStore(null, cartActions.ERROR));
+  dispatch(setInStore(true, cartActions.LOADING));
   const {
     addresses: {
       data: { addresses }
@@ -56,29 +72,84 @@ export const createOrder = () => async (dispatch, getState) => {
 
   const address = addresses[checkout.addressIndex];
   const invoice = addresses[checkout.invoiceIndex];
+  const method = checkout.cart.cart ? "PUT" : "POST";
+  let body = jsonToCreateCartXML({
+    invoiceId: invoice.id,
+    addressId: address.id,
+    customerId: user.id,
+    customerSecureKey: user.secureKey,
+    basket
+  });
+  if (method == "PUT") {
+    body = body = jsonToUpdateCartXML({
+      invoiceId: invoice.id,
+      addressId: address.id,
+      customerId: user.id,
+      customerSecureKey: user.secureKey,
+      cartId: checkout.cart.cart.id,
+      basket
+    });
+  }
+  try {
+    let result = await fetch(CART_CREATE_URL, {
+      method: method,
+      body
+    });
+    const cartResult = await result.json();
+    if (
+      checkResult(cartResult, dispatch, error =>
+        setInStore(error, cartActions.ERROR)
+      )
+    ) {
+      //dispatch(setDeliveries([]));
+      dispatch(setCartDone(cartResult.cart));
+      dispatch(setDeliveries(cartResult.cart.associations.carriers));
+    }
+  } catch (error) {
+    dispatch(setInStore(error, cartActions.ERROR));
+  }
+  dispatch(setInStore(false, cartActions.LOADING));
+};
+
+export const createOrder = () => async (dispatch, getState) => {
+  dispatch(setInStore(null, orderActions.ERROR));
+  dispatch(setInStore(true, orderActions.LOADING));
+  const {
+    addresses: {
+      data: { addresses }
+    },
+    checkout,
+    user,
+    basket
+  } = getState();
+  console.log("");
+  const address = addresses[checkout.addressIndex];
+  const invoice = addresses[checkout.invoiceIndex];
   const carrier = checkout.deliveries[checkout.deliveryIndex];
 
-  let body = jsonToCartXML({
+  let body = jsonToCartToOrderXML({
     invoiceId: invoice.id,
     addressId: address.id,
     customerId: user.id,
     customerSecureKey: user.secureKey,
     carrierId: carrier.id_carrier,
+    cartId: checkout.cart.cart.id,
     basket
   });
-
+  console.log(body);
   try {
     let result = await fetch(CART_CREATE_URL, {
-      method: "POST",
+      method: "PUT",
       body
     });
     const cartResult = await result.json();
+    console.log("cartResult2", cartResult);
     if (
       checkResult(result, dispatch, error =>
         setInStore(error, orderActions.ERROR)
       )
     ) {
-      dispatch(setCartDone(cartResult.cart));
+      dispatch(setOrderCartDone(cartResult.cart));
       body = jsonToOrderXML({
         invoiceId: invoice.id,
         addressId: address.id,
@@ -92,17 +163,16 @@ export const createOrder = () => async (dispatch, getState) => {
             calculateWeight(weightSum, combination, quantity),
           0
         ),
-        shippingPrice: (
-          parseFloat(carrier.price) +
-          parseFloat(carrier.price) * 0.2
-        ).toFixed(2),
+        shippingPrice: parseFloat(carrier.price).toFixed(2),
         basket
       });
       result = await fetch(ORDER_CREATE_URL, {
         method: "POST",
         body
       });
+      console.log("body2", body);
       const orderResult = await result.json();
+      console.log("orderResult", orderResult);
       Analytics.trackEvent("Order Create", {
         status: "OK",
         userId: orderResult.order.id_customer,
@@ -126,16 +196,18 @@ export const createOrder = () => async (dispatch, getState) => {
   }
 };
 
-const jsonToCartXML = ({
+const jsonToCartToOrderXML = ({
   invoiceId,
   addressId,
   customerId,
   carrierId,
+  cartId,
   customerSecureKey,
   basket
 }) => `
 <prestashop>
     <cart>
+    <id>${cartId}</id>
         <id_address_delivery>${addressId}</id_address_delivery>
         <id_address_invoice>${invoiceId}</id_address_invoice>
         <id_currency>3</id_currency>
@@ -149,7 +221,8 @@ const jsonToCartXML = ({
         <gift>0</gift>
         <gift_message/>
         <mobile_theme>0</mobile_theme>
-        <delivery_option>a:1:{i:${addressId};s:${(carrierId.length)+1}:"${carrierId},";}</delivery_option>
+        <delivery_option>a:1:{i:${addressId};s:${carrierId.length +
+  1}:"${carrierId},";}</delivery_option>
         <secure_key>${customerSecureKey}</secure_key>
         <allow_seperated_package>0</allow_seperated_package>
         <associations>
@@ -172,6 +245,67 @@ const getCartRows = (basket, addressId) =>
     )
     .toString()
     .replace(/,/g, "");
+
+const jsonToCreateCartXML = ({
+  invoiceId,
+  addressId,
+  customerId,
+  customerSecureKey,
+  basket
+}) => `
+    <prestashop>
+        <cart>
+        <id/>
+            <id_address_delivery>${addressId}</id_address_delivery>
+            <id_address_invoice>${invoiceId}</id_address_invoice>
+            <id_currency>3</id_currency>
+            <id_customer>${customerId}</id_customer>
+            <id_guest>0</id_guest>
+            <id_lang>1</id_lang>
+            <id_shop_group>1</id_shop_group>
+            <id_shop>1</id_shop>
+            <recyclable>0</recyclable>
+            <gift>0</gift>
+            <gift_message/>
+            <mobile_theme>0</mobile_theme>
+            <secure_key>${customerSecureKey}</secure_key>
+            <allow_seperated_package>0</allow_seperated_package>
+            <associations>
+                <cart_rows>${getCartRows(basket, addressId)}</cart_rows>
+            </associations>
+        </cart>
+    </prestashop>`;
+
+const jsonToUpdateCartXML = ({
+  invoiceId,
+  addressId,
+  customerId,
+  cartId,
+  customerSecureKey,
+  basket
+}) => `
+        <prestashop>
+            <cart>
+            <id>${cartId}</id>
+                <id_address_delivery>${addressId}</id_address_delivery>
+                <id_address_invoice>${invoiceId}</id_address_invoice>
+                <id_currency>3</id_currency>
+                <id_customer>${customerId}</id_customer>
+                <id_guest>0</id_guest>
+                <id_lang>1</id_lang>
+                <id_shop_group>1</id_shop_group>
+                <id_shop>1</id_shop>
+                <recyclable>0</recyclable>
+                <gift>0</gift>
+                <gift_message/>
+                <mobile_theme>0</mobile_theme>
+                <secure_key>${customerSecureKey}</secure_key>
+                <allow_seperated_package>0</allow_seperated_package>
+                <associations>
+                    <cart_rows>${getCartRows(basket, addressId)}</cart_rows>
+                </associations>
+            </cart>
+        </prestashop>`;
 
 const jsonToOrderXML = ({
   invoiceId,

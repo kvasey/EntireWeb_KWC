@@ -80,9 +80,7 @@ export default id => async (dispatch, getState) => {
       return {
         id: parseInt(combination.id, 10),
         idProduct: parseInt(combination.id_product, 10),
-        price: getPrice(
-          localProduct.isVat ? parseFloat(price * 0.2) + price : price
-        ),
+        price: getPrice(localProduct.isVat ? price : price),
         productOptionValues: combination.associations.product_option_values.map(
           ({ id }) => parseInt(id)
         ),

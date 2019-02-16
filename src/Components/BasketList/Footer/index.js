@@ -22,9 +22,10 @@ class Container extends Component {
   render = () => <Footer {...this.props} />;
 }
 
-const mapStateToProps = ({ checkout, addresses: { data } }) => ({
+const mapStateToProps = ({ user, checkout, addresses: { data } }) => ({
   ...checkout,
-  addresses: data
+  addresses: data,
+  user
 });
 
 const mapDispatchToProps = dispatch => ({

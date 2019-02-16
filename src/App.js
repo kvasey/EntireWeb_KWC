@@ -20,7 +20,7 @@ export default codePush()(
 
 		render = () => (
 			<Provider store={store}>
-				<PersistGate persistor={persistor} loading={<StateComponent loading error={false} />}>
+				<PersistGate persistor={persistor} loading={<StateComponent loading={true} error={true} />}>
 					<InitalFetch />
 					<SafeAreaView style={{ flex: 1 }} forceInset={{ bottom: 'never' }}>
 						<PaperProvider>

@@ -29,7 +29,8 @@ const LoginForm = ({
       underlineColor={Color.secondary}
     />
     {errors.email && (
-      <HelperText type="error" visible={errors.email}>
+      <HelperText type="error"
+       visible={errors.email}>
         {errors.email}
       </HelperText>
     )}

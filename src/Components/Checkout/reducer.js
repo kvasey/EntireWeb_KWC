@@ -1,5 +1,5 @@
 import { checkoutActions } from "./action";
-import { orderActions } from "./orderActions";
+import { orderActions, cartActions } from "./orderActions";
 import { stripeActions, updateOrderActions } from "./stripeActions";
 
 const defaultState = {
@@ -8,6 +8,11 @@ const defaultState = {
   addressIndex: 0,
   invoiceIndex: 0,
   deliveries: [],
+  cart: {
+    cart: null,
+    loading: true,
+    error: null
+  },
   order: {
     order: null,
     cart: null,
@@ -66,7 +71,7 @@ export default (state = defaultState, action) => {
         ...state,
         error: action.state
       };
-    case orderActions.CART_DONE:
+    case orderActions.ORDER_CART_DONE:
       return {
         ...state,
         order: { ...state.order, cart: action.data }
@@ -85,6 +90,21 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         order: { ...state.order, loading: action.state }
+      };
+    case cartActions.CART_DONE:
+      return {
+        ...state,
+        cart: { ...state.cart, cart: action.data }
+      };
+    case cartActions.ERROR:
+      return {
+        ...state,
+        cart: { ...state.cart, error: action.state }
+      };
+    case cartActions.LOADING:
+      return {
+        ...state,
+        cart: { ...state.cart, loading: action.state }
       };
     case stripeActions.DONE:
       return {

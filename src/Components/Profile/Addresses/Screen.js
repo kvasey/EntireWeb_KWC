@@ -35,7 +35,8 @@ export default ({
             rootNavigation.navigate("Address", {
               address: null,
               userId: user.id,
-              update: false
+              update: false,
+              from: "Profile"
             })
           }
           textChildren="Add New Address"
@@ -51,7 +52,8 @@ export default ({
           rootNavigation.navigate("Address", {
             address: addresses[index],
             userId: user.id,
-            update: true
+            update: true,
+            from: "Profile"
           })
         }
       >

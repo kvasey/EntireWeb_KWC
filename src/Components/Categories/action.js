@@ -28,7 +28,9 @@ export default () => async (dispatch, getState) => {
   dispatch(setLoading(true));
   try {
     const result = await fetch(CATEGORIES_URL);
+
     const jsonResult = await result.json();
+    console.log("Categories", jsonResult);
     if (checkResult(jsonResult, dispatch)) {
       dispatch(setDone(jsonResult));
     }

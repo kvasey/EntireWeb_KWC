@@ -20,13 +20,7 @@ export default ({ deliveries, navigation: { navigate }, setCarrier }) => (
     <FlatList
       data={deliveries}
       keyExtractor={({ id }, index) => `${index + id}`}
-      renderItem={({
-        item: {
-          price,
-          carrier: { name, delay }
-        },
-        index
-      }) => (
+      renderItem={({ item: { price, name, delay }, index }) => (
         <Button
           onPress={() => {
             setCarrier(index);
@@ -36,8 +30,7 @@ export default ({ deliveries, navigation: { navigate }, setCarrier }) => (
           <OrderContainer style={{ height: 130 }}>
             <StatusContainer color={Color.secondary}>
               <StatusText style={{ color: "#FFF" }}>
-                £
-                {getPrice(price)}
+                £{getPrice(price)}
               </StatusText>
             </StatusContainer>
             <OuterOrderContainer>

@@ -43,7 +43,7 @@ export default ({
           {!isApplePay ? " " : ""}
           {icon ? <Icon name={icon} size={25} color="#FFF" /> : null}
           {isApplePay ? (
-            <Text style={{ fontSize: 25, fontWeight: "bold" }}>{text}            </Text>
+            <Text style={{ fontSize: 25, fontWeight: "bold" }}>{text} </Text>
           ) : (
             text
           )}

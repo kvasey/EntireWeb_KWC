@@ -169,9 +169,10 @@ const AddressForm = ({
 const mapPropsToValues = ({
   navigation: {
     state: {
-      params: { address, update, userId }
+      params: { address, update, userId, from }
     },
-    goBack
+    goBack,
+    navigate
   },
   states,
   countries,
@@ -183,7 +184,9 @@ const mapPropsToValues = ({
     states: sortByName(states),
     createAddress,
     update,
-    goBack
+    goBack,
+    navigate,
+    from
   };
   return update
     ? {
@@ -240,9 +243,10 @@ export default withFormik({
     postcode: Yup.string().required("Required")
   }),
 
-  handleSubmit: values => {
+  handleSubmit: (values, { props }) => {
     values.createAddress(values);
-    values.goBack(null);
+    if (values.from == "Basket") values.navigate("BasketList");
+    else values.goBack(null);
   }
 })(AddressForm);
 

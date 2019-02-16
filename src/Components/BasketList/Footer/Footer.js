@@ -13,8 +13,7 @@ export default props => (
     >
       <Text>Product Cost:</Text>
       <Price style={{ fontSize: Platform.isPad ? 24 : 18 }}>
-        £
-        {props.productCost}
+        £{props.productCost}
       </Price>
     </OuterOrderContainer>
     {!checkLoading(props, getShippingCost) && (
@@ -23,8 +22,7 @@ export default props => (
       >
         <Text>Shipping Cost:</Text>
         <Price style={{ fontSize: Platform.isPad ? 22 : 16 }}>
-          £
-          {getPrice(getShippingCost(props))}
+          £{getPrice(getShippingCost(props))}
         </Price>
       </OuterOrderContainer>
     )}
@@ -38,18 +36,27 @@ export default props => (
       >
         <Text>Total Cost:</Text>
         <Price style={{ fontSize: Platform.isPad ? 22 : 16 }}>
-          £
-          {getPrice(getTotalCost(props))}
+          £{getPrice(getTotalCost(props))}
         </Price>
       </OuterOrderContainer>
     )}
     <SubmitButton
-      textChildren={props.error || "Checkout"}
+      textChildren={props.user ? props.error || "Checkout" : "Please log in"}
       onPress={
-        props.error
-          ? () => props.navigation.navigate("Auth")
-          : () =>
-              props.navigation.navigate("AddressSelect", { select: "address" })
+        props.user
+          ? props.error
+            ? () =>
+                props.navigation.navigate("Address1", {
+                  address: null,
+                  userId: props.user.id,
+                  update: false,
+                  from: "Basket"
+                })
+            : () =>
+                props.navigation.navigate("AddressSelect", {
+                  select: "address"
+                })
+          : () => props.navigation.navigate("Auth")
       }
     />
   </OrderContainer>

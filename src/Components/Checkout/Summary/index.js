@@ -32,9 +32,7 @@ const Container = ({
 
   return (
     <Fragment>
-      <SummaryText>
-Order Summary
-</SummaryText>
+      <SummaryText>Order Summary</SummaryText>
       <ScrollView>
         {renderHeader(
           {

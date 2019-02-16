@@ -16,6 +16,7 @@ export const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*
 
 // URL
 const BASE_URL = "https://www.kidswholesaleclothing.co.uk/api/";
+//const BASE_URL = "https://www.kidswholesaleclothing.co.uk/copy/api/";
 const OUTPUT = "output_format=JSON";
 const IMAGE = "images/products/";
 export const KEY = "ws_key=F5ZNKQZZSSH5SSH4114CMI4I691Q4FW4";
@@ -25,6 +26,8 @@ export const CKEY = "6DdKR6FbVz1ikuBO2tpJi1xmeBhsz8GMUkaD6BaMeeFLOg3d7OHQwVBv";
 export const CUSTOMER_ORDERS_URL = `${BASE_URL}orders?${OUTPUT}&display=full&${KEY}&filter[id_customer]=`;
 
 export const REGISTER_URL = `${BASE_URL}customers?${OUTPUT}&${KEY}&schema=blank`;
+
+export const USER_EXISTS = `${BASE_URL}customers?${OUTPUT}&${KEY}&&filter[email]=`;
 
 export const FIREBASE_URL =
   "https://kidswholesale-183411.firebaseio.com/advertisements.json";
@@ -76,4 +79,4 @@ export const ORDER_STATUS_URL = `${BASE_URL}order_histories?${KEY}&${OUTPUT}`;
 
 export const STRIPE_URL =
   "https://wt-62f326f8f8642c3228b1f956ceae13ea-0.run.webtask.io/stripe-payment";
-// https://sandbox.auth0-extend.com/edit/wt-62f326f8f8642c3228b1f956ceae13ea-0#webtaskName=stripe-payment&token=eyJhbGciOiJIUzI1NiIsImtpZCI6IjIifQ.eyJqdGkiOiI0OWE5NDRjYmE4M2Q0MmU0OGU4ODIzZTIzMjFhZDFjOSIsImlhdCI6MTUyMTEyNjIyOCwiY2EiOlsiOTAwNzMzNGRiMDhjNGQ2M2E0MTNjZGFmM2YzYjYxNGMiXSwiZGQiOjEsInRlbiI6Ii9ed3QtNjJmMzI2ZjhmODY0MmMzMjI4YjFmOTU2Y2VhZTEzZWEtWzAtMV0kLyJ9.R802rdanrgPOmTpSM-Tx_kiVZdjyw9gQq-0ayNc4Q9g
+//"https://sandbox.auth0-extend.com/edit/wt-62f326f8f8642c3228b1f956ceae13ea-0#webtaskName=stripe-payment&token=eyJhbGciOiJIUzI1NiIsImtpZCI6IjIifQ.eyJqdGkiOiI0OWE5NDRjYmE4M2Q0MmU0OGU4ODIzZTIzMjFhZDFjOSIsImlhdCI6MTUyMTEyNjIyOCwiY2EiOlsiOTAwNzMzNGRiMDhjNGQ2M2E0MTNjZGFmM2YzYjYxNGMiXSwiZGQiOjEsInRlbiI6Ii9ed3QtNjJmMzI2ZjhmODY0MmMzMjI4YjFmOTU2Y2VhZTEzZWEtWzAtMV0kLyJ9.R802rdanrgPOmTpSM-Tx_kiVZdjyw9gQq-0ayNc4Q9g";

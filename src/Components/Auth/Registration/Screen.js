@@ -20,7 +20,8 @@ const LoginForm = ({
   values,
   errors,
   touched,
-  navigation
+  navigation,
+  registration
 }) => (
   <KeyboardAwareScrollView style={FormStyle} keyboardShouldPersistTaps="always">
     <TextInput
@@ -37,6 +38,12 @@ const LoginForm = ({
         {errors.email}
       </HelperText>
     )}
+    {registration.exists && (
+      <HelperText type="error" visible={registration.exists}>
+        {registration.exists}
+      </HelperText>
+    )}
+
     <TextInput
       name="firstName"
       label="Firstname"
