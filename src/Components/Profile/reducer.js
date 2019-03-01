@@ -15,16 +15,22 @@ export const addresses = (state = defaultState, action) => {
     case addressesState.CLEAR:
       return defaultState;
     case addressesState.UPDATE: {
-      const newData = state.data.addresses;
-      const index = newData.findIndex(
-        ({ id }) => id === parseInt(action.data.address.id)
-      );
-      if (index >= 0) {
-        newData[index] = action.data.address;
+      if (state.data.addresses) {
+        const newData = state.data.addresses;
+        const index = newData.findIndex(
+          ({ id }) => id === parseInt(action.data.address.id)
+        );
+        if (index >= 0) {
+          newData[index] = action.data.address;
+        } else {
+          newData.push(action.data.address);
+        }
+        return { ...state, data: { addresses: newData } };
       } else {
+        const newData = [];
         newData.push(action.data.address);
+        return { ...state, data: { addresses: newData } };
       }
-      return { ...state, data: { addresses: newData } };
     }
     default:
       return reducer(addressesState, state, action);
