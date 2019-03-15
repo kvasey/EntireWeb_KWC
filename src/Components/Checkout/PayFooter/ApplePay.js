@@ -61,8 +61,8 @@ export default class extends PureComponent {
         shippingMethods: [
           {
             id: carrier.id_carrier,
-            label: carrier.carrier.name,
-            detail: carrier.carrier.delay,
+            label: carrier.name,
+            detail: carrier.delay,
             amount: `${shippingCost}`
           }
         ]
