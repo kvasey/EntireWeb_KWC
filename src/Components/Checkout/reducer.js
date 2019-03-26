@@ -51,6 +51,11 @@ export default (state = defaultState, action) => {
         ...state,
         deliveryIndex: action.index
       };
+    case checkoutActions.DEFAULTCARRIER:
+      return {
+        ...state,
+        deliveryIndex: 0
+      };
     case checkoutActions.PRODUCT:
       return {
         ...state,

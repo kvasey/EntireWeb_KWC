@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { FlatList, View } from "react-native";
 import { connect } from "react-redux";
 import Icon from "react-native-vector-icons/Feather";
-import { setAddress, setInvoice } from "../action";
+import { setAddress, setInvoice, setDefaultCarrier } from "../action";
 import { createCart } from "../orderActions";
 import { Button } from "../../styled/general";
 import { SummaryText } from "../styled";
@@ -26,7 +26,8 @@ const Container = ({
   },
   setAddress,
   setInvoice,
-  createCart
+  createCart,
+  setDefaultCarrier
 }) => (
   <Fragment>
     <SummaryText>
@@ -49,6 +50,7 @@ const Container = ({
               navigate("CarrierSelect");
             } else {
               setAddress(index);
+              setDefaultCarrier();
               navigate("InvoiceSelect", { select: "invoice" });
             }
           }}
@@ -106,7 +108,8 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   setAddress: index => dispatch(setAddress(index)),
   setInvoice: index => dispatch(setInvoice(index)),
-  createCart: () => dispatch(createCart())
+  createCart: () => dispatch(createCart()),
+  setDefaultCarrier: () => dispatch(setDefaultCarrier())
 });
 
 export default connect(

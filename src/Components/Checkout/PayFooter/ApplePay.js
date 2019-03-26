@@ -93,6 +93,9 @@ export default class extends PureComponent {
       }
     } catch (error) {
       await stripe.cancelApplePayRequest();
+      if (error.message == "Apple Pay is not configured") {
+        this.handleSetupApplePayPress();
+      }
       this.setState({ loading: false, status: `Error: ${error.message}` });
     }
   };

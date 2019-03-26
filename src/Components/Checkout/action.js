@@ -4,6 +4,7 @@ import initialFetch from "../Initial/action";
 export const checkoutActions = {
   PRODUCT: "SET_CHECKOUT_PRODUCT_COST",
   CARRIER: "SET_CHECKOUT_CARRIER",
+  DEFAULTCARRIER: "SET_CHECKOUT_DEFAULT_CARRIER",
   ADDRESS: "SET_CHECKOUT_ADDRESS",
   INVOICE: "SET_CHECKOUT_INVOICE",
   DELIVERIES: "SET_CHECKOUT_DELIVERIES",
@@ -26,6 +27,9 @@ export const setCarrier = index => ({
   index
 });
 
+export const setDefaultCarrier = () => ({
+  type: checkoutActions.DEFAULTCARRIER
+});
 const setCost = (cost, type) => ({
   type,
   cost

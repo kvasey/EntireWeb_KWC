@@ -5,7 +5,6 @@ import { Text } from "../styled";
 import { SubmitButton } from "../../styled/components";
 import { OrderContainer, OuterOrderContainer } from "../../Profile/styled";
 import { getPrice } from "../../util";
-
 export default props => (
   <OrderContainer key="Data" style={{ height: "100%" }}>
     <OuterOrderContainer
@@ -62,9 +61,11 @@ export default props => (
   </OrderContainer>
 );
 
-const getShippingCost = ({ deliveries, deliveryIndex }) =>
-  parseFloat(deliveries[deliveryIndex].price).toFixed(2);
-
+const getShippingCost = ({ deliveries, deliveryIndex }) => {
+  console.log("DELIVERIES", deliveries);
+  console.log("DELIVERIES-INDEX", deliveryIndex);
+  return parseFloat(deliveries[deliveryIndex].price).toFixed(2);
+};
 const getTotalCost = ({ productCost, ...rest }) =>
   parseFloat(productCost) + parseFloat(getShippingCost(rest));
 
