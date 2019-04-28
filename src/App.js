@@ -18,7 +18,7 @@ import { StateComponent } from "./Components/styled/components";
 import initStore from "./Store";
 import InitalFetch from "./Components/Initial";
 import VersionCheck from "react-native-version-check";
-
+import OneSignal from "react-native-onesignal";
 const { store, persistor } = initStore();
 
 export default codePush()(
@@ -28,6 +28,31 @@ export default codePush()(
       this.state = {
         updatemodal: false
       };
+      OneSignal.init("c1a5566d-2730-4dbe-94cf-35741fd9464e");
+
+      OneSignal.addEventListener("received", this.onReceived);
+      OneSignal.addEventListener("opened", this.onOpened);
+      OneSignal.addEventListener("ids", this.onIds);
+    }
+    componentWillUnmount() {
+      OneSignal.removeEventListener("received", this.onReceived);
+      OneSignal.removeEventListener("opened", this.onOpened);
+      OneSignal.removeEventListener("ids", this.onIds);
+    }
+
+    onReceived(notification) {
+      console.log("Notification received: ", notification);
+    }
+
+    onOpened(openResult) {
+      console.log("Message: ", openResult.notification.payload.body);
+      console.log("Data: ", openResult.notification.payload.additionalData);
+      console.log("isActive: ", openResult.notification.isAppInFocus);
+      console.log("openResult: ", openResult);
+    }
+
+    onIds(device) {
+      console.log("Device info: ", device);
     }
     onUpdate = async () => {
       Platform.OS == "ios"
@@ -51,7 +76,6 @@ export default codePush()(
           this.setState({ updatemodal: true });
         }
       });
-      await codePush.notifyAppReady();
     };
 
     render = () => (

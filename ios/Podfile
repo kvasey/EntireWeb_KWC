@@ -32,6 +32,8 @@ target 'KWC' do
 
   pod 'react-native-version-check', :path => '../node_modules/react-native-version-check'
 
+  pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
 end
 
 post_install do |installer|

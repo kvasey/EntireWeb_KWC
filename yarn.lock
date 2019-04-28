@@ -820,12 +820,6 @@ appcenter-link-scripts@1.7.1:
     which "^1.2.11"
     xcode "^1.0.0"
 
-appcenter-push@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/appcenter-push/-/appcenter-push-1.7.1.tgz#ac44dd3db7b00063ec0af24134c2d2a71f411347"
-  dependencies:
-    appcenter "1.7.1"
-
 appcenter@1.7.1, appcenter@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/appcenter/-/appcenter-1.7.1.tgz#76a4e801d5172c318423bc439b61a5dfdabc0afd"
@@ -6137,6 +6131,13 @@ react-native-lightbox@^0.7.0:
 react-native-md5@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-md5/-/react-native-md5-1.0.0.tgz#2320be24d674938ae5ef4f492698edbbfa0e0205"
+
+react-native-onesignal@^3.2.12:
+  version "3.2.12"
+  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.2.12.tgz#309dc4f65decae28119f46c0f1eef4310742bfb8"
+  integrity sha512-E1x5vNvOrgRRcr3FMdPVSXKtg8pk/XK1dU3aDSs4mwBOzlpFi8AlZd/bfd2bJUJ4BrWw09AsqdSDs+QygKP8sw==
+  dependencies:
+    invariant "^2.2.2"
 
 react-native-paper@2.0.0-alpha.4:
   version "2.0.0-alpha.4"

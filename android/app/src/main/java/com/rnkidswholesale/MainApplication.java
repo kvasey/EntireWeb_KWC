@@ -4,8 +4,8 @@ import android.app.Application;
 
 import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactApplication;
+import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import io.xogus.reactnative.versioncheck.RNVersionCheckPackage;
-import com.microsoft.appcenter.reactnative.push.AppCenterReactNativePushPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.gettipsi.stripe.StripeReactPackage;
 import com.microsoft.codepush.react.CodePush;
@@ -39,8 +39,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeOneSignalPackage(),
             new RNVersionCheckPackage(),
-            new AppCenterReactNativePushPackage(MainApplication.this),
             new VectorIconsPackage(),
             new StripeReactPackage(),
             new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),

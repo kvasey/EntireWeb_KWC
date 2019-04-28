@@ -27,6 +27,8 @@ PODS:
     - Base64 (~> 1.1.2)
   - React (0.56.0):
     - React/Core (= 0.56.0)
+  - react-native-version-check (3.0.4):
+    - React
   - React/Core (0.56.0):
     - yoga (= 0.56.0.React)
   - React/CxxBridge (0.56.0):
@@ -72,6 +74,7 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - react-native-version-check (from `../node_modules/react-native-version-check`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
   - React/RCTNetwork (from `../node_modules/react-native`)
@@ -101,6 +104,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
+  react-native-version-check:
+    :path: "../node_modules/react-native-version-check"
   tipsi-stripe:
     :path: "../node_modules/tipsi-stripe"
   yoga:
@@ -117,11 +122,12 @@ SPEC CHECKSUMS:
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
   JWT: 05028b9624591bba9681bb57df2c5f95fa258bad
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  react-native-version-check: 1a1381469cc65b953aa30d52a0150be6f038c6ba
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   tipsi-stripe: 5688e4b999acac90e97db93c83957dae0aa32cde
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 9fa7cf40e333029e9ceffa08e3d2719a8874acc9
+PODFILE CHECKSUM: 8ab8f64493e1779c07afc33ab06fa58e9c53e4c1
 
 COCOAPODS: 1.5.3
