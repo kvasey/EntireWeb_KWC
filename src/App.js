@@ -6,7 +6,8 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Button
 } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -114,18 +115,20 @@ export default codePush()(
                   </View>
                 </View>
               </Modal>
-              <Button
-                style={styles.button}
-                onPress={() => {
-                  OneSignal.getPermissionSubscriptionState(
-                    subscriptionState => {
-                      console.error(subscriptionState);
-                    }
-                  );
-                }}
-                title="Print Subscription State"
-                color={this.state.buttonColor}
-              />
+              <View>
+                <Button
+                  style={styles.button}
+                  onPress={() => {
+                    OneSignal.getPermissionSubscriptionState(
+                      subscriptionState => {
+                        alert(JSON.stringify(subscriptionState, null, 2));
+                      }
+                    );
+                  }}
+                  title="Print Subscription State"
+                  color={this.state.buttonColor}
+                />
+              </View>
               <Navigator />
             </PaperProvider>
           </SafeAreaView>
