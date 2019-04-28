@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -63,10 +62,10 @@
 		D396267A4B8249C1B743CE24 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD961BCE0B74A4A9EABF6E6 /* libRNVectorIcons.a */; };
 		E05A5332AD0B40378D154243 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7253B28B133C4D85B5A23513 /* JosefinSans-LightItalic.ttf */; };
 		E309FF9E21EE9BDC002049F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E309FF9D21EE9BDC002049F6 /* LaunchScreen.xib */; };
-		E9ECAC26542B454097B592DB /* libAppCenterReactNativePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 752EB1102AF14536BD660B4E /* libAppCenterReactNativePush.a */; };
 		ED581F2A89A8421CB8C61413 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F0F5184145B46C58FCA95AF /* SimpleLineIcons.ttf */; };
 		F676F8BDA3C94E9BB4669866 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6015FB42F06B48DAB21EF58E /* JosefinSans-SemiBoldItalic.ttf */; };
 		FE6EC9D1CB4149CE8FEE6CB7 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C4A8117C3AE4C99BE415342 /* Foundation.ttf */; };
+		C1E12127E2AE4A93A8810F87 /* libAppCenterReactNativePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3FA532B1DE41D7847A628F /* libAppCenterReactNativePush.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,13 +138,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5419C2701D824AA700DDF3A1;
 			remoteInfo = AppCenterReactNativeCrashes;
-		};
-		12B97F4C20FC68580023466D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA3B49F17EA6401EAFFD3985 /* AppCenterReactNativePush.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BA189FAA1EEE74F100CAD13F;
-			remoteInfo = AppCenterReactNativePush;
 		};
 		12B97F5220FC68580023466D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -437,7 +429,6 @@
 		695034CA0906448A8B9C82B9 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		7253B28B133C4D85B5A23513 /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-LightItalic.ttf"; path = "../assets/fonts/JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		72FD4465494540858A39FED1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		752EB1102AF14536BD660B4E /* libAppCenterReactNativePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativePush.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		78D0940983D54F0EB0DBAF10 /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBEEPickerManager.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -459,7 +450,8 @@
 		E309FF9D21EE9BDC002049F6 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F592CFE158A467BE4BEA14D2 /* Pods-KWC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KWC.release.xcconfig"; path = "Pods/Target Support Files/Pods-KWC/Pods-KWC.release.xcconfig"; sourceTree = "<group>"; };
 		F910543676154B2BA832B55D /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
-		FA3B49F17EA6401EAFFD3985 /* AppCenterReactNativePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativePush.xcodeproj; path = "../node_modules/appcenter-push/ios/AppCenterReactNativePush.xcodeproj"; sourceTree = "<group>"; };
+		B362466ED45C4BA1B1B65C26 /* AppCenterReactNativePush.xcodeproj */ = {isa = PBXFileReference; name = "AppCenterReactNativePush.xcodeproj"; path = "../node_modules/appcenter-push/ios/AppCenterReactNativePush.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2B3FA532B1DE41D7847A628F /* libAppCenterReactNativePush.a */ = {isa = PBXFileReference; name = "libAppCenterReactNativePush.a"; path = "libAppCenterReactNativePush.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,8 +482,8 @@
 				A8FBB5D15420492C97F59298 /* libAppCenterReactNative.a in Frameworks */,
 				6C2E9DCF70484D108C6CB60B /* libAppCenterReactNativeAnalytics.a in Frameworks */,
 				4AFF940E497C4AFE9355425A /* libAppCenterReactNativeCrashes.a in Frameworks */,
-				E9ECAC26542B454097B592DB /* libAppCenterReactNativePush.a in Frameworks */,
 				B60752A75B8607C9D117149B /* libPods-KWC.a in Frameworks */,
+				C1E12127E2AE4A93A8810F87 /* libAppCenterReactNativePush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,14 +627,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		12B97F4020FC68570023466D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				12B97F4D20FC68580023466D /* libAppCenterReactNativePush.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,8 +735,8 @@
 				4BD9E6C7BE7C449783EF3E4C /* AppCenterReactNative.xcodeproj */,
 				3DD01F95A3F64EC4A2D7596A /* AppCenterReactNativeAnalytics.xcodeproj */,
 				10BA2FEE13854D698A55F8DB /* AppCenterReactNativeCrashes.xcodeproj */,
-				FA3B49F17EA6401EAFFD3985 /* AppCenterReactNativePush.xcodeproj */,
 				536027028EC2459A8EF5AD52 /* RNPhotoView.xcodeproj */,
+				B362466ED45C4BA1B1B65C26 /* AppCenterReactNativePush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -983,10 +967,6 @@
 					ProjectRef = 10BA2FEE13854D698A55F8DB /* AppCenterReactNativeCrashes.xcodeproj */;
 				},
 				{
-					ProductGroup = 12B97F4020FC68570023466D /* Products */;
-					ProjectRef = FA3B49F17EA6401EAFFD3985 /* AppCenterReactNativePush.xcodeproj */;
-				},
-				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -1115,13 +1095,6 @@
 			fileType = archive.ar;
 			path = libAppCenterReactNativeCrashes.a;
 			remoteRef = 12B97F4920FC68580023466D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		12B97F4D20FC68580023466D /* libAppCenterReactNativePush.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAppCenterReactNativePush.a;
-			remoteRef = 12B97F4C20FC68580023466D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		12B97F5320FC68580023466D /* libRNVectorIcons.a */ = {
@@ -1551,21 +1524,14 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = KWCTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1590,21 +1556,14 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = KWCTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1633,8 +1592,8 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = KWC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1667,8 +1626,8 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = KWC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1705,20 +1664,13 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = "KWC-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1753,20 +1705,13 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = "KWC-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1800,20 +1745,13 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = "KWC-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1847,20 +1785,13 @@
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
-					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 					"$(SRCROOT)/../node_modules/react-native-photo-view/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-push/ios/AppCenterReactNativePush",
 				);
 				INFOPLIST_FILE = "KWC-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (

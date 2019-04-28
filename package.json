@@ -31,6 +31,7 @@
     "react-native-paper": "^1.11.0",
     "react-native-parallax-scroll-view": "^0.21.3",
     "react-native-vector-icons": "^5.0.0",
+    "react-native-version-check": "^3.0.4",
     "react-navigation": "^2.9.3",
     "react-navigation-fluid-transitions": "^0.2.2",
     "react-navigation-material-bottom-tabs": "^0.3.0",

@@ -30,6 +30,8 @@ target 'KWC' do
   platform :ios, '9.0'
 
 
+  pod 'react-native-version-check', :path => '../node_modules/react-native-version-check'
+
 end
 
 post_install do |installer|
