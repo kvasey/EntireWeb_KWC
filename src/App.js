@@ -29,7 +29,7 @@ export default codePush()(
         updatemodal: false
       };
       OneSignal.init("c1a5566d-2730-4dbe-94cf-35741fd9464e");
-
+      alert("Initiated");
       OneSignal.addEventListener("received", this.onReceived);
       OneSignal.addEventListener("opened", this.onOpened);
       OneSignal.addEventListener("ids", this.onIds);
@@ -114,6 +114,18 @@ export default codePush()(
                   </View>
                 </View>
               </Modal>
+              <Button
+                style={styles.button}
+                onPress={() => {
+                  OneSignal.getPermissionSubscriptionState(
+                    subscriptionState => {
+                      console.error(subscriptionState);
+                    }
+                  );
+                }}
+                title="Print Subscription State"
+                color={this.state.buttonColor}
+              />
               <Navigator />
             </PaperProvider>
           </SafeAreaView>
